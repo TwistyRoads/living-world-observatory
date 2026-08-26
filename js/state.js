@@ -1,8 +1,11 @@
 export const appState = {
   manifest: null,
+  presentation: null,
   snapshots: new Map(),
   selectedIndex: 0,
   mode: "world",
+  regionalMetric: "pressure",
+  regionalGrouping: "origin",
 };
 
 export function currentEntry() {
@@ -22,5 +25,17 @@ export function setSelectedIndex(index) {
 export function setMode(mode) {
   if (["world", "knowledge", "frontier", "trace"].includes(mode)) {
     appState.mode = mode;
+  }
+}
+
+export function setRegionalMetric(metric) {
+  if (["pressure", "knowledge"].includes(metric)) {
+    appState.regionalMetric = metric;
+  }
+}
+
+export function setRegionalGrouping(grouping) {
+  if (["origin", "channel"].includes(grouping)) {
+    appState.regionalGrouping = grouping;
   }
 }

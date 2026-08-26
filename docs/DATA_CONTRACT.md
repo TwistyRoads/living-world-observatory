@@ -12,6 +12,7 @@ Every dataset begins with `manifest.json`:
   "world_id": "example-world",
   "title": "Example World",
   "description": "Presentation-safe export",
+  "presentation_config": "presentation.json",
   "snapshots": [
     { "world_day": 54, "path": "data/example/wd-054.json", "label": "Base ending" }
   ]
@@ -19,6 +20,15 @@ Every dataset begins with `manifest.json`:
 ```
 
 Snapshot entries are ordered by World Day. The UI treats manifest order as the presentation timeline.
+
+`presentation_config` is optional and names a dataset-local JSON file loaded alongside the
+manifest. Presentation configuration may describe dataset-specific labels, ordering, palettes,
+and mappings without embedding world-specific knowledge in application JavaScript.
+
+The Witcher dataset's `regional_spread` configuration defines its default metric and grouping,
+region order, origin and channel palettes, normalized channel buckets, holder-to-region mappings,
+and seed-to-origin mappings. Unmapped holders and seeds resolve to `Other / Transregional`, and
+unmapped channels resolve to `other`.
 
 ## Snapshot
 

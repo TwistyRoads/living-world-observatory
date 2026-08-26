@@ -9,11 +9,15 @@ async function fetchJson(path) {
 export async function loadDataset(manifestPath = DEFAULT_MANIFEST) {
   const manifest = await fetchJson(manifestPath);
   const snapshots = new Map();
+  const manifestDirectory = manifestPath.slice(0, manifestPath.lastIndexOf("/") + 1);
+  const presentation = manifest.presentation_config
+    ? await fetchJson(`${manifestDirectory}${manifest.presentation_config}`)
+    : null;
 
   for (const entry of manifest.snapshots ?? []) {
     const snapshot = await fetchJson(entry.path);
     snapshots.set(snapshot.world_day, snapshot);
   }
 
-  return { manifest, snapshots };
+  return { manifest, snapshots, presentation };
 }

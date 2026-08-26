@@ -3,6 +3,7 @@
   "world_id": "witcher3-manual-save-1212b2",
   "title": "The Witcher 3 — Living World Observatory",
   "description": "A sanitized deterministic replay of the accepted ManualSave_1212b2 Living World actual-history and information-propagation baseline.",
+  "presentation_config": "presentation.json",
   "snapshots": [
     {
       "world_day": 0,

@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,6 +16,12 @@ FORBIDDEN_KEYS = {
     "private_gm",
     "raw_provenance",
     "source_path",
+}
+REGIONAL_METRICS = {"pressure", "knowledge"}
+REGIONAL_GROUPINGS = {"origin", "channel"}
+REGIONAL_CHANNEL_BUCKETS = {
+    "witness", "trade", "diplomatic", "military", "rumor",
+    "ally_private", "supernatural", "other",
 }
 
 
@@ -47,6 +54,17 @@ def validate_manifest(path: Path):
     if not isinstance(manifest["snapshots"], list):
         raise ValueError(f"{path}: snapshots must be an array")
 
+    presentation_name = manifest.get("presentation_config")
+    if presentation_name is not None:
+        if not isinstance(presentation_name, str) or not presentation_name:
+            raise ValueError(f"{path}: presentation_config must be a non-empty string")
+        presentation_path = path.parent / presentation_name
+        if presentation_path.parent.resolve() != path.parent.resolve():
+            raise ValueError(f"{path}: presentation_config must be dataset-local")
+        if not presentation_path.is_file():
+            raise ValueError(f"{path}: missing presentation config {presentation_name}")
+        validate_presentation(load_json(presentation_path), presentation_path)
+
     seen_days = set()
     last_day = None
     for entry in manifest["snapshots"]:
@@ -68,6 +86,61 @@ def validate_manifest(path: Path):
         validate_snapshot(snapshot, snapshot_path, manifest, day)
 
     return len(manifest["snapshots"])
+
+
+def validate_presentation(presentation, path):
+    require(presentation, ["regional_spread"], path)
+    walk(presentation)
+    config = presentation["regional_spread"]
+    require(
+        config,
+        [
+            "default_metric", "default_grouping", "region_order", "origin_palette",
+            "channel_palette", "channel_buckets", "holder_regions", "seed_origins",
+        ],
+        f"{path} regional_spread",
+    )
+    if config["default_metric"] not in REGIONAL_METRICS:
+        raise ValueError(f"{path}: invalid regional_spread.default_metric")
+    if config["default_grouping"] not in REGIONAL_GROUPINGS:
+        raise ValueError(f"{path}: invalid regional_spread.default_grouping")
+
+    regions = config["region_order"]
+    if not isinstance(regions, list) or not regions or any(not isinstance(item, str) for item in regions):
+        raise ValueError(f"{path}: regional_spread.region_order must be a non-empty string array")
+    if len(regions) != len(set(regions)) or "Other / Transregional" not in regions:
+        raise ValueError(f"{path}: region_order must be unique and include Other / Transregional")
+
+    for palette_name, required_keys in [
+        ("origin_palette", {"local", "imported"}),
+        ("channel_palette", REGIONAL_CHANNEL_BUCKETS),
+    ]:
+        palette = config[palette_name]
+        if not isinstance(palette, dict) or set(palette) != required_keys:
+            raise ValueError(f"{path}: {palette_name} must define {sorted(required_keys)}")
+        if any(not isinstance(color, str) or not re.fullmatch(r"#[0-9a-fA-F]{6}", color) for color in palette.values()):
+            raise ValueError(f"{path}: {palette_name} values must be six-digit hex colors")
+
+    buckets = config["channel_buckets"]
+    if not isinstance(buckets, dict) or set(buckets) != REGIONAL_CHANNEL_BUCKETS:
+        raise ValueError(f"{path}: channel_buckets must define {sorted(REGIONAL_CHANNEL_BUCKETS)}")
+    seen_channels = set()
+    for bucket, channels in buckets.items():
+        if not isinstance(channels, list) or any(not isinstance(channel, str) for channel in channels):
+            raise ValueError(f"{path}: channel bucket {bucket} must be a string array")
+        duplicates = seen_channels.intersection(channels)
+        if duplicates:
+            raise ValueError(f"{path}: channels mapped to multiple buckets: {sorted(duplicates)}")
+        seen_channels.update(channels)
+
+    valid_regions = set(regions)
+    for mapping_name in ["holder_regions", "seed_origins"]:
+        mapping = config[mapping_name]
+        if not isinstance(mapping, dict) or any(not isinstance(key, str) for key in mapping):
+            raise ValueError(f"{path}: {mapping_name} must be an object")
+        invalid = sorted(set(mapping.values()) - valid_regions)
+        if invalid:
+            raise ValueError(f"{path}: {mapping_name} contains regions outside region_order: {invalid}")
 
 
 def validate_snapshot(snapshot, path, manifest, expected_day):
