@@ -1,0 +1,37 @@
+{
+  "contract_version": "0.1",
+  "world_id": "synthetic-demo",
+  "world_day": 0,
+  "display_date": null,
+  "phase": "CONTRACT FIXTURE",
+  "headline": "The Observatory is ready for an engine export.",
+  "summary": "This synthetic snapshot proves the presentation contract only. Replace it with sanitized engine output when the Witcher 3 exporter is connected.",
+  "actual_past": [],
+  "world_state": [
+    {
+      "id": "fixture-world-state",
+      "title": "Presentation boundary established",
+      "summary": "The browser consumes exported state and never owns simulation authority.",
+      "domain": "architecture",
+      "status": "active"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "fixture-knowledge",
+      "statement": "The Observatory receives only presentation-safe knowledge projections.",
+      "holder": "public-view",
+      "confidence": 1.0
+    }
+  ],
+  "frontier": [],
+  "causal_trace": [
+    {
+      "id": "fixture-trace",
+      "title": "Engine to Observatory",
+      "summary": "Authoritative engine state is sanitized into a stable public snapshot contract before the UI can render it.",
+      "cause": "engine export",
+      "effect": "public snapshot"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "contract_version": "0.1",
+  "world_id": "synthetic-demo",
+  "title": "Synthetic Observatory Contract Fixture",
+  "description": "A non-canon placeholder dataset used only to exercise the public Observatory contract.",
+  "snapshots": [
+    {
+      "world_day": 0,
+      "path": "data/demo/wd-000.json",
+      "label": "Contract fixture"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local tooling
+.cache/
+.tmp/
+tmp/
+*.log
+
+# Local servers / generated scratch
+.server.pid
+coverage/
+dist/

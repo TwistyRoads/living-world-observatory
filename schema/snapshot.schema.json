@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://twistyroads.github.io/living-world-observatory/schema/snapshot.schema.json",
+  "title": "Living World Observatory Snapshot",
+  "type": "object",
+  "required": [
+    "contract_version",
+    "world_id",
+    "world_day",
+    "phase",
+    "headline",
+    "summary",
+    "actual_past",
+    "world_state",
+    "knowledge",
+    "frontier",
+    "causal_trace"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "contract_version": { "type": "string" },
+    "world_id": { "type": "string", "minLength": 1 },
+    "world_day": { "type": "integer", "minimum": 0 },
+    "display_date": { "type": ["string", "null"] },
+    "phase": { "type": "string" },
+    "headline": { "type": "string" },
+    "summary": { "type": "string" },
+    "actual_past": { "type": "array", "items": { "$ref": "#/$defs/genericItem" } },
+    "world_state": { "type": "array", "items": { "$ref": "#/$defs/genericItem" } },
+    "knowledge": { "type": "array", "items": { "$ref": "#/$defs/knowledgeItem" } },
+    "frontier": { "type": "array", "items": { "$ref": "#/$defs/frontierItem" } },
+    "causal_trace": { "type": "array", "items": { "$ref": "#/$defs/traceItem" } }
+  },
+  "$defs": {
+    "genericItem": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "domain": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "additionalProperties": true
+    },
+    "knowledgeItem": {
+      "type": "object",
+      "required": ["id", "statement", "holder"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "statement": { "type": "string" },
+        "holder": { "type": "string" },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "frontierItem": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "kind": { "type": "string" },
+        "probability": { "type": "number", "minimum": 0, "maximum": 1 }
+      },
+      "additionalProperties": true
+    },
+    "traceItem": {
+      "type": "object",
+      "required": ["id"],
+      "properties": {
+        "id": { "type": "string", "minLength": 1 },
+        "title": { "type": "string" },
+        "summary": { "type": "string" },
+        "cause": { "type": "string" },
+        "effect": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  }
+}
