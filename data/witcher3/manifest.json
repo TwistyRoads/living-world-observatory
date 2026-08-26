@@ -282,31 +282,111 @@
     {
       "world_day": 55,
       "path": "data/witcher3/wd-055.json",
-      "label": "Living World"
+      "label": "Imported history"
     },
     {
       "world_day": 56,
       "path": "data/witcher3/wd-056.json",
-      "label": "Living World"
+      "label": "Imported history"
     },
     {
       "world_day": 57,
       "path": "data/witcher3/wd-057.json",
-      "label": "Living World"
+      "label": "Imported history"
     },
     {
       "world_day": 58,
       "path": "data/witcher3/wd-058.json",
-      "label": "Living World"
+      "label": "Imported history"
     },
     {
       "world_day": 59,
       "path": "data/witcher3/wd-059.json",
-      "label": "Living World"
+      "label": "Imported history"
     },
     {
       "world_day": 60,
       "path": "data/witcher3/wd-060.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 61,
+      "path": "data/witcher3/wd-061.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 62,
+      "path": "data/witcher3/wd-062.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 63,
+      "path": "data/witcher3/wd-063.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 64,
+      "path": "data/witcher3/wd-064.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 65,
+      "path": "data/witcher3/wd-065.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 66,
+      "path": "data/witcher3/wd-066.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 67,
+      "path": "data/witcher3/wd-067.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 68,
+      "path": "data/witcher3/wd-068.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 69,
+      "path": "data/witcher3/wd-069.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 70,
+      "path": "data/witcher3/wd-070.json",
+      "label": "Imported history"
+    },
+    {
+      "world_day": 71,
+      "path": "data/witcher3/wd-071.json",
+      "label": "Living World"
+    },
+    {
+      "world_day": 72,
+      "path": "data/witcher3/wd-072.json",
+      "label": "Living World"
+    },
+    {
+      "world_day": 73,
+      "path": "data/witcher3/wd-073.json",
+      "label": "Living World"
+    },
+    {
+      "world_day": 74,
+      "path": "data/witcher3/wd-074.json",
+      "label": "Living World"
+    },
+    {
+      "world_day": 75,
+      "path": "data/witcher3/wd-075.json",
+      "label": "Living World"
+    },
+    {
+      "world_day": 76,
+      "path": "data/witcher3/wd-076.json",
       "label": "Living World"
     }
   ]
