@@ -1,4 +1,4 @@
-const DEFAULT_MANIFEST = "data/demo/manifest.json";
+const DEFAULT_MANIFEST = "data/witcher3/manifest.json";
 
 async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });

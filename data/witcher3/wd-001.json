@@ -1,0 +1,108 @@
+{
+  "contract_version": "0.1",
+  "world_id": "witcher3-manual-save-1212b2",
+  "world_day": 1,
+  "display_date": "1272-05-10",
+  "phase": "IMPORTED ACTUAL HISTORY",
+  "headline": "Geralt won the White Orchard fistfight.",
+  "summary": "1 history event(s) committed today; 1 active proposition(s); 2 holder occurrence(s); 2 next-horizon candidate(s).",
+  "actual_past": [
+    {
+      "id": "history:q001_fistfight_success",
+      "title": "Q001 Fistfight Success",
+      "summary": "Geralt won the White Orchard fistfight.",
+      "domain": "actual-history",
+      "status": "committed",
+      "world_day": 1,
+      "seed_count": 1
+    }
+  ],
+  "world_state": [
+    {
+      "id": "seed:geralt_white_orchard_fistfight_winner",
+      "title": "Geralt White Orchard Fistfight Winner",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "domain": "propagatable_bound",
+      "status": "active",
+      "resolved_world_day": 1,
+      "native_fact_id": "q001_fistfight_success"
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "wd-origin-26d2a1bb33633b06db78",
+      "statement": "Geralt won a witnessed fistfight in White Orchard.",
+      "holder": "Geralt",
+      "holder_id": "geralt",
+      "holder_type": "named_npc",
+      "region": "mobile",
+      "confidence": 1.0,
+      "distortion": null,
+      "acquired_world_day": 1,
+      "channel": "participant_memory",
+      "source_holder": null,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "native_fact_id": "q001_fistfight_success"
+    },
+    {
+      "id": "wd-origin-551e937fd6afbbe4679e",
+      "statement": "Geralt won a witnessed fistfight in White Orchard.",
+      "holder": "White Orchard Witnesses",
+      "holder_id": "white_orchard_witnesses",
+      "holder_type": "network",
+      "region": "white_orchard",
+      "confidence": 1.0,
+      "distortion": null,
+      "acquired_world_day": 1,
+      "channel": "witness_report",
+      "source_holder": null,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "native_fact_id": "q001_fistfight_success"
+    }
+  ],
+  "frontier": [
+    {
+      "id": "scheduled-c9df7d2f2c34ca37d54d",
+      "title": "Q002 Killed Griffin",
+      "summary": "The White Orchard griffin was killed.",
+      "kind": "scheduled-history",
+      "probability": 1.0,
+      "target_world_day": 2
+    },
+    {
+      "id": "transmission-9c4936ad298bed6f3267",
+      "title": "Geralt White Orchard Fistfight Winner → White Orchard Locals",
+      "summary": "Information may propagate through the declared route.",
+      "kind": "information-transmission",
+      "probability": 0.94,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_holder": "white_orchard_witnesses",
+      "target_holder": "white_orchard_locals",
+      "target_region": "white_orchard",
+      "channel": "local_gossip",
+      "target_world_day": 2
+    }
+  ],
+  "causal_trace": [
+    {
+      "id": "trace:wd-origin-26d2a1bb33633b06db78",
+      "title": "Origin: Geralt",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "cause": "actual-history activation",
+      "effect": "origin knowledge",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "confidence": 1.0,
+      "world_day": 1
+    },
+    {
+      "id": "trace:wd-origin-551e937fd6afbbe4679e",
+      "title": "Origin: White Orchard Witnesses",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "cause": "actual-history activation",
+      "effect": "origin knowledge",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "confidence": 1.0,
+      "world_day": 1
+    }
+  ]
+}
