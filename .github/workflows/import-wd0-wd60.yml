@@ -1,0 +1,63 @@
+name: Bootstrap Witcher WD0-WD60
+
+on:
+  push:
+    branches:
+      - feature/witcher3-wd0-wd60
+
+permissions:
+  contents: write
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: feature/witcher3-wd0-wd60
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Import sanitized engine export
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf data/witcher3 .import-witcher
+          mkdir -p data/witcher3 .import-witcher
+          curl -fL 'https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-ad28-822f-97ce-d343df4f0556/raw?se=2026-08-26T18%3A45%3A42Z&sp=r&sv=2026-02-06&sr=b&scid=8ae61ac9-6b55-5384-8169-5c82873c9353&skoid=9b41a688-1b44-4731-856e-b0efcf3660ed&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2026-08-26T06%3A14%3A00Z&ske=2026-08-27T06%3A14%3A00Z&sks=b&skv=2026-02-06&sig=jFDjJEjyc%2BAm5wQco6DfrIajSQFFpJlEav9kXoNC380%3D' -o .import-witcher/export.zip
+          unzip -q .import-witcher/export.zip -d .import-witcher/export
+          cp .import-witcher/export/manifest.json data/witcher3/manifest.json
+          cp .import-witcher/export/wd-*.json data/witcher3/
+          test "$(find data/witcher3 -maxdepth 1 -name 'wd-*.json' | wc -l)" -eq 61
+          rm -rf .import-witcher
+
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('js/data.js')
+          text = path.read_text(encoding='utf-8')
+          text = text.replace('const DEFAULT_MANIFEST = "data/demo/manifest.json";', 'const DEFAULT_MANIFEST = "data/witcher3/manifest.json";')
+          path.write_text(text, encoding='utf-8')
+          PY
+
+          cat >> data/README.md <<'EOF'
+
+## Witcher 3 baseline
+
+`witcher3/` is the presentation-safe WD0-WD60 deterministic replay exported by the authoritative Living World engine from the accepted ManualSave_1212b2 actual-history baseline. It contains 61 World-Day snapshots and no private resolver state, receipts, checkpoint identities, or raw save evidence.
+EOF
+
+      - name: Validate imported public data
+        run: python3 scripts/validate_data.py
+
+      - name: Commit dataset to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rm .github/workflows/import-wd0-wd60.yml
+          git config user.name 'TwistyRoads'
+          git config user.email 'kristiansenjf@proton.me'
+          git add data/witcher3 js/data.js data/README.md
+          git commit -m 'Import Witcher WD0-WD60 Observatory dataset'
+          git push origin HEAD:feature/witcher3-wd0-wd60
