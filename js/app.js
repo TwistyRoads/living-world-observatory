@@ -1,6 +1,14 @@
 import { loadDataset } from "./data.js";
-import { appState, currentEntry, currentSnapshot, setMode, setSelectedIndex } from "./state.js";
-import { renderMode, renderTimelineMarkers } from "./render.js";
+import {
+  appState,
+  currentEntry,
+  currentSnapshot,
+  setMode,
+  setRegionalGrouping,
+  setRegionalMetric,
+  setSelectedIndex,
+} from "./state.js";
+import { renderMode, renderRegionalSpread, renderTimelineMarkers } from "./render.js";
 
 const ui = {
   description: document.querySelector("#world-description"),
@@ -15,6 +23,7 @@ const ui = {
   next: document.querySelector("#next-day"),
   markers: document.querySelector("#timeline-markers"),
   content: document.querySelector("#mode-content"),
+  regionalSpread: document.querySelector("#regional-spread"),
   tabs: [...document.querySelectorAll(".mode-tab")],
 };
 
@@ -34,6 +43,12 @@ function paint() {
   ui.phase.textContent = snapshot?.phase ?? "—";
   ui.headline.textContent = snapshot?.headline ?? "No snapshot";
   ui.summary.textContent = snapshot?.summary ?? "";
+  ui.regionalSpread.innerHTML = renderRegionalSpread(
+    snapshot,
+    appState.presentation,
+    appState.regionalMetric,
+    appState.regionalGrouping,
+  );
   ui.content.innerHTML = renderMode(snapshot, appState.mode);
 
   for (const tab of ui.tabs) {
@@ -63,14 +78,29 @@ function bindControls() {
       paint();
     });
   }
+
+  ui.regionalSpread.addEventListener("click", event => {
+    const button = event.target.closest("button[data-regional-control]");
+    if (!button) return;
+    if (button.dataset.regionalControl === "metric") {
+      setRegionalMetric(button.dataset.value);
+    } else {
+      setRegionalGrouping(button.dataset.value);
+    }
+    paint();
+  });
 }
 
 async function boot() {
   bindControls();
   try {
-    const { manifest, snapshots } = await loadDataset();
+    const { manifest, snapshots, presentation } = await loadDataset();
     appState.manifest = manifest;
     appState.snapshots = snapshots;
+    appState.presentation = presentation;
+    const regionalConfig = presentation?.regional_spread;
+    setRegionalMetric(regionalConfig?.default_metric);
+    setRegionalGrouping(regionalConfig?.default_grouping);
     ui.description.textContent = manifest.description ?? manifest.title ?? manifest.world_id;
     ui.status.textContent = `${manifest.snapshots.length} snapshot${manifest.snapshots.length === 1 ? "" : "s"} loaded`;
     paint();
