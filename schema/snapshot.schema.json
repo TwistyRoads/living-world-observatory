@@ -63,7 +63,12 @@
         "title": { "type": "string" },
         "summary": { "type": "string" },
         "kind": { "type": "string" },
-        "probability": { "type": "number", "minimum": 0, "maximum": 1 }
+        "probability": { "type": "number", "minimum": 0, "maximum": 1 },
+        "pressure": { "type": "number", "minimum": 0 },
+        "status": { "type": "string" },
+        "trend": { "type": "string" },
+        "days_eligible": { "type": "integer", "minimum": 0 },
+        "days_remaining": { "type": ["integer", "null"], "minimum": 0 }
       },
       "additionalProperties": true
     },

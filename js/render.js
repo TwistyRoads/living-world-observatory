@@ -27,6 +27,42 @@ function empty(message) {
   return `<div class="empty"><p>${escapeHtml(message)}</p></div>`;
 }
 
+function modeSection(label, description, content) {
+  return `
+    <header class="mode-heading">
+      <div>
+        <p class="eyebrow">${escapeHtml(label)}</p>
+        <p>${escapeHtml(description)}</p>
+      </div>
+    </header>
+    ${content}`;
+}
+
+function probableFutureCard(item) {
+  const pressure = typeof item.pressure === "number"
+    ? `PRESSURE ${item.pressure.toFixed(3)}`
+    : "PRESSURE NOT SCORED";
+  const status = displayLabel(item.status ?? "UNKNOWN").toUpperCase();
+  const trend = displayLabel(item.trend ?? "UNKNOWN").toUpperCase();
+  const remaining = Number.isInteger(item.days_remaining)
+    ? `<span>Remaining ${escapeHtml(item.days_remaining)} day${item.days_remaining === 1 ? "" : "s"}</span>`
+    : "";
+
+  return `
+    <article class="card frontier-card">
+      <h3>${escapeHtml(item.title ?? item.statement ?? item.id ?? "Untitled potential")}</h3>
+      <p class="frontier-status">${escapeHtml(status)} · ${escapeHtml(pressure)} · ${escapeHtml(trend)}</p>
+      <div class="frontier-lifecycle">
+        <span>Eligible ${escapeHtml(item.days_eligible ?? "—")} day${item.days_eligible === 1 ? "" : "s"}</span>
+        ${remaining}
+      </div>
+      <div class="card-meta">
+        ${pill("probable future")}
+        ${item.potential_surfaces?.map(surface => pill(displayLabel(surface))).join("") ?? ""}
+      </div>
+    </article>`;
+}
+
 const FALLBACK_REGION = "Other / Transregional";
 const ORIGIN_GROUPS = ["local", "imported"];
 const CHANNEL_GROUPS = [
@@ -108,10 +144,29 @@ function toggleGroup(label, control, options, selected) {
 export function renderRegionalSpread(snapshot, presentation, metric, grouping) {
   const config = presentation?.regional_spread;
   if (!config?.region_order?.length) {
-    return `<p class="regional-unavailable">Regional spread unavailable</p>`;
+    return `<p class="regional-unavailable">Regional spread is not available for this snapshot.</p>`;
   }
 
-  const safeMetric = ["pressure", "knowledge"].includes(metric) ? metric : "pressure";
+  const availableMetrics = [];
+  if ((snapshot?.frontier ?? []).some(item =>
+    item.kind === "information-transmission"
+    && (item.target_holder_id ?? item.target_holder)
+  )) {
+    availableMetrics.push("pressure");
+  }
+  if ((snapshot?.knowledge ?? []).some(item => item.holder_id ?? item.holder)) {
+    availableMetrics.push("knowledge");
+  }
+  if (!availableMetrics.length) {
+    return `
+      <div class="regional-neutral">
+        <p class="eyebrow">INFORMATION FLOW</p>
+        <h3>Regional spread</h3>
+        <p class="regional-unavailable">Regional spread is not available for this snapshot.</p>
+      </div>`;
+  }
+
+  const safeMetric = availableMetrics.includes(metric) ? metric : availableMetrics[0];
   const safeGrouping = ["origin", "channel"].includes(grouping) ? grouping : "origin";
   const groups = safeGrouping === "channel" ? CHANNEL_GROUPS : ORIGIN_GROUPS;
   const palette = safeGrouping === "channel" ? config.channel_palette : config.origin_palette;
@@ -155,7 +210,9 @@ export function renderRegionalSpread(snapshot, presentation, metric, grouping) {
         <h3>Regional spread</h3>
       </div>
       <div class="regional-controls">
-        ${toggleGroup("Regional spread metric", "metric", ["pressure", "knowledge"], safeMetric)}
+        ${availableMetrics.length > 1
+          ? toggleGroup("Regional spread metric", "metric", availableMetrics, safeMetric)
+          : ""}
         ${toggleGroup("Regional spread grouping", "grouping", ["origin", "channel"], safeGrouping)}
       </div>
     </div>
@@ -170,29 +227,51 @@ export function renderMode(snapshot, mode) {
 
   if (mode === "world") {
     const items = snapshot.world_state ?? [];
-    return items.length
+    const content = items.length
       ? `<div class="card-grid">${items.map(item => card(item, [item.domain, item.status])).join("")}</div>`
       : empty("No public world-state items are exposed for this World Day.");
+    return modeSection(
+      "CURRENT STATE",
+      "Authoritative semantic world state at this World Day.",
+      content,
+    );
   }
 
   if (mode === "knowledge") {
     const items = snapshot.knowledge ?? [];
-    return items.length
+    const content = items.length
       ? `<div class="card-grid">${items.map(item => card(item, [item.holder, item.confidence != null ? `confidence ${item.confidence}` : null])).join("")}</div>`
       : empty("No public knowledge changes are exposed for this World Day.");
+    return modeSection(
+      "INFORMATION STATE",
+      "Publicly exposed knowledge and information records.",
+      content,
+    );
   }
 
   if (mode === "frontier") {
-    const items = snapshot.frontier ?? [];
-    return items.length
-      ? `<div class="card-grid">${items.map(item => card(item, [item.kind, item.probability != null ? `${Math.round(item.probability * 100)}%` : null])).join("")}</div>`
-      : empty("The exported next-horizon frontier is empty.");
+    const items = (snapshot.frontier ?? []).filter(item =>
+      item.kind === "probable-future" && item.status === "ACTIVE"
+    );
+    const content = items.length
+      ? `<div class="card-grid">${items.map(probableFutureCard).join("")}</div>`
+      : empty("No active probable-future opportunities are exposed for this World Day.");
+    return modeSection(
+      "PROBABLE FUTURE",
+      "Active opportunities only. Pressure is a model score, not truth or probability.",
+      content,
+    );
   }
 
   const items = snapshot.causal_trace ?? [];
-  return items.length
+  const content = items.length
     ? `<div class="card-grid">${items.map(item => card(item, [item.cause, item.effect])).join("")}</div>`
     : empty("No public causal trace is exposed for this World Day.");
+  return modeSection(
+    "CAUSAL",
+    "Presentation-safe causal seeds and events resolved at this World Day.",
+    content,
+  );
 }
 
 export function renderTimelineMarkers(entries) {

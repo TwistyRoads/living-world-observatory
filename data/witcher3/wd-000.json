@@ -1,23 +1,14 @@
 {
-  "contract_version": "0.1",
-  "world_id": "witcher3-manual-save-1212b2",
-  "world_day": 0,
-  "display_date": null,
-  "phase": "IMPORTED ACTUAL HISTORY",
-  "headline": "Imported history is staged, but none of it is Actual Past yet.",
-  "summary": "0 history event(s) committed today; 0 active proposition(s); 0 holder occurrence(s); 1 next-horizon candidate(s).",
   "actual_past": [],
-  "world_state": [],
+  "causal_trace": [],
+  "contract_version": "0.2",
+  "display_date": null,
+  "frontier": [],
+  "headline": "No reconstructed historical event resolves on World Day 0.",
   "knowledge": [],
-  "frontier": [
-    {
-      "id": "scheduled-fe9abf120c917b57fe22",
-      "title": "Q001 Fistfight Success",
-      "summary": "Geralt won the White Orchard fistfight.",
-      "kind": "scheduled-history",
-      "probability": 1.0,
-      "target_world_day": 1
-    }
-  ],
-  "causal_trace": []
+  "phase": "RECONSTRUCTED ACTUAL PAST",
+  "summary": "0 historical event(s) resolve today; 0 authoritative Current State item(s); 0 active probable-future opportunity item(s).",
+  "world_day": 0,
+  "world_id": "witcher3-manual-save-1212b2",
+  "world_state": []
 }

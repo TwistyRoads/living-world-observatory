@@ -16,6 +16,19 @@ FORBIDDEN_KEYS = {
     "private_gm",
     "raw_provenance",
     "source_path",
+    "native_fact_id",
+    "native_fact_ids",
+    "save_sha256",
+    "observation_id",
+    "record_offset",
+    "record_length",
+    "entry_ordinals",
+    "entry_values",
+    "native_gt",
+    "native_gt_values",
+    "query_sum",
+    "provenance",
+    "evidence",
 }
 REGIONAL_METRICS = {"pressure", "knowledge"}
 REGIONAL_GROUPINGS = {"origin", "channel"}
@@ -176,6 +189,31 @@ def validate_snapshot(snapshot, path, manifest, expected_day):
             for label, value in [("probability", probability), ("confidence", confidence)]:
                 if value is not None and (not isinstance(value, (int, float)) or not 0 <= value <= 1):
                     raise ValueError(f"{path}: {label} must be between 0 and 1")
+
+            if surface == "frontier" and item.get("kind") == "probable-future":
+                require(
+                    item,
+                    ["status", "trend", "days_eligible"],
+                    f"{path}: probable-future {item['id']!r}",
+                )
+                if "probability" in item:
+                    raise ValueError(
+                        f"{path}: probable-future {item['id']!r} must expose pressure, not probability"
+                    )
+                pressure = item.get("pressure")
+                if pressure is not None and (
+                    not isinstance(pressure, (int, float)) or pressure < 0
+                ):
+                    raise ValueError(
+                        f"{path}: probable-future pressure must be a non-negative model score"
+                    )
+                if not isinstance(item["days_eligible"], int) or item["days_eligible"] < 0:
+                    raise ValueError(f"{path}: probable-future days_eligible must be >= 0")
+                days_remaining = item.get("days_remaining")
+                if days_remaining is not None and (
+                    not isinstance(days_remaining, int) or days_remaining < 0
+                ):
+                    raise ValueError(f"{path}: probable-future days_remaining must be null or >= 0")
 
 
 def main():

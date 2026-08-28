@@ -1,394 +1,449 @@
 {
-  "contract_version": "0.1",
-  "world_id": "witcher3-manual-save-1212b2",
-  "title": "The Witcher 3 — Living World Observatory",
-  "description": "A sanitized deterministic replay of the accepted ManualSave_1212b2 Living World actual-history and information-propagation baseline.",
+  "contract_version": "0.2",
+  "description": "Presentation-safe World Day replay derived from one authoritative Witcher save. Historical Reality is reconstructed from host evidence; Current State is derived from history; probable-future pressure never creates history.",
   "presentation_config": "presentation.json",
   "snapshots": [
     {
-      "world_day": 0,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-000.json",
-      "label": "Imported history"
+      "world_day": 0
     },
     {
-      "world_day": 1,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-001.json",
-      "label": "Imported history"
+      "world_day": 1
     },
     {
-      "world_day": 2,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-002.json",
-      "label": "Imported history"
+      "world_day": 2
     },
     {
-      "world_day": 3,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-003.json",
-      "label": "Imported history"
+      "world_day": 3
     },
     {
-      "world_day": 4,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-004.json",
-      "label": "Imported history"
+      "world_day": 4
     },
     {
-      "world_day": 5,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-005.json",
-      "label": "Imported history"
+      "world_day": 5
     },
     {
-      "world_day": 6,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-006.json",
-      "label": "Imported history"
+      "world_day": 6
     },
     {
-      "world_day": 7,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-007.json",
-      "label": "Imported history"
+      "world_day": 7
     },
     {
-      "world_day": 8,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-008.json",
-      "label": "Imported history"
+      "world_day": 8
     },
     {
-      "world_day": 9,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-009.json",
-      "label": "Imported history"
+      "world_day": 9
     },
     {
-      "world_day": 10,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-010.json",
-      "label": "Imported history"
+      "world_day": 10
     },
     {
-      "world_day": 11,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-011.json",
-      "label": "Imported history"
+      "world_day": 11
     },
     {
-      "world_day": 12,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-012.json",
-      "label": "Imported history"
+      "world_day": 12
     },
     {
-      "world_day": 13,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-013.json",
-      "label": "Imported history"
+      "world_day": 13
     },
     {
-      "world_day": 14,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-014.json",
-      "label": "Imported history"
+      "world_day": 14
     },
     {
-      "world_day": 15,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-015.json",
-      "label": "Imported history"
+      "world_day": 15
     },
     {
-      "world_day": 16,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-016.json",
-      "label": "Imported history"
+      "world_day": 16
     },
     {
-      "world_day": 17,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-017.json",
-      "label": "Imported history"
+      "world_day": 17
     },
     {
-      "world_day": 18,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-018.json",
-      "label": "Imported history"
+      "world_day": 18
     },
     {
-      "world_day": 19,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-019.json",
-      "label": "Imported history"
+      "world_day": 19
     },
     {
-      "world_day": 20,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-020.json",
-      "label": "Imported history"
+      "world_day": 20
     },
     {
-      "world_day": 21,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-021.json",
-      "label": "Imported history"
+      "world_day": 21
     },
     {
-      "world_day": 22,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-022.json",
-      "label": "Imported history"
+      "world_day": 22
     },
     {
-      "world_day": 23,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-023.json",
-      "label": "Imported history"
+      "world_day": 23
     },
     {
-      "world_day": 24,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-024.json",
-      "label": "Imported history"
+      "world_day": 24
     },
     {
-      "world_day": 25,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-025.json",
-      "label": "Imported history"
+      "world_day": 25
     },
     {
-      "world_day": 26,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-026.json",
-      "label": "Imported history"
+      "world_day": 26
     },
     {
-      "world_day": 27,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-027.json",
-      "label": "Imported history"
+      "world_day": 27
     },
     {
-      "world_day": 28,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-028.json",
-      "label": "Imported history"
+      "world_day": 28
     },
     {
-      "world_day": 29,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-029.json",
-      "label": "Imported history"
+      "world_day": 29
     },
     {
-      "world_day": 30,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-030.json",
-      "label": "Imported history"
+      "world_day": 30
     },
     {
-      "world_day": 31,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-031.json",
-      "label": "Imported history"
+      "world_day": 31
     },
     {
-      "world_day": 32,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-032.json",
-      "label": "Imported history"
+      "world_day": 32
     },
     {
-      "world_day": 33,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-033.json",
-      "label": "Imported history"
+      "world_day": 33
     },
     {
-      "world_day": 34,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-034.json",
-      "label": "Imported history"
+      "world_day": 34
     },
     {
-      "world_day": 35,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-035.json",
-      "label": "Imported history"
+      "world_day": 35
     },
     {
-      "world_day": 36,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-036.json",
-      "label": "Imported history"
+      "world_day": 36
     },
     {
-      "world_day": 37,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-037.json",
-      "label": "Imported history"
+      "world_day": 37
     },
     {
-      "world_day": 38,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-038.json",
-      "label": "Imported history"
+      "world_day": 38
     },
     {
-      "world_day": 39,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-039.json",
-      "label": "Imported history"
+      "world_day": 39
     },
     {
-      "world_day": 40,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-040.json",
-      "label": "Imported history"
+      "world_day": 40
     },
     {
-      "world_day": 41,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-041.json",
-      "label": "Imported history"
+      "world_day": 41
     },
     {
-      "world_day": 42,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-042.json",
-      "label": "Imported history"
+      "world_day": 42
     },
     {
-      "world_day": 43,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-043.json",
-      "label": "Imported history"
+      "world_day": 43
     },
     {
-      "world_day": 44,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-044.json",
-      "label": "Imported history"
+      "world_day": 44
     },
     {
-      "world_day": 45,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-045.json",
-      "label": "Imported history"
+      "world_day": 45
     },
     {
-      "world_day": 46,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-046.json",
-      "label": "Imported history"
+      "world_day": 46
     },
     {
-      "world_day": 47,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-047.json",
-      "label": "Imported history"
+      "world_day": 47
     },
     {
-      "world_day": 48,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-048.json",
-      "label": "Imported history"
+      "world_day": 48
     },
     {
-      "world_day": 49,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-049.json",
-      "label": "Imported history"
+      "world_day": 49
     },
     {
-      "world_day": 50,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-050.json",
-      "label": "Imported history"
+      "world_day": 50
     },
     {
-      "world_day": 51,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-051.json",
-      "label": "Imported history"
+      "world_day": 51
     },
     {
-      "world_day": 52,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-052.json",
-      "label": "Imported history"
+      "world_day": 52
     },
     {
-      "world_day": 53,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-053.json",
-      "label": "Imported history"
+      "world_day": 53
     },
     {
-      "world_day": 54,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-054.json",
-      "label": "Imported history"
+      "world_day": 54
     },
     {
-      "world_day": 55,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-055.json",
-      "label": "Imported history"
+      "world_day": 55
     },
     {
-      "world_day": 56,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-056.json",
-      "label": "Imported history"
+      "world_day": 56
     },
     {
-      "world_day": 57,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-057.json",
-      "label": "Imported history"
+      "world_day": 57
     },
     {
-      "world_day": 58,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-058.json",
-      "label": "Imported history"
+      "world_day": 58
     },
     {
-      "world_day": 59,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-059.json",
-      "label": "Imported history"
+      "world_day": 59
     },
     {
-      "world_day": 60,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-060.json",
-      "label": "Imported history"
+      "world_day": 60
     },
     {
-      "world_day": 61,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-061.json",
-      "label": "Imported history"
+      "world_day": 61
     },
     {
-      "world_day": 62,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-062.json",
-      "label": "Imported history"
+      "world_day": 62
     },
     {
-      "world_day": 63,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-063.json",
-      "label": "Imported history"
+      "world_day": 63
     },
     {
-      "world_day": 64,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-064.json",
-      "label": "Imported history"
+      "world_day": 64
     },
     {
-      "world_day": 65,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-065.json",
-      "label": "Imported history"
+      "world_day": 65
     },
     {
-      "world_day": 66,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-066.json",
-      "label": "Imported history"
+      "world_day": 66
     },
     {
-      "world_day": 67,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-067.json",
-      "label": "Imported history"
+      "world_day": 67
     },
     {
-      "world_day": 68,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-068.json",
-      "label": "Imported history"
+      "world_day": 68
     },
     {
-      "world_day": 69,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-069.json",
-      "label": "Imported history"
+      "world_day": 69
     },
     {
-      "world_day": 70,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-070.json",
-      "label": "Imported history"
+      "world_day": 70
     },
     {
-      "world_day": 71,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-071.json",
-      "label": "Living World"
+      "world_day": 71
     },
     {
-      "world_day": 72,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-072.json",
-      "label": "Living World"
+      "world_day": 72
     },
     {
-      "world_day": 73,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-073.json",
-      "label": "Living World"
+      "world_day": 73
     },
     {
-      "world_day": 74,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-074.json",
-      "label": "Living World"
+      "world_day": 74
     },
     {
-      "world_day": 75,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-075.json",
-      "label": "Living World"
+      "world_day": 75
     },
     {
-      "world_day": 76,
+      "label": "RECONSTRUCTED ACTUAL PAST",
       "path": "data/witcher3/wd-076.json",
-      "label": "Living World"
+      "world_day": 76
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-077.json",
+      "world_day": 77
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-078.json",
+      "world_day": 78
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-079.json",
+      "world_day": 79
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-080.json",
+      "world_day": 80
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-081.json",
+      "world_day": 81
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-082.json",
+      "world_day": 82
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-083.json",
+      "world_day": 83
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-084.json",
+      "world_day": 84
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-085.json",
+      "world_day": 85
+    },
+    {
+      "label": "RECONSTRUCTED ACTUAL PAST",
+      "path": "data/witcher3/wd-086.json",
+      "world_day": 86
+    },
+    {
+      "label": "SAVE NOW",
+      "path": "data/witcher3/wd-087.json",
+      "world_day": 87
     }
-  ]
+  ],
+  "title": "The Witcher 3 — Living World Observatory",
+  "world_id": "witcher3-manual-save-1212b2"
 }

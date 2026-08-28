@@ -1,6 +1,7 @@
 # Public Data Contract
 
-Contract version `0.1` is intentionally small and provisional.
+Contract version `0.2` adds presentation-safe reconstructed history, Current State, and
+probable-future pressure while retaining the original top-level surfaces.
 
 ## Manifest
 
@@ -56,7 +57,10 @@ A snapshot exposes only public presentation surfaces:
 ## Stability rules
 
 - IDs should be stable within a dataset.
-- Probabilities are normalized to `0..1`.
+- A probable-future `pressure` is an engine model score, not historical truth and not a
+  statistical probability. The UI must not convert it into a percentage.
+- A probable-future item may expose `status`, `trend`, `days_eligible`, and nullable
+  `days_remaining` lifecycle fields.
 - An empty array means "nothing is exposed on this surface," not "the engine has no internal state."
 - The public contract must never require the browser to reconstruct private causality.
 - New optional item fields may be added without breaking existing renderers.
@@ -65,3 +69,14 @@ A snapshot exposes only public presentation surfaces:
 ## Publication rule
 
 If there is doubt whether a field is safe to publish, it does not belong in the exported snapshot.
+
+Reconstructed Witcher exports must not contain raw saves, native FactsDB identifiers, save or
+observation identities, native game time, record offsets, entry values, query sums, or private
+evidence/provenance.
+
+## Regional-spread capability
+
+Regional spread is available only when a snapshot exposes compatible public knowledge records or
+`information-transmission` Frontier records. A configured region list alone is not evidence of
+activity. Renderers must show an unavailable state instead of zero-filled regions when neither
+surface is present.
