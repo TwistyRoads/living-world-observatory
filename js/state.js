@@ -6,6 +6,7 @@ export const appState = {
   mode: "world",
   regionalMetric: "pressure",
   regionalGrouping: "origin",
+  eligibleRegion: null,
 };
 
 export function currentEntry() {
@@ -23,7 +24,7 @@ export function setSelectedIndex(index) {
 }
 
 export function setMode(mode) {
-  if (["world", "knowledge", "frontier", "trace"].includes(mode)) {
+  if (["world", "knowledge", "frontier", "eligible", "trace"].includes(mode)) {
     appState.mode = mode;
   }
 }
@@ -38,4 +39,8 @@ export function setRegionalGrouping(grouping) {
   if (["origin", "channel"].includes(grouping)) {
     appState.regionalGrouping = grouping;
   }
+}
+
+export function setEligibleRegion(region) {
+  appState.eligibleRegion = region || null;
 }
