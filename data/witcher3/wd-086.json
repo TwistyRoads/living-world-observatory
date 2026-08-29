@@ -1,58 +1,34 @@
 {
-  "actual_past": [
-    {
-      "domain": "Ciri autonomy choice",
-      "id": "witcher3.event.curated.061",
-      "seed_count": 1,
-      "status": "committed",
-      "summary": "Resolved on World Day 63.",
-      "title": "Ciri faced the Lodge herself.",
-      "world_day": 63
-    }
-  ],
-  "causal_trace": [
-    {
-      "cause": "historical event",
-      "effect": "autonomy_relationship_state",
-      "id": "trace:witcher3.event.curated.061:ciri_faced_lodge_without_geralt",
-      "seed_id": "ciri_faced_lodge_without_geralt",
-      "source_event_id": "witcher3.event.curated.061",
-      "summary": "Ciri faced the Lodge herself.",
-      "title": "Ciri faced the Lodge without Geralt accompanying her."
-    }
-  ],
+  "actual_past": [],
+  "causal_trace": [],
   "contract_version": "0.2",
-  "display_date": "1272-07-11",
+  "display_date": "1272-08-03",
   "frontier": [
     {
-      "days_eligible": 48,
-      "days_remaining": 9,
+      "days_eligible": 11,
+      "days_remaining": 104,
       "eligible": true,
-      "first_eligible_world_day": 15,
-      "id": "potential.anna_strenger_found",
+      "first_eligible_world_day": 75,
+      "id": "potential.baw_anna_identified_as_intended_fifth_victim",
       "kind": "probable-future",
-      "peak_pressure": 0.75,
-      "peak_world_day": 20,
-      "potential_surfaces": [
-        "family decisions",
-        "dialogue",
-        "search closure"
-      ],
-      "pressure": 0.129808,
+      "peak_pressure": 1.0,
+      "peak_world_day": 85,
+      "potential_surfaces": [],
+      "pressure": 0.990476,
       "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "anna_strenger_found",
+      "seed_id": "baw_anna_identified_as_intended_fifth_victim",
       "source_event_ids": [
-        "witcher3.event.curated.012"
+        "witcher3.event.baw.baw_fifth_victim_identified"
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.130; trend Falling; eligible for 48 day(s).",
-      "title": "Anna Strenger was found.",
+      "summary": "Active; pressure 0.990; trend Falling; eligible for 11 day(s).",
+      "title": "Geralt and Regis determine that Anna Henrietta was Syanna's intended fifth victim.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_bootblack_accusers_imprisoned",
@@ -60,7 +36,7 @@
       "peak_pressure": 0.25,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.242857,
+      "pressure": 0.188095,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_bootblack_accusers_imprisoned",
       "source_event_ids": [
@@ -68,13 +44,35 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.243; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.188; trend Falling; eligible for 36 day(s).",
       "title": "Three men who attacked the bootblack are taken into ducal custody.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 15,
+      "days_remaining": 100,
+      "eligible": true,
+      "first_eligible_world_day": 71,
+      "id": "potential.baw_cintrian_and_cecilia_lead_identified",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 81,
+      "potential_surfaces": [],
+      "pressure": 0.714286,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_cintrian_and_cecilia_lead_identified",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_lead_found"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.714; trend Falling; eligible for 15 day(s).",
+      "title": "Geralt, Anna Henrietta and Damien identify the Cintrian and Cecilia Bellante as the next lead in the blackmail investigation.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_dettlaff_blackmailed_through_rhenawedd",
@@ -82,7 +80,7 @@
       "peak_pressure": 1.0,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.971429,
+      "pressure": 0.752381,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_blackmailed_through_rhenawedd",
       "source_event_ids": [
@@ -90,13 +88,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.971; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.752; trend Falling; eligible for 36 day(s).",
       "title": "Geralt and Regis discover that Dettlaff is being blackmailed through the claimed abduction of Rhenawedd.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_dettlaff_de_la_croix_history_seen",
@@ -104,7 +102,7 @@
       "peak_pressure": 0.75,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.728571,
+      "pressure": 0.564286,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_de_la_croix_history_seen",
       "source_event_ids": [
@@ -112,13 +110,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.729; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.564; trend Falling; eligible for 36 day(s).",
       "title": "Geralt and Regis witness evidence that Dettlaff met and killed de la Croix.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_dettlaff_remorse_known",
@@ -126,7 +124,7 @@
       "peak_pressure": 0.5,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.485714,
+      "pressure": 0.37619,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_remorse_known",
       "source_event_ids": [
@@ -134,13 +132,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.486; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.376; trend Falling; eligible for 36 day(s).",
       "title": "Geralt and Regis witness evidence that Dettlaff regretted de la Croix's death and severed his own hand in remorse.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_dettlaff_toy_shop_hideout_discovered",
@@ -148,7 +146,7 @@
       "peak_pressure": 0.5,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.485714,
+      "pressure": 0.37619,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_toy_shop_hideout_discovered",
       "source_event_ids": [
@@ -156,13 +154,79 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.486; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.376; trend Falling; eligible for 36 day(s).",
       "title": "Geralt and Regis discover Dettlaff's Beauclair toy-shop hideout.",
       "trend": "falling"
     },
     {
-      "days_eligible": 21,
-      "days_remaining": 94,
+      "days_eligible": 13,
+      "days_remaining": 102,
+      "eligible": true,
+      "first_eligible_world_day": 73,
+      "id": "potential.baw_ducal_guard_depleted_by_vampire_attack",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 83,
+      "potential_surfaces": [],
+      "pressure": 0.728571,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_ducal_guard_depleted_by_vampire_attack",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_beauclair_vampire_attack"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.729; trend Falling; eligible for 13 day(s).",
+      "title": "The vampire attack materially depletes Beauclair's available ducal guard.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 14,
+      "days_remaining": 101,
+      "eligible": true,
+      "first_eligible_world_day": 72,
+      "id": "potential.baw_dun_tynne_implicated",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 82,
+      "potential_surfaces": [],
+      "pressure": 0.721429,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_dun_tynne_implicated",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_plot_exposed"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.721; trend Falling; eligible for 14 day(s).",
+      "title": "The Cintrian's hunting knife leads the ducal investigation to Dun Tynne.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 15,
+      "days_remaining": 100,
+      "eligible": true,
+      "first_eligible_world_day": 71,
+      "id": "potential.baw_fabricio_arrested_for_sangreal_treason",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 81,
+      "potential_surfaces": [],
+      "pressure": 0.714286,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_fabricio_arrested_for_sangreal_treason",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_lead_found"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.714; trend Falling; eligible for 15 day(s).",
+      "title": "Fabricio is arrested for selling a Sangreal 1269 barrel outside the ducal household and concealing it in the inventory.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 44,
+      "days_remaining": 71,
       "eligible": true,
       "first_eligible_world_day": 42,
       "id": "potential.baw_geralt_knows_dettlaff_saved_regis",
@@ -170,7 +234,7 @@
       "peak_pressure": 0.5,
       "peak_world_day": 52,
       "potential_surfaces": [],
-      "pressure": 0.447619,
+      "pressure": 0.338095,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_geralt_knows_dettlaff_saved_regis",
       "source_event_ids": [
@@ -178,13 +242,35 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.448; trend Falling; eligible for 21 day(s).",
+      "summary": "Active; pressure 0.338; trend Falling; eligible for 44 day(s).",
       "title": "Geralt learns that Dettlaff once saved Regis's life and that Regis feels indebted to him.",
       "trend": "falling"
     },
     {
-      "days_eligible": 14,
-      "days_remaining": 101,
+      "days_eligible": 12,
+      "days_remaining": 103,
+      "eligible": true,
+      "first_eligible_world_day": 74,
+      "id": "potential.baw_geralt_learns_syanna_exile_grievances",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 84,
+      "potential_surfaces": [],
+      "pressure": 0.735714,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_geralt_learns_syanna_exile_grievances",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_syanna_recovered_from_fables"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.736; trend Falling; eligible for 12 day(s).",
+      "title": "Geralt learns Syanna's account of her exile and her grievance against Anna Henrietta.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 37,
+      "days_remaining": 78,
       "eligible": true,
       "first_eligible_world_day": 49,
       "id": "potential.baw_marlene_brought_to_corvo_bianco",
@@ -192,7 +278,7 @@
       "peak_pressure": 0.5,
       "peak_world_day": 59,
       "potential_surfaces": [],
-      "pressure": 0.480952,
+      "pressure": 0.371429,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_marlene_brought_to_corvo_bianco",
       "source_event_ids": [
@@ -200,13 +286,35 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.481; trend Falling; eligible for 14 day(s).",
+      "summary": "Active; pressure 0.371; trend Falling; eligible for 37 day(s).",
       "title": "Geralt brings Marlene to Corvo Bianco to recover.",
       "trend": "falling"
     },
     {
-      "days_eligible": 13,
-      "days_remaining": 102,
+      "days_eligible": 15,
+      "days_remaining": 100,
+      "eligible": true,
+      "first_eligible_world_day": 71,
+      "id": "potential.baw_sangreal_linked_to_blackmail_operation",
+      "kind": "probable-future",
+      "peak_pressure": 0.75,
+      "peak_world_day": 81,
+      "potential_surfaces": [],
+      "pressure": 0.714286,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "baw_sangreal_linked_to_blackmail_operation",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_lead_found"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.714; trend Falling; eligible for 15 day(s).",
+      "title": "The ducal investigation links Sangreal 1269 wine to the person directing Dettlaff's killings.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 36,
+      "days_remaining": 79,
       "eligible": true,
       "first_eligible_world_day": 50,
       "id": "potential.baw_victim_list_not_authored_by_dettlaff",
@@ -214,7 +322,7 @@
       "peak_pressure": 0.75,
       "peak_world_day": 60,
       "potential_surfaces": [],
-      "pressure": 0.728571,
+      "pressure": 0.564286,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_victim_list_not_authored_by_dettlaff",
       "source_event_ids": [
@@ -222,13 +330,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.729; trend Falling; eligible for 13 day(s).",
+      "summary": "Active; pressure 0.564; trend Falling; eligible for 36 day(s).",
       "title": "Geralt and Regis determine that the victim list was not written in Dettlaff's hand.",
       "trend": "falling"
     },
     {
-      "days_eligible": 21,
-      "days_remaining": 94,
+      "days_eligible": 44,
+      "days_remaining": 71,
       "eligible": true,
       "first_eligible_world_day": 42,
       "id": "potential.baw_virtue_pattern_known_to_ducal_investigators",
@@ -236,7 +344,7 @@
       "peak_pressure": 0.75,
       "peak_world_day": 52,
       "potential_surfaces": [],
-      "pressure": 0.671429,
+      "pressure": 0.507143,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_virtue_pattern_known_to_ducal_investigators",
       "source_event_ids": [
@@ -244,40 +352,65 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.671; trend Falling; eligible for 21 day(s).",
+      "summary": "Active; pressure 0.507; trend Falling; eligible for 44 day(s).",
       "title": "Geralt, Anna Henrietta, Damien and their immediate circle connect the Beast's victims to failures of the five chivalric virtues.",
       "trend": "falling"
     },
     {
-      "days_eligible": 34,
-      "days_remaining": 23,
+      "days_eligible": 18,
+      "days_remaining": 39,
       "eligible": true,
-      "first_eligible_world_day": 29,
-      "id": "potential.dijkstra_received_false_claim_from_geralt",
+      "first_eligible_world_day": 68,
+      "id": "potential.ciri_geralt_met_avallach_lover",
       "kind": "probable-future",
-      "peak_pressure": 0.75,
-      "peak_world_day": 34,
+      "peak_pressure": 0.5,
+      "peak_world_day": 73,
       "potential_surfaces": [
-        "trust",
-        "intelligence assessment",
-        "leverage",
-        "later political interaction"
+        "Ciri-Avallac'h interpretation",
+        "dialogue",
+        "trust"
       ],
-      "pressure": 0.331731,
+      "pressure": 0.375,
       "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "dijkstra_received_false_claim_from_geralt",
+      "seed_id": "ciri_geralt_met_avallach_lover",
       "source_event_ids": [
-        "witcher3.event.curated.022"
+        "witcher3.event.curated.067"
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.332; trend Falling; eligible for 34 day(s).",
-      "title": "Dijkstra received a false claim from Geralt during the treasure operation.",
+      "summary": "Active; pressure 0.375; trend Falling; eligible for 18 day(s).",
+      "title": "Ciri and Geralt met Avallac'h's elven lover.",
       "trend": "falling"
     },
     {
-      "days_eligible": 29,
-      "days_remaining": 28,
+      "days_eligible": 18,
+      "days_remaining": 39,
+      "eligible": true,
+      "first_eligible_world_day": 68,
+      "id": "potential.ciri_visited_skjall_grave",
+      "kind": "probable-future",
+      "peak_pressure": 0.5,
+      "peak_world_day": 73,
+      "potential_surfaces": [
+        "Ciri confidence",
+        "Skjall reputation",
+        "local dialogue"
+      ],
+      "pressure": 0.375,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "ciri_visited_skjall_grave",
+      "source_event_ids": [
+        "witcher3.event.curated.068"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.375; trend Falling; eligible for 18 day(s).",
+      "title": "Ciri visited Skjall's grave.",
+      "trend": "falling"
+    },
+    {
+      "days_eligible": 52,
+      "days_remaining": 5,
       "eligible": true,
       "first_eligible_world_day": 34,
       "id": "potential.dudu_reconnected_with_geralt_network",
@@ -289,7 +422,7 @@
         "identity operations",
         "dialogue"
       ],
-      "pressure": 0.269231,
+      "pressure": 0.048077,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "dudu_reconnected_with_geralt_network",
       "source_event_ids": [
@@ -299,13 +432,13 @@
         "dudu_reconnected_with_geralt_network"
       ],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.269; trend Falling; eligible for 29 day(s).",
+      "summary": "Active; pressure 0.048; trend Falling; eligible for 52 day(s).",
       "title": "Dudu was found and reconnected with Geralt's Novigrad allies.",
       "trend": "falling"
     },
     {
-      "days_eligible": 4,
-      "days_remaining": 111,
+      "days_eligible": 27,
+      "days_remaining": 88,
       "eligible": true,
       "first_eligible_world_day": 59,
       "id": "potential.emhyr_confirmed_ciri_alive",
@@ -317,7 +450,7 @@
         "political leverage",
         "future orders"
       ],
-      "pressure": 0.4,
+      "pressure": 0.838095,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "emhyr_confirmed_ciri_alive",
       "source_event_ids": [
@@ -325,38 +458,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.400; trend Rising; eligible for 4 day(s).",
+      "summary": "Active; pressure 0.838; trend Falling; eligible for 27 day(s).",
       "title": "Emhyr directly knows Ciri survived and is present.",
-      "trend": "rising"
-    },
-    {
-      "days_eligible": 7,
-      "days_remaining": 16,
-      "eligible": true,
-      "first_eligible_world_day": 56,
-      "id": "potential.geralt_accepted_crach_reward",
-      "kind": "probable-future",
-      "peak_pressure": 0.25,
-      "peak_world_day": 58,
-      "potential_surfaces": [
-        "relationship tone",
-        "court interpretation"
-      ],
-      "pressure": 0.190476,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "geralt_accepted_crach_reward",
-      "source_event_ids": [
-        "witcher3.event.curated.037"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.190; trend Falling; eligible for 7 day(s).",
-      "title": "Geralt accepted Crach's reward for helping his children.",
       "trend": "falling"
     },
     {
-      "days_eligible": 9,
-      "days_remaining": 48,
+      "days_eligible": 32,
+      "days_remaining": 25,
       "eligible": true,
       "first_eligible_world_day": 54,
       "id": "potential.geralt_aided_cerys_spikeroog_investigation",
@@ -369,7 +477,7 @@
         "court access",
         "dialogue"
       ],
-      "pressure": 0.692308,
+      "pressure": 0.360577,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "geralt_aided_cerys_spikeroog_investigation",
       "source_event_ids": [
@@ -377,13 +485,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.692; trend Falling; eligible for 9 day(s).",
+      "summary": "Active; pressure 0.361; trend Falling; eligible for 32 day(s).",
       "title": "Geralt materially aided Cerys during her Spikeroog investigation.",
       "trend": "falling"
     },
     {
-      "days_eligible": 7,
-      "days_remaining": 50,
+      "days_eligible": 30,
+      "days_remaining": 27,
       "eligible": true,
       "first_eligible_world_day": 56,
       "id": "potential.geralt_associated_with_cerys_succession",
@@ -395,7 +503,7 @@
         "favor",
         "political reputation"
       ],
-      "pressure": 0.721154,
+      "pressure": 0.389423,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "geralt_associated_with_cerys_succession",
       "source_event_ids": [
@@ -403,67 +511,69 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.721; trend Falling; eligible for 7 day(s).",
+      "summary": "Active; pressure 0.389; trend Falling; eligible for 30 day(s).",
       "title": "Geralt materially aided the succession path that placed Cerys on the throne.",
       "trend": "falling"
     },
     {
-      "days_eligible": 48,
-      "days_remaining": 9,
+      "days_eligible": 17,
+      "days_remaining": 40,
       "eligible": true,
-      "first_eligible_world_day": 15,
-      "id": "potential.geralt_found_anna_strenger",
+      "first_eligible_world_day": 69,
+      "id": "potential.geralt_associated_with_defeat_of_wild_hunt",
       "kind": "probable-future",
-      "peak_pressure": 0.5,
-      "peak_world_day": 20,
+      "peak_pressure": 1.0,
+      "peak_world_day": 74,
       "potential_surfaces": [
-        "family disposition",
+        "continental reputation",
         "recognition",
-        "search closure",
-        "dialogue"
+        "contracting/political access",
+        "rumor distortion",
+        "legend"
       ],
-      "pressure": 0.086538,
+      "pressure": 0.769231,
       "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "geralt_found_anna_strenger",
+      "seed_id": "geralt_associated_with_defeat_of_wild_hunt",
       "source_event_ids": [
-        "witcher3.event.curated.012"
+        "witcher3.event.curated.071"
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.087; trend Falling; eligible for 48 day(s).",
-      "title": "Geralt located Anna Strenger during the Baron-family investigation.",
+      "summary": "Active; pressure 0.769; trend Falling; eligible for 17 day(s).",
+      "title": "Surviving participants can attribute Geralt as a central combatant in the final battle that broke the Wild Hunt's leadership.",
       "trend": "falling"
     },
     {
-      "days_eligible": 49,
-      "days_remaining": 8,
+      "days_eligible": 16,
+      "days_remaining": 99,
       "eligible": true,
-      "first_eligible_world_day": 14,
-      "id": "potential.geralt_found_tamara_strenger",
+      "first_eligible_world_day": 70,
+      "id": "potential.geralt_connected_to_empress_ciri",
       "kind": "probable-future",
-      "peak_pressure": 0.5,
-      "peak_world_day": 19,
+      "peak_pressure": 0.75,
+      "peak_world_day": 80,
       "potential_surfaces": [
-        "family disposition",
+        "access",
+        "leverage",
+        "suspicion",
         "recognition",
-        "search closure",
         "dialogue"
       ],
-      "pressure": 0.076923,
+      "pressure": 0.707143,
       "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "geralt_found_tamara_strenger",
+      "seed_id": "geralt_connected_to_empress_ciri",
       "source_event_ids": [
-        "witcher3.event.curated.014"
+        "witcher3.event.curated.074"
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.077; trend Falling; eligible for 49 day(s).",
-      "title": "Geralt located Tamara Strenger during the Baron-family investigation.",
+      "summary": "Active; pressure 0.707; trend Falling; eligible for 16 day(s).",
+      "title": "Geralt is personally connected to the new Empress through their established relationship/history.",
       "trend": "falling"
     },
     {
-      "days_eligible": 7,
-      "days_remaining": 50,
+      "days_eligible": 30,
+      "days_remaining": 27,
       "eligible": true,
       "first_eligible_world_day": 56,
       "id": "potential.geralt_helped_hjalmar_survive_undvik",
@@ -475,7 +585,7 @@
         "Clan an Craite reputation",
         "political dialogue"
       ],
-      "pressure": 0.721154,
+      "pressure": 0.389423,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "geralt_helped_hjalmar_survive_undvik",
       "source_event_ids": [
@@ -483,38 +593,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.721; trend Falling; eligible for 7 day(s).",
+      "summary": "Active; pressure 0.389; trend Falling; eligible for 30 day(s).",
       "title": "Geralt materially helped Hjalmar survive the Undvik expedition.",
       "trend": "falling"
     },
     {
-      "days_eligible": 56,
-      "days_remaining": 1,
-      "eligible": true,
-      "first_eligible_world_day": 7,
-      "id": "potential.geralt_keira_ruins_closeness",
-      "kind": "probable-future",
-      "peak_pressure": 0.25,
-      "peak_world_day": 12,
-      "potential_surfaces": [
-        "relationship dialogue",
-        "disposition"
-      ],
-      "pressure": 0.004808,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "geralt_keira_ruins_closeness",
-      "source_event_ids": [
-        "witcher3.event.curated.005"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.005; trend Falling; eligible for 56 day(s).",
-      "title": "Geralt stayed with Keira during the ruins sequence.",
-      "trend": "falling"
-    },
-    {
-      "days_eligible": 4,
-      "days_remaining": 53,
+      "days_eligible": 27,
+      "days_remaining": 30,
       "eligible": true,
       "first_eligible_world_day": 59,
       "id": "potential.geralt_recruited_kaer_morhen_defenders",
@@ -528,7 +613,7 @@
         "future recruitment",
         "dialogue"
       ],
-      "pressure": 0.6,
+      "pressure": 0.432692,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "geralt_recruited_kaer_morhen_defenders",
       "source_event_ids": [
@@ -536,13 +621,13 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.600; trend Rising; eligible for 4 day(s).",
+      "summary": "Active; pressure 0.433; trend Falling; eligible for 27 day(s).",
       "title": "Geralt recruited multiple allies from his personal and political networks for the defense of Kaer Morhen.",
-      "trend": "rising"
+      "trend": "falling"
     },
     {
-      "days_eligible": 6,
-      "days_remaining": 51,
+      "days_eligible": 29,
+      "days_remaining": 28,
       "eligible": true,
       "first_eligible_world_day": 57,
       "id": "potential.geralt_requested_emhyr_support_for_kaer_morhen",
@@ -553,7 +638,7 @@
         "imperial assessment of Geralt/Ciri crisis",
         "future political dialogue"
       ],
-      "pressure": 0.735577,
+      "pressure": 0.403846,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "geralt_requested_emhyr_support_for_kaer_morhen",
       "source_event_ids": [
@@ -561,122 +646,84 @@
       ],
       "source_state_ids": [],
       "status": "ACTIVE",
-      "summary": "Active; pressure 0.736; trend Falling; eligible for 6 day(s).",
+      "summary": "Active; pressure 0.404; trend Falling; eligible for 29 day(s).",
       "title": "Geralt spoke with Emhyr about support for the Kaer Morhen battle.",
-      "trend": "falling"
-    },
-    {
-      "days_eligible": 52,
-      "days_remaining": 5,
-      "eligible": true,
-      "first_eligible_world_day": 11,
-      "id": "potential.pellar_saved_by_geralt",
-      "kind": "probable-future",
-      "peak_pressure": 0.5,
-      "peak_world_day": 16,
-      "potential_surfaces": [
-        "local disposition",
-        "future help",
-        "dialogue"
-      ],
-      "pressure": 0.048077,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "pellar_saved_by_geralt",
-      "source_event_ids": [
-        "witcher3.event.curated.008"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.048; trend Falling; eligible for 52 day(s).",
-      "title": "The Pellar survived with Geralt's help.",
-      "trend": "falling"
-    },
-    {
-      "days_eligible": 40,
-      "days_remaining": 17,
-      "eligible": true,
-      "first_eligible_world_day": 23,
-      "id": "potential.rico_freed_by_geralt",
-      "kind": "probable-future",
-      "peak_pressure": 0.5,
-      "peak_world_day": 28,
-      "potential_surfaces": [
-        "underworld reputation",
-        "favors",
-        "intelligence access"
-      ],
-      "pressure": 0.163462,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "rico_freed_by_geralt",
-      "source_event_ids": [
-        "witcher3.event.curated.017"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.163; trend Falling; eligible for 40 day(s).",
-      "title": "Rico was freed by Geralt during the Junior investigation.",
-      "trend": "falling"
-    },
-    {
-      "days_eligible": 50,
-      "days_remaining": 7,
-      "eligible": true,
-      "first_eligible_world_day": 13,
-      "id": "potential.stablemaster_saved_by_geralt",
-      "kind": "probable-future",
-      "peak_pressure": 0.25,
-      "peak_world_day": 18,
-      "potential_surfaces": [
-        "local recognition",
-        "gratitude",
-        "dialogue"
-      ],
-      "pressure": 0.033654,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "stablemaster_saved_by_geralt",
-      "source_event_ids": [
-        "witcher3.event.curated.013"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.034; trend Falling; eligible for 50 day(s).",
-      "title": "A stablemaster survived because of Geralt's intervention.",
-      "trend": "falling"
-    },
-    {
-      "days_eligible": 49,
-      "days_remaining": 8,
-      "eligible": true,
-      "first_eligible_world_day": 14,
-      "id": "potential.tamara_strenger_found",
-      "kind": "probable-future",
-      "peak_pressure": 0.5,
-      "peak_world_day": 19,
-      "potential_surfaces": [
-        "family dialogue",
-        "search state",
-        "disposition"
-      ],
-      "pressure": 0.076923,
-      "pressure_is_model_score_not_historical_truth": true,
-      "seed_id": "tamara_strenger_found",
-      "source_event_ids": [
-        "witcher3.event.curated.014"
-      ],
-      "source_state_ids": [],
-      "status": "ACTIVE",
-      "summary": "Active; pressure 0.077; trend Falling; eligible for 49 day(s).",
-      "title": "Tamara Strenger was found.",
       "trend": "falling"
     }
   ],
-  "headline": "Ciri faced the Lodge herself.",
+  "headline": "No reconstructed historical event resolves on World Day 86.",
   "knowledge": [],
   "phase": "RECONSTRUCTED ACTUAL PAST",
-  "summary": "1 historical event(s) resolve today; 23 authoritative Current State item(s); 26 active probable-future opportunity item(s).",
-  "world_day": 63,
+  "summary": "0 historical event(s) resolve today; 43 authoritative Current State item(s); 27 active probable-future opportunity item(s).",
+  "world_day": 86,
   "world_id": "witcher3-manual-save-1212b2",
   "world_state": [
+    {
+      "domain": "political_state",
+      "effective_world_day": 75,
+      "id": "baw_anna_alive_and_rules_toussaint",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_sisters_reconcile"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Anna Henrietta remains alive and continues to rule Toussaint."
+    },
+    {
+      "domain": "relationship_state",
+      "effective_world_day": 75,
+      "id": "baw_anna_and_syanna_reconciled",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_sisters_reconcile"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Anna Henrietta and Syanna reconcile at the ducal ceremony."
+    },
+    {
+      "domain": "structural_state",
+      "effective_world_day": 75,
+      "id": "baw_beauclair_vampire_attack_ceases",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_beauclair_vampire_attack_ended"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "The coordinated vampire attack on Beauclair ceases after the Tesham Mutna resolution."
+    },
+    {
+      "domain": "character_state",
+      "effective_world_day": 72,
+      "id": "baw_cecilia_bellante_dead",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_plot_exposed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 72.",
+      "title": "Cecilia Bellante is dead before Geralt can question her."
+    },
+    {
+      "domain": "character_state",
+      "effective_world_day": 72,
+      "id": "baw_cintrian_dead",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_plot_exposed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 72.",
+      "title": "The man known as the Cintrian dies during his struggle with Orianna."
+    },
+    {
+      "domain": "structural_state",
+      "effective_world_day": 74,
+      "id": "baw_cloud_giant_dead",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_syanna_recovered_from_fables"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 74.",
+      "title": "The cloud giant in the Land of a Thousand Fables is dead."
+    },
     {
       "domain": "structural_state",
       "effective_world_day": 42,
@@ -687,6 +734,28 @@
       "status": "current",
       "summary": "Established on World Day 42.",
       "title": "The bruxa encountered at Corvo Bianco is dead."
+    },
+    {
+      "domain": "character_state",
+      "effective_world_day": 75,
+      "id": "baw_dettlaff_dead",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_dettlaff_killed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Dettlaff is dead after the Tesham Mutna confrontation."
+    },
+    {
+      "domain": "household_state",
+      "effective_world_day": 75,
+      "id": "baw_geralt_establishes_corvo_bianco_as_home",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_geralt_returns_home_to_corvo_bianco"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Geralt returns to and treats Corvo Bianco as his home after the Toussaint crisis."
     },
     {
       "domain": "location_state",
@@ -711,6 +780,17 @@
       "title": "Golyat is dead after Geralt and the ducal knights confront it."
     },
     {
+      "domain": "artifact_state",
+      "effective_world_day": 72,
+      "id": "baw_heart_of_toussaint_recovered",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_cintrian_plot_exposed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 72.",
+      "title": "The Heart of Toussaint remains in Orianna's possession after the attempted theft."
+    },
+    {
       "domain": "supernatural_state",
       "effective_world_day": 49,
       "id": "baw_marlene_restored_from_wight_curse",
@@ -731,6 +811,61 @@
       "status": "current",
       "summary": "Established on World Day 42.",
       "title": "Milton de Peyrac-Peyran is killed by the Beast of Toussaint."
+    },
+    {
+      "domain": "network_state",
+      "effective_world_day": 75,
+      "id": "baw_regis_outcast_for_killing_dettlaff",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_dettlaff_killed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "The Toussaint vampire community treats Regis as a traitor and outcast for killing Dettlaff."
+    },
+    {
+      "domain": "character_state",
+      "effective_world_day": 75,
+      "id": "baw_syanna_alive_after_reconciliation",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_sisters_reconcile"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Syanna remains alive after reconciling with Anna Henrietta."
+    },
+    {
+      "domain": "identity_state",
+      "effective_world_day": 73,
+      "id": "baw_syanna_identified_as_rhenawedd",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_dun_tynne_taken_and_plot_revealed"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 73.",
+      "title": "Syanna is identified as Rhenawedd, the woman whose claimed abduction was used to control Dettlaff."
+    },
+    {
+      "domain": "structural_state",
+      "effective_world_day": 74,
+      "id": "baw_wicked_witch_dead",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_syanna_recovered_from_fables"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 74.",
+      "title": "The Wicked Witch in the Land of a Thousand Fables is dead."
+    },
+    {
+      "domain": "relationship_state",
+      "effective_world_day": 75,
+      "id": "baw_yennefer_moves_to_corvo_bianco",
+      "source_event_ids": [
+        "witcher3.event.baw.baw_yennefer_joins_geralt_at_corvo_bianco"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 75.",
+      "title": "Yennefer joins Geralt at Corvo Bianco and moves into the estate with him."
     },
     {
       "domain": "political_structural_state",
@@ -766,15 +901,48 @@
       "title": "Cerys an Craite became Queen of Skellige."
     },
     {
-      "domain": "character_state",
-      "effective_world_day": 58,
-      "id": "ciri_found_alive",
+      "domain": "political_institutional_state",
+      "effective_world_day": 70,
+      "id": "ciri_empress",
       "source_event_ids": [
-        "witcher3.event.curated.047"
+        "witcher3.event.curated.074"
       ],
       "status": "current",
-      "summary": "Established on World Day 58.",
-      "title": "Ciri was found alive."
+      "summary": "Established on World Day 70.",
+      "title": "Ciri became Empress on the Nilfgaardian succession path."
+    },
+    {
+      "domain": "character_state",
+      "effective_world_day": 69,
+      "id": "ciri_survived_white_frost",
+      "source_event_ids": [
+        "witcher3.event.curated.073"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 69.",
+      "title": "Ciri survived the White Frost confrontation."
+    },
+    {
+      "domain": "political_structural_state",
+      "effective_world_day": 68,
+      "id": "crach_an_craite_dead",
+      "source_event_ids": [
+        "witcher3.event.curated.070"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 68.",
+      "title": "Crach an Craite is dead."
+    },
+    {
+      "domain": "political_structural_state",
+      "effective_world_day": 64,
+      "id": "dijkstra_dead",
+      "source_event_ids": [
+        "witcher3.event.curated.063"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 64.",
+      "title": "Sigismund Dijkstra is dead."
     },
     {
       "domain": "network_state",
@@ -786,6 +954,17 @@
       "status": "current",
       "summary": "Established on World Day 34.",
       "title": "Dudu was found and reconnected with Geralt's Novigrad allies."
+    },
+    {
+      "domain": "hostile_leadership_state",
+      "effective_world_day": 69,
+      "id": "eredin_dead",
+      "source_event_ids": [
+        "witcher3.event.curated.071"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 69.",
+      "title": "Eredin is dead."
     },
     {
       "domain": "relationship_state",
@@ -854,6 +1033,17 @@
       "title": "Philippa Eilhart was rescued and returned to active allied/Lodge state."
     },
     {
+      "domain": "political_structural_state",
+      "effective_world_day": 64,
+      "id": "radovid_dead",
+      "source_event_ids": [
+        "witcher3.event.curated.062"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 64.",
+      "title": "King Radovid V is dead."
+    },
+    {
       "domain": "structural_character_state",
       "effective_world_day": 62,
       "id": "sheala_dead",
@@ -863,6 +1053,17 @@
       "status": "current",
       "summary": "Established on World Day 62.",
       "title": "Síle/Sheala de Tansarville is dead in this playthrough."
+    },
+    {
+      "domain": "political_institutional_state",
+      "effective_world_day": 64,
+      "id": "temeria_restored_as_nilfgaardian_vassal",
+      "source_event_ids": [
+        "witcher3.event.curated.064"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 64.",
+      "title": "Temeria is restored with self-rule under the Nilfgaardian settlement represented by the free-Temeria ending state."
     },
     {
       "domain": "structural_character_state",

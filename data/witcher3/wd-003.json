@@ -1,285 +1,108 @@
 {
-  "contract_version": "0.1",
-  "world_id": "witcher3-manual-save-1212b2",
-  "world_day": 3,
-  "display_date": "1272-05-12",
-  "phase": "IMPORTED ACTUAL HISTORY",
-  "headline": "The White Orchard griffin was killed.",
-  "summary": "1 history event(s) committed today; 3 active proposition(s); 8 holder occurrence(s); 5 next-horizon candidate(s).",
   "actual_past": [
     {
-      "id": "history:q002_killed_griffin",
-      "title": "Q002 Killed Griffin",
-      "summary": "The White Orchard griffin was killed.",
-      "domain": "actual-history",
+      "domain": "Kill / outcome",
+      "id": "witcher3.event.curated.002",
+      "seed_count": 2,
       "status": "committed",
-      "world_day": 3,
-      "seed_count": 2
-    }
-  ],
-  "world_state": [
-    {
-      "id": "seed:geralt_white_orchard_fistfight_winner",
-      "title": "Geralt White Orchard Fistfight Winner",
-      "summary": "Geralt won a witnessed fistfight in White Orchard.",
-      "domain": "propagatable_bound",
-      "status": "active",
-      "resolved_world_day": 1,
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "seed:geralt_completed_griffin_contract",
-      "title": "Geralt Completed Griffin Contract",
-      "summary": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "domain": "propagatable_bound",
-      "status": "active",
-      "resolved_world_day": 3,
-      "native_fact_id": "q002_killed_griffin"
-    },
-    {
-      "id": "seed:white_orchard_griffin_dead",
-      "title": "White Orchard Griffin Dead",
-      "summary": "The White Orchard griffin is dead.",
-      "domain": "propagatable_bound",
-      "status": "active",
-      "resolved_world_day": 3,
-      "native_fact_id": "q002_killed_griffin"
-    }
-  ],
-  "knowledge": [
-    {
-      "id": "wd-origin-683da58e1c421fbd3ce8",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "Geralt",
-      "holder_id": "geralt",
-      "holder_type": "named_npc",
-      "region": "mobile",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 1,
-      "channel": "participant_memory",
-      "source_holder": null,
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "wd-origin-83914d5dd2ff4262212d",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "White Orchard Witnesses",
-      "holder_id": "white_orchard_witnesses",
-      "holder_type": "network",
-      "region": "white_orchard",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 1,
-      "channel": "witness_report",
-      "source_holder": null,
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "wd-acquired-4f8611eff90bdfcd4903",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "White Orchard Locals",
-      "holder_id": "white_orchard_locals",
-      "holder_type": "network",
-      "region": "white_orchard",
-      "confidence": 0.9,
-      "distortion": "deterministic:0.080000",
-      "acquired_world_day": 2,
-      "channel": "local_gossip",
-      "source_holder": "White Orchard Witnesses",
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "wd-origin-73b8e5dbe688b1d7d198",
-      "statement": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "holder": "Nilfgaardian Garrison",
-      "holder_id": "nilfgaardian_garrison",
-      "holder_type": "institution",
-      "region": "white_orchard",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 3,
-      "channel": "contract_report",
-      "source_holder": null,
-      "seed_id": "geralt_completed_griffin_contract",
-      "native_fact_id": "q002_killed_griffin"
-    },
-    {
-      "id": "wd-origin-789400f8f1faf8fb54c7",
-      "statement": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "holder": "Geralt",
-      "holder_id": "geralt",
-      "holder_type": "named_npc",
-      "region": "mobile",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 3,
-      "channel": "participant_memory",
-      "source_holder": null,
-      "seed_id": "geralt_completed_griffin_contract",
-      "native_fact_id": "q002_killed_griffin"
-    },
-    {
-      "id": "wd-origin-5333e9dc99e4a3357de9",
-      "statement": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "holder": "Vesemir",
-      "holder_id": "vesemir",
-      "holder_type": "named_npc",
-      "region": "kaer_morhen",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 3,
-      "channel": "participant_memory",
-      "source_holder": null,
-      "seed_id": "geralt_completed_griffin_contract",
-      "native_fact_id": "q002_killed_griffin"
-    },
-    {
-      "id": "wd-origin-1e20fb9c5ebedc093353",
-      "statement": "The White Orchard griffin is dead.",
-      "holder": "Nilfgaardian Garrison",
-      "holder_id": "nilfgaardian_garrison",
-      "holder_type": "institution",
-      "region": "white_orchard",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 3,
-      "channel": "official_report",
-      "source_holder": null,
-      "seed_id": "white_orchard_griffin_dead",
-      "native_fact_id": "q002_killed_griffin"
-    },
-    {
-      "id": "wd-origin-f814ad1a8858fd9c42ce",
-      "statement": "The White Orchard griffin is dead.",
-      "holder": "White Orchard Witnesses",
-      "holder_id": "white_orchard_witnesses",
-      "holder_type": "network",
-      "region": "white_orchard",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 3,
-      "channel": "witness_report",
-      "source_holder": null,
-      "seed_id": "white_orchard_griffin_dead",
-      "native_fact_id": "q002_killed_griffin"
-    }
-  ],
-  "frontier": [
-    {
-      "id": "scheduled-7bce71d3960878b6857e",
-      "title": "Q002 Inn Bandits Dead",
-      "summary": "The inn attackers were killed.",
-      "kind": "scheduled-history",
-      "probability": 1.0,
-      "target_world_day": 4
-    },
-    {
-      "id": "transmission-cceebc10ddfb428cd1f4",
-      "title": "Geralt White Orchard Fistfight Winner → Velen Merchants",
-      "summary": "Information may propagate through the declared route.",
-      "kind": "information-transmission",
-      "probability": 0.66,
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "source_holder": "white_orchard_locals",
-      "target_holder": "velen_merchants",
-      "target_region": "velen",
-      "channel": "trade_rumor",
-      "target_world_day": 4
-    },
-    {
-      "id": "transmission-6befb7c40e1a96648b4d",
-      "title": "Geralt Completed Griffin Contract → White Orchard Locals",
-      "summary": "Information may propagate through the declared route.",
-      "kind": "information-transmission",
-      "probability": 0.82,
-      "seed_id": "geralt_completed_griffin_contract",
-      "source_holder": "nilfgaardian_garrison",
-      "target_holder": "white_orchard_locals",
-      "target_region": "white_orchard",
-      "channel": "soldier_gossip",
-      "target_world_day": 4
-    },
-    {
-      "id": "transmission-e37f055c6733fddf771d",
-      "title": "White Orchard Griffin Dead → White Orchard Locals",
-      "summary": "Information may propagate through the declared route.",
-      "kind": "information-transmission",
-      "probability": 0.82,
-      "seed_id": "white_orchard_griffin_dead",
-      "source_holder": "nilfgaardian_garrison",
-      "target_holder": "white_orchard_locals",
-      "target_region": "white_orchard",
-      "channel": "soldier_gossip",
-      "target_world_day": 4
-    },
-    {
-      "id": "transmission-e876d5275f16ccff8780",
-      "title": "White Orchard Griffin Dead → White Orchard Locals",
-      "summary": "Information may propagate through the declared route.",
-      "kind": "information-transmission",
-      "probability": 0.94,
-      "seed_id": "white_orchard_griffin_dead",
-      "source_holder": "white_orchard_witnesses",
-      "target_holder": "white_orchard_locals",
-      "target_region": "white_orchard",
-      "channel": "local_gossip",
-      "target_world_day": 4
+      "summary": "Resolved on World Day 3.",
+      "title": "The White Orchard griffin was killed.",
+      "world_day": 3
     }
   ],
   "causal_trace": [
     {
-      "id": "trace:wd-origin-73b8e5dbe688b1d7d198",
-      "title": "Origin: Nilfgaardian Garrison",
-      "summary": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "cause": "actual-history activation",
-      "effect": "origin knowledge",
-      "seed_id": "geralt_completed_griffin_contract",
-      "confidence": 1.0,
-      "world_day": 3
-    },
-    {
-      "id": "trace:wd-origin-789400f8f1faf8fb54c7",
-      "title": "Origin: Geralt",
-      "summary": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "cause": "actual-history activation",
-      "effect": "origin knowledge",
-      "seed_id": "geralt_completed_griffin_contract",
-      "confidence": 1.0,
-      "world_day": 3
-    },
-    {
-      "id": "trace:wd-origin-5333e9dc99e4a3357de9",
-      "title": "Origin: Vesemir",
-      "summary": "Geralt is attributable as the witcher who completed the griffin contract.",
-      "cause": "actual-history activation",
-      "effect": "origin knowledge",
-      "seed_id": "geralt_completed_griffin_contract",
-      "confidence": 1.0,
-      "world_day": 3
-    },
-    {
-      "id": "trace:wd-origin-1e20fb9c5ebedc093353",
-      "title": "Origin: Nilfgaardian Garrison",
-      "summary": "The White Orchard griffin is dead.",
-      "cause": "actual-history activation",
-      "effect": "origin knowledge",
+      "cause": "historical event",
+      "effect": "structural_state",
+      "id": "trace:witcher3.event.curated.002:white_orchard_griffin_dead",
       "seed_id": "white_orchard_griffin_dead",
-      "confidence": 1.0,
-      "world_day": 3
+      "source_event_id": "witcher3.event.curated.002",
+      "summary": "The White Orchard griffin was killed.",
+      "title": "The White Orchard griffin is dead."
     },
     {
-      "id": "trace:wd-origin-f814ad1a8858fd9c42ce",
-      "title": "Origin: White Orchard Witnesses",
-      "summary": "The White Orchard griffin is dead.",
-      "cause": "actual-history activation",
-      "effect": "origin knowledge",
-      "seed_id": "white_orchard_griffin_dead",
-      "confidence": 1.0,
-      "world_day": 3
+      "cause": "historical event",
+      "effect": "reputation",
+      "id": "trace:witcher3.event.curated.002:geralt_completed_griffin_contract",
+      "seed_id": "geralt_completed_griffin_contract",
+      "source_event_id": "witcher3.event.curated.002",
+      "summary": "The White Orchard griffin was killed.",
+      "title": "Geralt is attributable as the witcher who completed the griffin contract."
+    }
+  ],
+  "contract_version": "0.2",
+  "display_date": "1272-05-12",
+  "frontier": [
+    {
+      "days_eligible": 0,
+      "days_remaining": 57,
+      "eligible": true,
+      "first_eligible_world_day": 3,
+      "id": "potential.geralt_completed_griffin_contract",
+      "kind": "probable-future",
+      "peak_pressure": 0.5,
+      "peak_world_day": 8,
+      "potential_surfaces": [
+        "witcher reputation",
+        "future contracting",
+        "dialogue"
+      ],
+      "pressure": 0.0,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "geralt_completed_griffin_contract",
+      "source_event_ids": [
+        "witcher3.event.curated.002"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.000; trend Rising; eligible for 0 day(s).",
+      "title": "Geralt is attributable as the witcher who completed the griffin contract.",
+      "trend": "rising"
+    },
+    {
+      "days_eligible": 2,
+      "days_remaining": 10,
+      "eligible": true,
+      "first_eligible_world_day": 1,
+      "id": "potential.geralt_white_orchard_fistfight_winner",
+      "kind": "probable-future",
+      "peak_pressure": 0.25,
+      "peak_world_day": 3,
+      "potential_surfaces": [
+        "recognition",
+        "ambient bark",
+        "local disposition"
+      ],
+      "pressure": 0.25,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_ids": [
+        "witcher3.event.curated.001"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.250; trend Stable; eligible for 2 day(s).",
+      "title": "Geralt won a witnessed fistfight in White Orchard.",
+      "trend": "stable"
+    }
+  ],
+  "headline": "The White Orchard griffin was killed.",
+  "knowledge": [],
+  "phase": "RECONSTRUCTED ACTUAL PAST",
+  "summary": "1 historical event(s) resolve today; 1 authoritative Current State item(s); 2 active probable-future opportunity item(s).",
+  "world_day": 3,
+  "world_id": "witcher3-manual-save-1212b2",
+  "world_state": [
+    {
+      "domain": "structural_state",
+      "effective_world_day": 3,
+      "id": "white_orchard_griffin_dead",
+      "source_event_ids": [
+        "witcher3.event.curated.002"
+      ],
+      "status": "current",
+      "summary": "Established on World Day 3.",
+      "title": "The White Orchard griffin is dead."
     }
   ]
 }

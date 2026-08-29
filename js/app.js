@@ -98,6 +98,12 @@ async function boot() {
     appState.manifest = manifest;
     appState.snapshots = snapshots;
     appState.presentation = presentation;
+    const hasKnowledgeSurface = [...snapshots.values()].some(
+      snapshot => (snapshot.knowledge ?? []).length > 0,
+    );
+    for (const tab of ui.tabs) {
+      if (tab.dataset.mode === "knowledge") tab.hidden = !hasKnowledgeSurface;
+    }
     const regionalConfig = presentation?.regional_spread;
     setRegionalMetric(regionalConfig?.default_metric);
     setRegionalGrouping(regionalConfig?.default_grouping);

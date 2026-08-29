@@ -87,6 +87,13 @@ python3 scripts/validate_data.py
 
 The validator intentionally uses only the Python standard library.
 
-## Development direction
+## Witcher reconstruction dataset
 
-The first real integration target is a sanitized Witcher 3 world export from the Living World engine. The UI is being designed around a stable exported contract so the browser never needs to understand private simulation internals.
+The Witcher dataset is a sanitized WD0–WD87 presentation export from the save-reconstruction
+pipeline in `TwistyRoads/story-v2`. It separates reconstructed Actual Past, authoritative Current
+State, and active Probable Future opportunities. Future pressure is displayed as a model score,
+never as historical truth or an invented percentage probability.
+
+The reference snapshot at WD87 is `SAVE NOW`: the authoritative present derived from the source
+save. Earlier snapshots are reconstructed semantic history. A future export may add
+`POST-SAVE PROJECTION`, but projected potentials must never be promoted into Actual Past.

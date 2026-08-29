@@ -1,90 +1,41 @@
 {
-  "contract_version": "0.1",
-  "world_id": "witcher3-manual-save-1212b2",
-  "world_day": 2,
-  "display_date": "1272-05-11",
-  "phase": "IMPORTED ACTUAL HISTORY",
-  "headline": "Information continues to move on World Day 2.",
-  "summary": "0 history event(s) committed today; 1 active proposition(s); 3 holder occurrence(s); 1 next-horizon candidate(s).",
   "actual_past": [],
-  "world_state": [
-    {
-      "id": "seed:geralt_white_orchard_fistfight_winner",
-      "title": "Geralt White Orchard Fistfight Winner",
-      "summary": "Geralt won a witnessed fistfight in White Orchard.",
-      "domain": "propagatable_bound",
-      "status": "active",
-      "resolved_world_day": 1,
-      "native_fact_id": "q001_fistfight_success"
-    }
-  ],
-  "knowledge": [
-    {
-      "id": "wd-origin-683da58e1c421fbd3ce8",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "Geralt",
-      "holder_id": "geralt",
-      "holder_type": "named_npc",
-      "region": "mobile",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 1,
-      "channel": "participant_memory",
-      "source_holder": null,
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "wd-origin-83914d5dd2ff4262212d",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "White Orchard Witnesses",
-      "holder_id": "white_orchard_witnesses",
-      "holder_type": "network",
-      "region": "white_orchard",
-      "confidence": 1.0,
-      "distortion": null,
-      "acquired_world_day": 1,
-      "channel": "witness_report",
-      "source_holder": null,
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    },
-    {
-      "id": "wd-acquired-4f8611eff90bdfcd4903",
-      "statement": "Geralt won a witnessed fistfight in White Orchard.",
-      "holder": "White Orchard Locals",
-      "holder_id": "white_orchard_locals",
-      "holder_type": "network",
-      "region": "white_orchard",
-      "confidence": 0.9,
-      "distortion": "deterministic:0.080000",
-      "acquired_world_day": 2,
-      "channel": "local_gossip",
-      "source_holder": "White Orchard Witnesses",
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "native_fact_id": "q001_fistfight_success"
-    }
-  ],
+  "causal_trace": [],
+  "contract_version": "0.2",
+  "display_date": "1272-05-11",
   "frontier": [
     {
-      "id": "scheduled-baff627a5c4f0582e415",
-      "title": "Q002 Killed Griffin",
-      "summary": "The White Orchard griffin was killed.",
-      "kind": "scheduled-history",
-      "probability": 1.0,
-      "target_world_day": 3
+      "days_eligible": 1,
+      "days_remaining": 11,
+      "eligible": true,
+      "first_eligible_world_day": 1,
+      "id": "potential.geralt_white_orchard_fistfight_winner",
+      "kind": "probable-future",
+      "peak_pressure": 0.25,
+      "peak_world_day": 3,
+      "potential_surfaces": [
+        "recognition",
+        "ambient bark",
+        "local disposition"
+      ],
+      "pressure": 0.125,
+      "pressure_is_model_score_not_historical_truth": true,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_ids": [
+        "witcher3.event.curated.001"
+      ],
+      "source_state_ids": [],
+      "status": "ACTIVE",
+      "summary": "Active; pressure 0.125; trend Rising; eligible for 1 day(s).",
+      "title": "Geralt won a witnessed fistfight in White Orchard.",
+      "trend": "rising"
     }
   ],
-  "causal_trace": [
-    {
-      "id": "trace:wd-acquired-4f8611eff90bdfcd4903",
-      "title": "White Orchard Witnesses → White Orchard Locals",
-      "summary": "Geralt won a witnessed fistfight in White Orchard.",
-      "cause": "local_gossip",
-      "effect": "knowledge acquired",
-      "seed_id": "geralt_white_orchard_fistfight_winner",
-      "confidence": 0.9,
-      "world_day": 2
-    }
-  ]
+  "headline": "No reconstructed historical event resolves on World Day 2.",
+  "knowledge": [],
+  "phase": "RECONSTRUCTED ACTUAL PAST",
+  "summary": "0 historical event(s) resolve today; 0 authoritative Current State item(s); 1 active probable-future opportunity item(s).",
+  "world_day": 2,
+  "world_id": "witcher3-manual-save-1212b2",
+  "world_state": []
 }
