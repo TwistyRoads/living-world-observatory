@@ -39,7 +39,9 @@
       "kind": "probable-future",
       "peak_pressure": 0.5,
       "peak_world_day": 52,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue"
+      ],
       "pressure": 0.25,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_geralt_knows_dettlaff_saved_regis",
@@ -61,7 +63,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 52,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.375,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_virtue_pattern_known_to_ducal_investigators",
