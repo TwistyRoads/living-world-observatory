@@ -112,3 +112,21 @@ WD87 ACTIVE Frontier as newly active, escalated, fading, stable, or no longer ac
 The dataset uses sparse projection snapshots because manifest navigation is entry-based:
 WD0–WD87 remains contiguous historical presentation data, followed by WD117, WD147, and WD177.
 No redundant intermediate projection files are required.
+
+## Reconstructed information propagation
+
+The Witcher snapshots also expose presentation-safe semantic knowledge holders and next-day
+`information-transmission` candidates derived from reconstructed Historical Reality. They use
+the existing authored holder, route, channel, delay, reliability, and distortion model from
+`story-v2`; native FactsDB identity and the legacy imported-history overlay are not authority.
+
+Information propagation and probable-future pressure are separate surfaces. Learning does not
+create history, and a transmission candidate does not mean that the underlying event newly
+occurred. Regional Spread renders holder/transmission data when either capability is present and
+retains its neutral unavailable state for datasets without them.
+
+Propagation acceptance can be checked with:
+
+```bash
+python3 scripts/validate_propagation.py
+```

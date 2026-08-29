@@ -114,3 +114,19 @@ delta tolerance of `0.001`:
 
 `No longer active` does not mean resolved. The public export cannot infer resolution from an
 item leaving the ACTIVE surface.
+
+## Information propagation surfaces
+
+`knowledge[]` contains presentation-safe semantic holder occurrences. An item identifies the
+semantic seed/event, holder, region, acquisition World Day, channel, confidence, and any modelled
+distortion. It must not contain Host Observation or native save evidence.
+
+`frontier[]` may contain both independent kinds:
+
+- `probable-future`: an ACTIVE causal possibility with pressure lifecycle metadata;
+- `information-transmission`: a next-World-Day transmission candidate with an authored route and
+  transmission probability.
+
+Transmission probability belongs only to the information-route model. It must not be presented
+as probable-future pressure, and probable-future pressure must not substitute for information
+spread. Neither kind creates Historical Reality.

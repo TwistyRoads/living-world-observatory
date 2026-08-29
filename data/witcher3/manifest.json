@@ -1,6 +1,6 @@
 {
   "contract_version": "0.2",
-  "description": "Presentation-safe reconstruction through authoritative SAVE NOW at WD87, with sparse no-intervention projections at +30, +60, and +90 days. Probable-future pressure ages analytically and never creates history.",
+  "description": "Presentation-safe reconstruction through authoritative SAVE NOW at WD87, with semantic information propagation and sparse no-intervention projections at +30, +60, and +90 days. Probable-future pressure and information transmission remain separate analytical surfaces and never create history.",
   "forecast": {
     "authoritative_now_world_day": 87,
     "horizons": [

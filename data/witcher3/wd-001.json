@@ -19,6 +19,28 @@
       "source_event_id": "witcher3.event.curated.001",
       "summary": "Geralt won the White Orchard fistfight.",
       "title": "Geralt won a witnessed fistfight in White Orchard."
+    },
+    {
+      "cause": "semantic historical event",
+      "confidence": 1.0,
+      "effect": "origin knowledge",
+      "id": "trace:information:semantic-origin-eaa3496c09c2badbf59c",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_id": "witcher3.event.curated.001",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "title": "Origin: Geralt",
+      "world_day": 1
+    },
+    {
+      "cause": "semantic historical event",
+      "confidence": 1.0,
+      "effect": "origin knowledge",
+      "id": "trace:information:semantic-origin-ffb754c64ddb341f46f1",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_id": "witcher3.event.curated.001",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "title": "Origin: White Orchard Witnesses",
+      "world_day": 1
     }
   ],
   "contract_version": "0.2",
@@ -49,12 +71,58 @@
       "summary": "Active; pressure 0.000; trend Rising; eligible for 0 day(s).",
       "title": "Geralt won a witnessed fistfight in White Orchard.",
       "trend": "rising"
+    },
+    {
+      "channel": "local_gossip",
+      "id": "transmission-a6a63ed67cd0b1fc89b4",
+      "kind": "information-transmission",
+      "probability": 0.94,
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_id": "witcher3.event.curated.001",
+      "source_holder": "white_orchard_witnesses",
+      "summary": "Geralt won a witnessed fistfight in White Orchard.",
+      "target_holder": "white_orchard_locals",
+      "target_holder_id": "white_orchard_locals",
+      "target_region": "white_orchard",
+      "target_world_day": 2,
+      "title": "Geralt White Orchard Fistfight Winner → White Orchard Locals"
     }
   ],
   "headline": "Geralt won the White Orchard fistfight.",
-  "knowledge": [],
+  "knowledge": [
+    {
+      "acquired_world_day": 1,
+      "channel": "participant_memory",
+      "confidence": 1.0,
+      "distortion": null,
+      "holder": "Geralt",
+      "holder_id": "geralt",
+      "holder_type": "named_npc",
+      "id": "semantic-origin-eaa3496c09c2badbf59c",
+      "region": "mobile",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_id": "witcher3.event.curated.001",
+      "source_holder": null,
+      "statement": "Geralt won a witnessed fistfight in White Orchard."
+    },
+    {
+      "acquired_world_day": 1,
+      "channel": "witness_report",
+      "confidence": 1.0,
+      "distortion": null,
+      "holder": "White Orchard Witnesses",
+      "holder_id": "white_orchard_witnesses",
+      "holder_type": "network",
+      "id": "semantic-origin-ffb754c64ddb341f46f1",
+      "region": "white_orchard",
+      "seed_id": "geralt_white_orchard_fistfight_winner",
+      "source_event_id": "witcher3.event.curated.001",
+      "source_holder": null,
+      "statement": "Geralt won a witnessed fistfight in White Orchard."
+    }
+  ],
   "phase": "RECONSTRUCTED ACTUAL PAST",
-  "summary": "1 historical event(s) resolve today; 0 authoritative Current State item(s); 1 active probable-future opportunity item(s).",
+  "summary": "1 historical event(s) resolve today; 0 authoritative Current State item(s); 1 active probable-future opportunity item(s); 2 information holder occurrence(s).",
   "world_day": 1,
   "world_id": "witcher3-manual-save-1212b2",
   "world_state": []
