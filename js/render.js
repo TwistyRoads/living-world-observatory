@@ -63,6 +63,159 @@ function probableFutureCard(item) {
     </article>`;
 }
 
+const PRESSURE_DELTA_EPSILON = 0.001;
+const FUTURE_CHANGE_ORDER = [
+  "newly_active",
+  "escalated",
+  "fading",
+  "stable",
+  "no_longer_active",
+];
+const FUTURE_CHANGE_LABELS = {
+  newly_active: "NEWLY ACTIVE",
+  escalated: "ESCALATED",
+  fading: "FADING",
+  stable: "STABLE",
+  no_longer_active: "NO LONGER ACTIVE",
+};
+
+function activeFutureMap(snapshot) {
+  return new Map((snapshot?.frontier ?? [])
+    .filter(item => item.kind === "probable-future" && item.status === "ACTIVE")
+    .map(item => [item.id, item]));
+}
+
+function pressureOf(item) {
+  return typeof item?.pressure === "number" ? item.pressure : null;
+}
+
+export function categorizeFutureChanges(nowSnapshot, projectedSnapshot) {
+  const now = activeFutureMap(nowSnapshot);
+  const projected = activeFutureMap(projectedSnapshot);
+  const groups = Object.fromEntries(FUTURE_CHANGE_ORDER.map(key => [key, []]));
+
+  for (const [id, item] of projected) {
+    const baseline = now.get(id);
+    if (!baseline) {
+      groups.newly_active.push({
+        category: "newly_active",
+        item,
+        now: null,
+        projected: item,
+        pressure_delta: null,
+      });
+      continue;
+    }
+
+    const nowPressure = pressureOf(baseline);
+    const projectedPressure = pressureOf(item);
+    const delta = nowPressure == null || projectedPressure == null
+      ? null
+      : projectedPressure - nowPressure;
+    const category = delta != null && delta > PRESSURE_DELTA_EPSILON
+      ? "escalated"
+      : delta != null && delta < -PRESSURE_DELTA_EPSILON
+        ? "fading"
+        : "stable";
+    groups[category].push({
+      category,
+      item,
+      now: baseline,
+      projected: item,
+      pressure_delta: delta,
+    });
+  }
+
+  for (const [id, item] of now) {
+    if (!projected.has(id)) {
+      groups.no_longer_active.push({
+        category: "no_longer_active",
+        item,
+        now: item,
+        projected: null,
+        pressure_delta: null,
+      });
+    }
+  }
+
+  for (const items of Object.values(groups)) {
+    items.sort((left, right) =>
+      (pressureOf(right.projected ?? right.now) ?? -1)
+      - (pressureOf(left.projected ?? left.now) ?? -1)
+      || String(left.item.title ?? left.item.id).localeCompare(String(right.item.title ?? right.item.id))
+    );
+  }
+  return groups;
+}
+
+function formattedPressure(item) {
+  const pressure = pressureOf(item);
+  return pressure == null ? "—" : pressure.toFixed(3);
+}
+
+function futureComparisonCard(change, horizonLabel) {
+  const current = change.projected;
+  const lifecycle = current
+    ? `<div class="frontier-lifecycle">
+        <span>Eligible ${escapeHtml(current.days_eligible ?? "—")} day${current.days_eligible === 1 ? "" : "s"}</span>
+        ${Number.isInteger(current.days_remaining)
+          ? `<span>Remaining ${escapeHtml(current.days_remaining)} day${current.days_remaining === 1 ? "" : "s"}</span>`
+          : ""}
+      </div>`
+    : "";
+  const direction = change.category === "escalated"
+    ? "↑"
+    : change.category === "fading"
+      ? "↓"
+      : change.category === "no_longer_active"
+        ? "—"
+        : "→";
+
+  return `
+    <article class="card frontier-card comparison-card comparison-${escapeHtml(change.category)}">
+      <h3>${escapeHtml(change.item.title ?? change.item.statement ?? change.item.id)}</h3>
+      <p class="comparison-status">${direction} ${escapeHtml(FUTURE_CHANGE_LABELS[change.category])}</p>
+      <dl class="pressure-comparison">
+        <div><dt>NOW</dt><dd>${escapeHtml(formattedPressure(change.now))}</dd></div>
+        <div><dt>${escapeHtml(horizonLabel)}</dt><dd>${escapeHtml(formattedPressure(change.projected))}</dd></div>
+      </dl>
+      ${lifecycle}
+      <div class="card-meta">
+        ${pill("pressure model score")}
+        ${current?.trend ? pill(displayLabel(current.trend)) : ""}
+      </div>
+    </article>`;
+}
+
+function renderProjectionFrontier(snapshot, nowSnapshot) {
+  const groups = categorizeFutureChanges(nowSnapshot, snapshot);
+  const offset = snapshot.world_day - nowSnapshot.world_day;
+  const horizonLabel = `+${offset} DAYS`;
+  const counts = FUTURE_CHANGE_ORDER.map(key => `
+    <div class="delta-count delta-${escapeHtml(key)}">
+      <strong>${groups[key].length}</strong>
+      <span>${escapeHtml(FUTURE_CHANGE_LABELS[key])}</span>
+    </div>`).join("");
+  const sections = FUTURE_CHANGE_ORDER
+    .filter(key => groups[key].length)
+    .map(key => `
+      <section class="delta-group" aria-labelledby="delta-${escapeHtml(key)}">
+        <div class="delta-heading">
+          <h3 id="delta-${escapeHtml(key)}">${escapeHtml(FUTURE_CHANGE_LABELS[key])}</h3>
+          <span>${groups[key].length}</span>
+        </div>
+        <div class="card-grid">
+          ${groups[key].map(change => futureComparisonCard(change, horizonLabel)).join("")}
+        </div>
+      </section>`).join("");
+
+  return modeSection(
+    "PROBABLE FUTURE · NO PLAYER INTERVENTION",
+    `Change from authoritative SAVE NOW at WD ${nowSnapshot.world_day}. Pressure is a model score, not probability or history.`,
+    `<div class="delta-summary">${counts}</div>${sections}`,
+  );
+}
+
 const FALLBACK_REGION = "Other / Transregional";
 const ORIGIN_GROUPS = ["local", "imported"];
 const CHANNEL_GROUPS = [
@@ -222,7 +375,7 @@ export function renderRegionalSpread(snapshot, presentation, metric, grouping) {
     <div class="regional-legend" aria-label="Legend">${legend}</div>`;
 }
 
-export function renderMode(snapshot, mode) {
+export function renderMode(snapshot, mode, nowSnapshot = null) {
   if (!snapshot) return empty("No snapshot is loaded.");
 
   if (mode === "world") {
@@ -231,8 +384,10 @@ export function renderMode(snapshot, mode) {
       ? `<div class="card-grid">${items.map(item => card(item, [item.domain, item.status])).join("")}</div>`
       : empty("No public world-state items are exposed for this World Day.");
     return modeSection(
-      "CURRENT STATE",
-      "Authoritative semantic world state at this World Day.",
+      snapshot.phase === "POST-SAVE PROJECTION" ? "PROJECTED CURRENT STATE" : "CURRENT STATE",
+      snapshot.phase === "POST-SAVE PROJECTION"
+        ? "Analytical carry-forward of authoritative WD87 Current State; not a host observation."
+        : "Authoritative semantic world state at this World Day.",
       content,
     );
   }
@@ -250,6 +405,9 @@ export function renderMode(snapshot, mode) {
   }
 
   if (mode === "frontier") {
+    if (snapshot.phase === "POST-SAVE PROJECTION" && nowSnapshot) {
+      return renderProjectionFrontier(snapshot, nowSnapshot);
+    }
     const items = (snapshot.frontier ?? []).filter(item =>
       item.kind === "probable-future" && item.status === "ACTIVE"
     );
@@ -269,7 +427,9 @@ export function renderMode(snapshot, mode) {
     : empty("No public causal trace is exposed for this World Day.");
   return modeSection(
     "CAUSAL",
-    "Presentation-safe causal seeds and events resolved at this World Day.",
+    snapshot.phase === "POST-SAVE PROJECTION"
+      ? "No new Historical Reality is created after SAVE NOW; projected pressures remain possibilities."
+      : "Presentation-safe causal seeds and events resolved at this World Day.",
     content,
   );
 }

@@ -42,9 +42,19 @@
       <div id="timeline-markers" class="timeline-markers" aria-hidden="true"></div>
     </section>
 
-    <section class="hero-panel" aria-live="polite">
+    <section id="forecast-shell" class="forecast-shell" aria-labelledby="forecast-title" hidden>
+      <div>
+        <p class="eyebrow">IF YOU DO NOTHING</p>
+        <h2 id="forecast-title">No-intervention future projection</h2>
+        <p>Age the futures already in motion without creating history, player actions, or quest outcomes.</p>
+      </div>
+      <div id="forecast-controls" class="forecast-controls" role="group" aria-label="Forecast horizon"></div>
+    </section>
+
+    <section id="hero-panel" class="hero-panel" aria-live="polite">
       <div class="hero-copy">
         <p id="phase-label" class="phase-label">—</p>
+        <p id="projection-mode" class="projection-mode" hidden>NO PLAYER INTERVENTION</p>
         <h2 id="headline">Loading snapshot…</h2>
         <p id="summary" class="hero-summary"></p>
       </div>

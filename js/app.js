@@ -22,10 +22,29 @@ const ui = {
   previous: document.querySelector("#previous-day"),
   next: document.querySelector("#next-day"),
   markers: document.querySelector("#timeline-markers"),
+  forecastShell: document.querySelector("#forecast-shell"),
+  forecastControls: document.querySelector("#forecast-controls"),
+  heroPanel: document.querySelector("#hero-panel"),
+  projectionMode: document.querySelector("#projection-mode"),
   content: document.querySelector("#mode-content"),
   regionalSpread: document.querySelector("#regional-spread"),
   tabs: [...document.querySelectorAll(".mode-tab")],
 };
+
+function forecastButton(horizon, selectedDay) {
+  const button = document.createElement("button");
+  button.type = "button";
+  button.dataset.forecastDay = horizon.world_day;
+  button.setAttribute("aria-pressed", String(selectedDay === horizon.world_day));
+  button.classList.toggle("is-active", selectedDay === horizon.world_day);
+
+  const label = document.createElement("strong");
+  label.textContent = horizon.label;
+  const day = document.createElement("span");
+  day.textContent = `WD ${horizon.world_day}`;
+  button.append(label, day);
+  return button;
+}
 
 function paint() {
   const entry = currentEntry();
@@ -38,9 +57,20 @@ function paint() {
   ui.next.disabled = appState.selectedIndex >= count - 1;
   ui.markers.innerHTML = renderTimelineMarkers(appState.manifest?.snapshots);
 
-  ui.dayLabel.textContent = entry ? `WD ${entry.world_day}` : "WD —";
+  const forecast = appState.manifest?.forecast;
+  const nowDay = forecast?.authoritative_now_world_day;
+  const projectionOffset = entry && Number.isInteger(nowDay) && entry.world_day > nowDay
+    ? entry.world_day - nowDay
+    : null;
+  ui.dayLabel.textContent = entry
+    ? `WD ${entry.world_day}${projectionOffset != null ? ` · NOW +${projectionOffset}` : ""}`
+    : "WD —";
   ui.dateLabel.textContent = snapshot?.display_date ?? "No calendar date";
   ui.phase.textContent = snapshot?.phase ?? "—";
+  const isProjection = snapshot?.phase === "POST-SAVE PROJECTION";
+  ui.projectionMode.hidden = !isProjection;
+  ui.projectionMode.textContent = forecast?.mode ?? "NO PLAYER INTERVENTION";
+  ui.heroPanel.classList.toggle("is-projection", isProjection);
   ui.headline.textContent = snapshot?.headline ?? "No snapshot";
   ui.summary.textContent = snapshot?.summary ?? "";
   ui.regionalSpread.innerHTML = renderRegionalSpread(
@@ -49,7 +79,15 @@ function paint() {
     appState.regionalMetric,
     appState.regionalGrouping,
   );
-  ui.content.innerHTML = renderMode(snapshot, appState.mode);
+  const nowSnapshot = Number.isInteger(nowDay) ? appState.snapshots.get(nowDay) : null;
+  ui.content.innerHTML = renderMode(snapshot, appState.mode, nowSnapshot);
+
+  ui.forecastShell.hidden = !forecast?.horizons?.length;
+  ui.forecastControls.replaceChildren(
+    ...(forecast?.horizons ?? []).map(horizon =>
+      forecastButton(horizon, entry?.world_day)
+    ),
+  );
 
   for (const tab of ui.tabs) {
     tab.classList.toggle("is-active", tab.dataset.mode === appState.mode);
@@ -87,6 +125,19 @@ function bindControls() {
     } else {
       setRegionalGrouping(button.dataset.value);
     }
+    paint();
+  });
+
+  ui.forecastControls.addEventListener("click", event => {
+    const button = event.target.closest("button[data-forecast-day]");
+    if (!button) return;
+    const targetDay = Number(button.dataset.forecastDay);
+    const index = appState.manifest?.snapshots?.findIndex(
+      entry => entry.world_day === targetDay,
+    );
+    if (index == null || index < 0) return;
+    setSelectedIndex(index);
+    setMode("frontier");
     paint();
   });
 }

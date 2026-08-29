@@ -80,3 +80,37 @@ Regional spread is available only when a snapshot exposes compatible public know
 `information-transmission` Frontier records. A configured region list alone is not evidence of
 activity. Renderers must show an unavailable state instead of zero-filled regions when neither
 surface is present.
+
+## Forecast metadata
+
+A manifest may declare an optional `forecast` object:
+
+```json
+{
+  "forecast": {
+    "authoritative_now_world_day": 87,
+    "mode": "NO PLAYER INTERVENTION",
+    "snapshot_strategy": "sparse_horizons",
+    "horizons": [
+      { "label": "NOW", "offset_days": 0, "world_day": 87 },
+      { "label": "+30 DAYS", "offset_days": 30, "world_day": 117 }
+    ]
+  }
+}
+```
+
+Every horizon must reference a snapshot already listed in the manifest. The authoritative NOW
+snapshot uses `SAVE NOW`; later horizons use `POST-SAVE PROJECTION`. A projection may age
+probable-future pressure and lifecycle state, but it must not introduce post-NOW Actual Past.
+
+The Observatory compares each projected ACTIVE Frontier with authoritative NOW using a pressure
+delta tolerance of `0.001`:
+
+- newly active: absent from NOW and ACTIVE at the horizon;
+- escalated: ACTIVE at both with pressure increased by more than the tolerance;
+- fading: ACTIVE at both with pressure decreased by more than the tolerance;
+- stable: ACTIVE at both without a material scored change;
+- no longer active: ACTIVE at NOW but absent from the horizon's public ACTIVE Frontier.
+
+`No longer active` does not mean resolved. The public export cannot infer resolution from an
+item leaving the ACTIVE surface.

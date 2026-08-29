@@ -1,6 +1,33 @@
 {
   "contract_version": "0.2",
-  "description": "Presentation-safe World Day replay derived from one authoritative Witcher save. Historical Reality is reconstructed from host evidence; Current State is derived from history; probable-future pressure never creates history.",
+  "description": "Presentation-safe reconstruction through authoritative SAVE NOW at WD87, with sparse no-intervention projections at +30, +60, and +90 days. Probable-future pressure ages analytically and never creates history.",
+  "forecast": {
+    "authoritative_now_world_day": 87,
+    "horizons": [
+      {
+        "label": "NOW",
+        "offset_days": 0,
+        "world_day": 87
+      },
+      {
+        "label": "+30 DAYS",
+        "offset_days": 30,
+        "world_day": 117
+      },
+      {
+        "label": "+60 DAYS",
+        "offset_days": 60,
+        "world_day": 147
+      },
+      {
+        "label": "+90 DAYS",
+        "offset_days": 90,
+        "world_day": 177
+      }
+    ],
+    "mode": "NO PLAYER INTERVENTION",
+    "snapshot_strategy": "sparse_horizons"
+  },
   "presentation_config": "presentation.json",
   "snapshots": [
     {
@@ -442,6 +469,21 @@
       "label": "SAVE NOW",
       "path": "data/witcher3/wd-087.json",
       "world_day": 87
+    },
+    {
+      "label": "POST-SAVE PROJECTION",
+      "path": "data/witcher3/wd-117.json",
+      "world_day": 117
+    },
+    {
+      "label": "POST-SAVE PROJECTION",
+      "path": "data/witcher3/wd-147.json",
+      "world_day": 147
+    },
+    {
+      "label": "POST-SAVE PROJECTION",
+      "path": "data/witcher3/wd-177.json",
+      "world_day": 177
     }
   ],
   "title": "The Witcher 3 — Living World Observatory",

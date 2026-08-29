@@ -11,6 +11,35 @@
     "title": { "type": "string", "minLength": 1 },
     "description": { "type": "string" },
     "presentation_config": { "type": "string", "minLength": 1 },
+    "forecast": {
+      "type": "object",
+      "required": [
+        "authoritative_now_world_day",
+        "horizons",
+        "mode",
+        "snapshot_strategy"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "authoritative_now_world_day": { "type": "integer", "minimum": 0 },
+        "mode": { "type": "string", "minLength": 1 },
+        "snapshot_strategy": { "type": "string", "minLength": 1 },
+        "horizons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["label", "offset_days", "world_day"],
+            "additionalProperties": false,
+            "properties": {
+              "label": { "type": "string", "minLength": 1 },
+              "offset_days": { "type": "integer", "minimum": 0 },
+              "world_day": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
     "snapshots": {
       "type": "array",
       "items": {
