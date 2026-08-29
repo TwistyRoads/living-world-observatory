@@ -250,7 +250,10 @@
       "kind": "probable-future",
       "peak_pressure": 0.25,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "ambient bark",
+        "dialogue"
+      ],
       "pressure": 0.216667,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_bootblack_accusers_imprisoned",
@@ -272,7 +275,10 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "quest"
+      ],
       "pressure": 0.225,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_cintrian_and_cecilia_lead_identified",
@@ -294,7 +300,11 @@
       "kind": "probable-future",
       "peak_pressure": 1.0,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.866667,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_blackmailed_through_rhenawedd",
@@ -316,7 +326,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.65,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_de_la_croix_history_seen",
@@ -338,7 +352,9 @@
       "kind": "probable-future",
       "peak_pressure": 0.5,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue"
+      ],
       "pressure": 0.433333,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_remorse_known",
@@ -360,7 +376,10 @@
       "kind": "probable-future",
       "peak_pressure": 0.5,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "quest"
+      ],
       "pressure": 0.433333,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dettlaff_toy_shop_hideout_discovered",
@@ -382,7 +401,12 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 83,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "ambient bark",
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.075,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_ducal_guard_depleted_by_vampire_attack",
@@ -404,7 +428,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 82,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.15,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dun_tynne_implicated",
@@ -426,7 +454,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "ambient bark",
+        "dialogue",
+        "correspondence"
+      ],
       "pressure": 0.225,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_fabricio_arrested_for_sangreal_treason",
@@ -448,7 +480,9 @@
       "kind": "probable-future",
       "peak_pressure": 0.5,
       "peak_world_day": 52,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue"
+      ],
       "pressure": 0.395238,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_geralt_knows_dettlaff_saved_regis",
@@ -470,7 +504,9 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 84,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue"
+      ],
       "pressure": 0.0,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_geralt_learns_syanna_exile_grievances",
@@ -492,7 +528,10 @@
       "kind": "probable-future",
       "peak_pressure": 0.5,
       "peak_world_day": 59,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "quest"
+      ],
       "pressure": 0.428571,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_marlene_brought_to_corvo_bianco",
@@ -514,7 +553,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.225,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_sangreal_linked_to_blackmail_operation",
@@ -536,7 +579,10 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 60,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "quest"
+      ],
       "pressure": 0.65,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_victim_list_not_authored_by_dettlaff",
@@ -558,7 +604,11 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 52,
-      "potential_surfaces": [],
+      "potential_surfaces": [
+        "dialogue",
+        "correspondence",
+        "quest"
+      ],
       "pressure": 0.592857,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_virtue_pattern_known_to_ducal_investigators",
