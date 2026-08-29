@@ -7,8 +7,23 @@
   <meta name="description" content="Living World Observatory — inspect world state, knowledge propagation, causal traces, and next-horizon frontiers.">
   <title>Living World Observatory</title>
   <link rel="stylesheet" href="css/observatory.css">
+  <link rel="stylesheet" href="css/loading.css">
 </head>
 <body>
+  <div id="initial-loader" class="initial-loader" role="status" aria-live="polite" aria-busy="true">
+    <div class="initial-loader-card">
+      <div class="loading-hourglass" aria-hidden="true">⌛</div>
+      <p class="eyebrow">LOADING LIVING WORLD</p>
+      <h2>Opening the Observatory</h2>
+      <p id="load-progress-text" class="loading-copy">Reading the world manifest…</p>
+      <div class="loading-countdown" aria-label="Snapshot loading progress">
+        <strong id="load-remaining">—</strong>
+        <span>snapshots remaining</span>
+      </div>
+      <p id="load-loaded" class="loading-detail">Preparing world data…</p>
+    </div>
+  </div>
+
   <header class="topbar">
     <div>
       <p class="eyebrow">LIVING WORLD</p>
