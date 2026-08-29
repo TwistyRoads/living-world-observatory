@@ -97,3 +97,36 @@ never as historical truth or an invented percentage probability.
 The reference snapshot at WD87 is `SAVE NOW`: the authoritative present derived from the source
 save. Earlier snapshots are reconstructed semantic history. A future export may add
 `POST-SAVE PROJECTION`, but projected potentials must never be promoted into Actual Past.
+
+## No-intervention forecast
+
+The Witcher manifest defines sparse analytical horizons at WD117, WD147, and WD177: +30, +60,
+and +90 days from authoritative SAVE NOW. These snapshots age the WD87 causal Frontier with no
+new player intervention. They are projections, not host observations.
+
+Historical Reality is frozen at WD87. The forecast may change pressure, trend, eligibility,
+lifecycle, and ACTIVE Frontier membership, but it cannot create player actions, complete quests,
+or promote probable futures into history. The projection view compares every horizon with the
+WD87 ACTIVE Frontier as newly active, escalated, fading, stable, or no longer active.
+
+The dataset uses sparse projection snapshots because manifest navigation is entry-based:
+WD0–WD87 remains contiguous historical presentation data, followed by WD117, WD147, and WD177.
+No redundant intermediate projection files are required.
+
+## Reconstructed information propagation
+
+The Witcher snapshots also expose presentation-safe semantic knowledge holders and next-day
+`information-transmission` candidates derived from reconstructed Historical Reality. They use
+the existing authored holder, route, channel, delay, reliability, and distortion model from
+`story-v2`; native FactsDB identity and the legacy imported-history overlay are not authority.
+
+Information propagation and probable-future pressure are separate surfaces. Learning does not
+create history, and a transmission candidate does not mean that the underlying event newly
+occurred. Regional Spread renders holder/transmission data when either capability is present and
+retains its neutral unavailable state for datasets without them.
+
+Propagation acceptance can be checked with:
+
+```bash
+python3 scripts/validate_propagation.py
+```

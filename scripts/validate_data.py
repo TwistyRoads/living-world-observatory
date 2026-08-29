@@ -79,6 +79,7 @@ def validate_manifest(path: Path):
         validate_presentation(load_json(presentation_path), presentation_path)
 
     seen_days = set()
+    loaded_snapshots = {}
     last_day = None
     for entry in manifest["snapshots"]:
         require(entry, ["world_day", "path"], f"{path} snapshot entry")
@@ -97,8 +98,60 @@ def validate_manifest(path: Path):
             raise ValueError(f"{path}: missing snapshot {entry['path']}")
         snapshot = load_json(snapshot_path)
         validate_snapshot(snapshot, snapshot_path, manifest, day)
+        loaded_snapshots[day] = snapshot
+
+    if manifest.get("forecast") is not None:
+        validate_forecast(manifest["forecast"], loaded_snapshots, path)
 
     return len(manifest["snapshots"])
+
+
+def validate_forecast(forecast, snapshots, path):
+    require(
+        forecast,
+        ["authoritative_now_world_day", "horizons", "mode", "snapshot_strategy"],
+        f"{path} forecast",
+    )
+    now_day = forecast["authoritative_now_world_day"]
+    if not isinstance(now_day, int) or now_day < 0:
+        raise ValueError(f"{path}: forecast.authoritative_now_world_day must be >= 0")
+    if not isinstance(forecast["mode"], str) or not forecast["mode"]:
+        raise ValueError(f"{path}: forecast.mode must be a non-empty string")
+    if not isinstance(forecast["snapshot_strategy"], str) or not forecast["snapshot_strategy"]:
+        raise ValueError(f"{path}: forecast.snapshot_strategy must be a non-empty string")
+
+    horizons = forecast["horizons"]
+    if not isinstance(horizons, list) or not horizons:
+        raise ValueError(f"{path}: forecast.horizons must be a non-empty array")
+    seen_days = set()
+    for horizon in horizons:
+        require(horizon, ["label", "offset_days", "world_day"], f"{path} forecast horizon")
+        day = horizon["world_day"]
+        offset = horizon["offset_days"]
+        if day in seen_days:
+            raise ValueError(f"{path}: duplicate forecast horizon WD{day}")
+        seen_days.add(day)
+        if day not in snapshots:
+            raise ValueError(f"{path}: forecast horizon WD{day} has no manifest snapshot")
+        if not isinstance(offset, int) or offset < 0 or day - now_day != offset:
+            raise ValueError(f"{path}: forecast horizon WD{day} has invalid offset_days")
+
+        snapshot = snapshots[day]
+        expected_phase = "SAVE NOW" if day == now_day else "POST-SAVE PROJECTION"
+        if snapshot["phase"] != expected_phase:
+            raise ValueError(
+                f"{path}: forecast horizon WD{day} must use phase {expected_phase!r}"
+            )
+        if day > now_day:
+            for event in snapshot["actual_past"]:
+                occurred = event.get("world_day")
+                if isinstance(occurred, int) and occurred > now_day:
+                    raise ValueError(
+                        f"{path}: projection WD{day} contains post-NOW Historical Reality"
+                    )
+
+    if now_day not in seen_days:
+        raise ValueError(f"{path}: forecast horizons must include authoritative NOW")
 
 
 def validate_presentation(presentation, path):
@@ -199,6 +252,10 @@ def validate_snapshot(snapshot, path, manifest, expected_day):
                 if "probability" in item:
                     raise ValueError(
                         f"{path}: probable-future {item['id']!r} must expose pressure, not probability"
+                    )
+                if item["status"] != "ACTIVE":
+                    raise ValueError(
+                        f"{path}: public probable-future Frontier must contain ACTIVE items only"
                     )
                 pressure = item.get("pressure")
                 if pressure is not None and (
