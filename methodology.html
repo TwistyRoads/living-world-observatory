@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="description" content="Living World Observatory methodology, data coverage, authority boundaries, future decay, and information propagation.">
+  <title>Methodology — Living World Observatory</title>
+  <link rel="stylesheet" href="css/observatory.css">
+  <style>
+    .site-nav { margin-top: 0; }
+    .site-nav a { text-decoration: none; }
+    .method-intro { margin-bottom: 1rem; }
+    .method-section { margin-top: 1rem; padding: clamp(1.2rem, 3vw, 2rem); background: rgba(18,22,27,.92); border: 1px solid var(--line); border-radius: 14px; }
+    .method-section h2 { margin: .25rem 0 .6rem; font-size: clamp(1.25rem, 3vw, 1.8rem); letter-spacing: -.02em; }
+    .method-section h3 { margin: 1.25rem 0 .45rem; font-size: 1rem; }
+    .method-section p, .method-section li { color: #c8d0d8; line-height: 1.65; }
+    .method-section p { max-width: 68rem; }
+    .authority-flow { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .65rem; margin-top: 1.1rem; }
+    .flow-step { padding: .9rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2); }
+    .flow-step strong { display: block; margin-bottom: .25rem; color: var(--text); }
+    .flow-step span { color: var(--muted); font-size: .82rem; line-height: 1.45; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .65rem; margin: 1rem 0; }
+    .metric { padding: .9rem; border: 1px solid var(--line); border-radius: 10px; background: rgba(8,10,12,.45); }
+    .metric strong { display: block; color: var(--text); font-size: 1.35rem; }
+    .metric span { color: var(--muted); font-size: .78rem; }
+    .method-note { padding: .9rem 1rem; border-left: 3px solid var(--accent); background: var(--accent-soft); color: #d9e0e7; }
+    .method-table { width: 100%; margin-top: .9rem; border-collapse: collapse; font-size: .88rem; }
+    .method-table th, .method-table td { padding: .65rem .7rem; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+    .method-table th { color: var(--muted); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+    details { margin-top: .8rem; border: 1px solid var(--line); border-radius: 10px; background: rgba(8,10,12,.35); }
+    summary { padding: .85rem 1rem; cursor: pointer; color: var(--text); font-weight: 650; }
+    details[open] summary { border-bottom: 1px solid var(--line); }
+    .quest-list { columns: 2 20rem; column-gap: 2rem; margin: 0; padding: 1rem 1rem 1rem 2.4rem; }
+    .quest-list li { break-inside: avoid; margin: 0 0 .35rem; color: #c8d0d8; }
+    .quest-list em { color: var(--muted); font-size: .8rem; }
+    .limit-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .8rem; }
+    .limit-grid > div { padding: 1rem; border: 1px solid var(--line); border-radius: 10px; background: var(--panel-2); }
+    .limit-grid h3 { margin-top: 0; }
+    code { color: #e3bc8d; }
+    @media (max-width: 820px) {
+      .authority-flow, .metric-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .limit-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .authority-flow, .metric-grid { grid-template-columns: 1fr; }
+      .quest-list { columns: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">LIVING WORLD</p>
+      <h1>Methodology</h1>
+      <p class="subtitle">What the Witcher Observatory knows, how it knows it, what the models do, and what is deliberately not claimed.</p>
+    </div>
+  </header>
+
+  <main>
+    <nav class="mode-tabs site-nav" aria-label="Site navigation">
+      <a class="mode-tab" href="index.html">Observatory</a>
+      <a class="mode-tab is-active" href="methodology.html" aria-current="page">Methodology</a>
+    </nav>
+
+    <section class="method-section method-intro">
+      <p class="eyebrow">REFERENCE DEMONSTRATION</p>
+      <h2>One real save, a bounded semantic catalogue, and explicit model limits</h2>
+      <p>This Observatory is a presentation-safe reconstruction of one completed Witcher 3 playthrough. The save is imported as host evidence, mapped into semantic Historical Reality, compiled into Current State, and then evaluated by two separate analytical systems: probable-future pressure and information propagation.</p>
+      <p class="method-note">The demo does not claim to model every quest, NPC, contract, encounter, or rumor in The Witcher 3. When the catalogue or propagation policy does not contain an authored interpretation, Living World leaves it unmodelled rather than inventing one.</p>
+      <div class="metric-grid" aria-label="Reference dataset summary">
+        <div class="metric"><strong>WD87</strong><span>authoritative save-derived NOW</span></div>
+        <div class="metric"><strong>43</strong><span>Current State items at NOW</span></div>
+        <div class="metric"><strong>27</strong><span>ACTIVE probable futures at NOW</span></div>
+        <div class="metric"><strong>437</strong><span>information-holder occurrences at NOW</span></div>
+      </div>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">AUTHORITY</p>
+      <h2>What each layer is allowed to say</h2>
+      <div class="authority-flow">
+        <div class="flow-step"><strong>Host Observation</strong><span>Evidence imported from the save. It is not itself narrative interpretation.</span></div>
+        <div class="flow-step"><strong>Historical Reality</strong><span>Semantic events the evidence establishes as having happened in this playthrough.</span></div>
+        <div class="flow-step"><strong>Current State</strong><span>What remains authoritatively true NOW after supersession and resolution are applied.</span></div>
+        <div class="flow-step"><strong>Analytical surfaces</strong><span>Probable futures and character knowledge. They can change without creating history.</span></div>
+      </div>
+      <p>The critical boundary is simple: <strong>probability, pressure, knowledge, and transmission never create Historical Reality.</strong> Historical events require authoritative evidence or an explicit future realization mechanism. The current public demo has no autonomous realization mechanism.</p>
+      <p>The last reconstructed historical event in this reference playthrough occurs on <strong>WD75</strong>. The save-derived NOW is <strong>WD87</strong>. That gap is intentional: World Day can advance without requiring a new historical event every day.</p>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">DATA COVERAGE</p>
+      <h2>What is currently modelled</h2>
+      <p>The base-game coverage spine is the 64-entry main-quest chronology used to reconstruct this save. It includes wrappers, flashbacks, recruitment quests, the epilogue, and three branch-dependent quests that did not trigger in this particular playthrough. The semantic evidence pass also captures directly evidenced related side-quest outcomes when they materially affect the main causal spine; that is not the same as comprehensive optional-quest coverage.</p>
+
+      <details>
+        <summary>Wild Hunt base-game chronology — 64 quest / branch entries</summary>
+        <ol class="quest-list">
+          <li>Kaer Morhen</li>
+          <li>Lilac and Gooseberries</li>
+          <li>The Beast of White Orchard</li>
+          <li>The Incident at White Orchard</li>
+          <li>Imperial Audience</li>
+          <li>In Ciri's Footsteps</li>
+          <li>The Nilfgaardian Connection</li>
+          <li>Bloody Baron</li>
+          <li>Ciri's Story: The King of the Wolves</li>
+          <li>Family Matters</li>
+          <li>Hunting a Witch</li>
+          <li>Wandering in the Dark</li>
+          <li>Ladies of the Wood</li>
+          <li>A Princess in Distress</li>
+          <li>The Whispering Hillock</li>
+          <li>Ciri's Story: Fleeing the Bog</li>
+          <li>Ciri's Story: The Race</li>
+          <li>Ciri's Story: Out of the Shadows</li>
+          <li>Pyres of Novigrad</li>
+          <li>Novigrad Dreaming</li>
+          <li>Broken Flowers</li>
+          <li>Count Reuven's Treasure</li>
+          <li>Get Junior</li>
+          <li>Ciri's Story: Visiting Junior</li>
+          <li>A Favor for Radovid</li>
+          <li>The Play's the Thing</li>
+          <li>A Poet Under Pressure</li>
+          <li>Ciri's Story: Breakneck Speed</li>
+          <li>Destination: Skellige</li>
+          <li>The King is Dead – Long Live the King</li>
+          <li>Echoes of the Past</li>
+          <li>Missing Persons</li>
+          <li>Nameless</li>
+          <li>The Calm Before the Storm</li>
+          <li>Ugly Baby</li>
+          <li>Disturbance</li>
+          <li>The Final Trial</li>
+          <li>To Bait a Forktail...</li>
+          <li>No Place Like Home</li>
+          <li>Va Fail, Elaine</li>
+          <li>Brothers In Arms: Velen</li>
+          <li>Brothers In Arms: Novigrad</li>
+          <li>Brothers In Arms: Skellige</li>
+          <li>Brothers In Arms: Nilfgaard</li>
+          <li>The Isle of Mists</li>
+          <li>The Battle of Kaer Morhen</li>
+          <li>Blood on the Battlefield</li>
+          <li>Bald Mountain</li>
+          <li>Final Preparations</li>
+          <li>Blindingly Obvious</li>
+          <li>The Great Escape</li>
+          <li>Payback</li>
+          <li>Through Time and Space</li>
+          <li>Battle Preparations</li>
+          <li>Veni Vidi Vigo</li>
+          <li>The Sunstone</li>
+          <li>Child of the Elder Blood</li>
+          <li>Skjall's Grave</li>
+          <li>On Thin Ice</li>
+          <li>Tedd Deireadh, The Final Age</li>
+          <li>Something Ends, Something Begins</li>
+          <li>A Mysterious Passenger <em>— not triggered in this save</em></li>
+          <li>A Final Kindness <em>— not triggered in this save</em></li>
+          <li>It Takes Three to Tango <em>— not triggered / no positive save evidence</em></li>
+        </ol>
+      </details>
+
+      <p>The base-game causal evaluation currently contains <strong>74 high-confidence playthrough-specific details</strong> connected to that chronology. Those details are decomposed into semantic causal seeds rather than treating “quest complete” as the only meaningful fact.</p>
+
+      <details>
+        <summary>Blood and Wine — 16 main quests in the authored possibility catalogue</summary>
+        <ol class="quest-list">
+          <li>Envoys, Wineboys</li>
+          <li>The Beast of Toussaint</li>
+          <li>Blood Run</li>
+          <li>La Cage au Fou</li>
+          <li>Where Children Toil, Toys Waste Away</li>
+          <li>Wine Is Sacred</li>
+          <li>The Man from Cintra</li>
+          <li>Capture the Castle</li>
+          <li>The Night of Long Fangs</li>
+          <li>Beyond Hill and Dale...</li>
+          <li>Blood Simple</li>
+          <li>What Lies Unseen</li>
+          <li>Tesham Mutna</li>
+          <li>Pomp and Strange Circumstance</li>
+          <li>Burlap is the New Stripe</li>
+          <li>Be It Ever So Humble...</li>
+        </ol>
+      </details>
+
+      <p>The Blood and Wine catalogue contains <strong>45 authored outcomes and 94 causal seeds</strong>. It is a possibility space: the catalogue alone does not assert that every outcome happened. Save evidence selects the outcomes supported by this playthrough.</p>
+
+      <div class="limit-grid">
+        <div>
+          <h3>Included now</h3>
+          <ul>
+            <li>Save-derived base-game causal history anchored to the 64-entry chronology.</li>
+            <li>Directly evidenced related optional-quest outcomes that already affect that causal spine.</li>
+            <li>Blood and Wine main-quest possibility catalogue and save-selected outcomes.</li>
+            <li>Current State, probable-future lifecycle, and semantic information propagation.</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Not comprehensive yet</h3>
+          <ul>
+            <li>Wild Hunt secondary / optional quests as a complete catalogue.</li>
+            <li>Witcher contracts, treasure hunts, scavenger hunts, POIs, and most ambient activities.</li>
+            <li>Hearts of Stone semantic quest coverage.</li>
+            <li>Every Blood and Wine causal seed as an information-propagation route.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">PROBABLE FUTURE</p>
+      <h2>Pressure is a deterministic model score, not a prediction percentage</h2>
+      <p>The baseline future engine is deliberately small and explainable. Every historical event can emit semantic causal seeds. A seed's authored salience, detail-decay profile, persistence, and explicit semantic resolvers determine its lifecycle. The engine does not use machine-learned probabilities and does not claim statistical likelihood.</p>
+
+      <table class="method-table">
+        <thead><tr><th>Input</th><th>Baseline behavior</th></tr></thead>
+        <tbody>
+          <tr><td>Salience</td><td>Peak pressure: low 0.25, medium 0.50, high 0.75, very high 1.00.</td></tr>
+          <tr><td>Detail decay</td><td>Rise to peak: fast 2 days, medium 5, slow 10. Base decay window: fast 14 days, medium 35, slow 70.</td></tr>
+          <tr><td>Persistence</td><td>Timed decay is adjusted by persistence. Medium uses 0.75×, durable 1.5×, quest-chain 1.0×. Permanent / until-changed context does not receive a fabricated expiry.</td></tr>
+          <tr><td>Explicit resolver</td><td>If a later semantic historical event resolves or supersedes the seed, the future becomes RESOLVED.</td></tr>
+          <tr><td>Conditional persistence without a resolver</td><td>The baseline returns INDETERMINATE rather than inventing a timed outcome.</td></tr>
+        </tbody>
+      </table>
+
+      <p>Only <strong>ACTIVE</strong> probable futures are published to the public Frontier. Persistent context remains part of reconstruction analysis but is not presented as an unresolved opportunity.</p>
+
+      <h3>No-intervention projection</h3>
+      <p>The +30 / +60 / +90 controls do not simulate Geralt choosing actions. They simply re-evaluate the same established futures at later World Days while Historical Reality remains frozen.</p>
+      <table class="method-table">
+        <thead><tr><th>Horizon</th><th>World Day</th><th>ACTIVE futures</th><th>Observed baseline behavior</th></tr></thead>
+        <tbody>
+          <tr><td>NOW</td><td>87</td><td>27</td><td>Authoritative save-derived frontier.</td></tr>
+          <tr><td>+30 days</td><td>117</td><td>21</td><td>21 fading; 6 no longer active.</td></tr>
+          <tr><td>+60 days</td><td>147</td><td>18</td><td>18 fading; 9 no longer active.</td></tr>
+          <tr><td>+90 days</td><td>177</td><td>8</td><td>8 fading; 19 no longer active.</td></tr>
+        </tbody>
+      </table>
+      <p class="method-note">In the current baseline, nothing new activates during the 90-day no-intervention forecast. That is an engine limitation and an intentional refusal to fabricate autonomous history, not a claim that a real world would remain passive.</p>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">INFORMATION PROPAGATION</p>
+      <h2>What happened and who knows about it are separate questions</h2>
+      <p>Historical Reality determines what information can exist. A separate authored propagation policy determines where a semantic fact begins, which holders and channels are eligible, how confidence and distortion change, and which transmissions succeed as World Day advances.</p>
+      <div class="authority-flow">
+        <div class="flow-step"><strong>Historical event</strong><span>An event in this save emits semantic causal seeds.</span></div>
+        <div class="flow-step"><strong>Propagation binding</strong><span>An authored policy declares origin holders, channels, routes, and transmission behavior.</span></div>
+        <div class="flow-step"><strong>Knowledge state</strong><span>Successful routes create holder occurrences with acquisition day, confidence, channel, and distortion.</span></div>
+        <div class="flow-step"><strong>Conversation cue</strong><span>A later system can ask whether a specific character actually knows enough for dialogue, correspondence, or another realization.</span></div>
+      </div>
+
+      <p>The original authored propagation domain contains <strong>95 propagatable bindings and 3 state-only bindings</strong>. The reconstructed Blood and Wine catalogue currently contributes <strong>59 additional seeds without authored propagation bindings</strong>. Those seeds remain unbound; Living World does not invent origin holders or routes just to make the map busier.</p>
+      <p>At WD87 the reference save contains <strong>437 accumulated information-holder occurrences</strong>. The exact WD87 next-day transmission Frontier is empty, which simply means no authored route is due on the following day. Across WD0–WD87, 55 snapshots expose at least one information-transmission candidate.</p>
+      <p>Regional Spread visualizes accumulated knowledge or genuine information-transmission candidates. It does <strong>not</strong> convert probable-future pressure into geographic spread. Transmission probability belongs only to the route model.</p>
+
+      <h3>Why two similar playthroughs may share rumors</h3>
+      <p>The information model is deterministic. If two saves establish the same semantic history and use the same authored propagation policy, much of their knowledge state should be the same. That is expected. Divergence comes from different historical outcomes, surviving actors, relationships, secrets, and which causal seeds exist in each playthrough.</p>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">PUBLICATION BOUNDARY</p>
+      <h2>What the public Observatory deliberately does not expose</h2>
+      <p>The browser receives presentation-safe semantic snapshots. It does not receive the raw save or the private evidence used to reconstruct it.</p>
+      <ul>
+        <li>No raw <code>.sav</code> data.</li>
+        <li>No native FactsDB identifiers, native game-time values, record offsets, entry values, or query sums.</li>
+        <li>No Host Observation IDs, save hashes, private evidence objects, or private provenance.</li>
+        <li>No GM-only state or master-database internals.</li>
+      </ul>
+      <p>This separation allows the Observatory to explain causality without turning the public site into an evidence dump.</p>
+    </section>
+
+    <section class="method-section">
+      <p class="eyebrow">NEXT COVERAGE</p>
+      <h2>What changes as more authored data is added</h2>
+      <p>The next major enrichment is the Wild Hunt optional-quest catalogue. The save does not need to change. Adding defensible semantic coverage should allow the same imported playthrough to reconstruct more Historical Reality, more Current State, more causal seeds, more probable-future opportunities, and more information capable of propagating.</p>
+      <p>A later architectural cleanup will separate reusable propagation-catalogue data even more explicitly from per-save Historical Reality. That refactor should preserve the observable behavior shown here rather than redefine it.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>The engine owns causality. The Observatory explains it.</p>
+  </footer>
+</body>
+</html>
