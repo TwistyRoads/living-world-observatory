@@ -28,8 +28,38 @@ const ui = {
   projectionMode: document.querySelector("#projection-mode"),
   content: document.querySelector("#mode-content"),
   regionalSpread: document.querySelector("#regional-spread"),
-  tabs: [...document.querySelectorAll(".mode-tab")],
+  tabs: [...document.querySelectorAll(".mode-tab[data-mode]")],
+  loader: document.querySelector("#initial-loader"),
+  loadProgressText: document.querySelector("#load-progress-text"),
+  loadRemaining: document.querySelector("#load-remaining"),
+  loadLoaded: document.querySelector("#load-loaded"),
 };
+
+function updateLoadProgress(progress) {
+  if (!ui.loader) return;
+
+  if (progress.stage === "manifest") {
+    ui.loadProgressText.textContent = "Reading the world manifest…";
+    ui.loadRemaining.textContent = "—";
+    ui.loadLoaded.textContent = "Preparing snapshot list…";
+    ui.status.textContent = "Loading";
+    return;
+  }
+
+  if (progress.stage === "snapshots") {
+    ui.loadProgressText.textContent = "Loading World Day snapshots…";
+    ui.loadRemaining.textContent = String(progress.remaining);
+    ui.loadLoaded.textContent = `${progress.loaded} of ${progress.total} snapshots loaded`;
+    ui.status.textContent = `Loading ${progress.loaded}/${progress.total}`;
+    return;
+  }
+
+  if (progress.stage === "complete") {
+    ui.loadProgressText.textContent = "Finalizing the Observatory…";
+    ui.loadRemaining.textContent = "0";
+    ui.loadLoaded.textContent = `${progress.total} snapshots loaded`;
+  }
+}
 
 function forecastButton(horizon, selectedDay) {
   const button = document.createElement("button");
@@ -145,7 +175,7 @@ function bindControls() {
 async function boot() {
   bindControls();
   try {
-    const { manifest, snapshots, presentation } = await loadDataset();
+    const { manifest, snapshots, presentation } = await loadDataset(undefined, updateLoadProgress);
     appState.manifest = manifest;
     appState.snapshots = snapshots;
     appState.presentation = presentation;
@@ -161,8 +191,16 @@ async function boot() {
     ui.description.textContent = manifest.description ?? manifest.title ?? manifest.world_id;
     ui.status.textContent = `${manifest.snapshots.length} snapshot${manifest.snapshots.length === 1 ? "" : "s"} loaded`;
     paint();
+    if (ui.loader) {
+      ui.loader.setAttribute("aria-busy", "false");
+      ui.loader.hidden = true;
+    }
   } catch (error) {
     console.error(error);
+    if (ui.loader) {
+      ui.loader.setAttribute("aria-busy", "false");
+      ui.loader.hidden = true;
+    }
     ui.status.textContent = "Dataset error";
     ui.content.classList.add("error");
     ui.content.innerHTML = `<div class="empty"><p>${String(error.message ?? error)}</p></div>`;
