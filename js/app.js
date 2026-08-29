@@ -3,11 +3,13 @@ import {
   appState,
   currentEntry,
   currentSnapshot,
+  setEligibleRegion,
   setMode,
   setRegionalGrouping,
   setRegionalMetric,
   setSelectedIndex,
 } from "./state.js";
+import { renderEligible } from "./eligible.js";
 import { renderMode, renderRegionalSpread, renderTimelineMarkers } from "./render.js";
 
 const ui = {
@@ -110,7 +112,9 @@ function paint() {
     appState.regionalGrouping,
   );
   const nowSnapshot = Number.isInteger(nowDay) ? appState.snapshots.get(nowDay) : null;
-  ui.content.innerHTML = renderMode(snapshot, appState.mode, nowSnapshot);
+  ui.content.innerHTML = appState.mode === "eligible"
+    ? renderEligible(snapshot, appState.presentation, appState.eligibleRegion)
+    : renderMode(snapshot, appState.mode, nowSnapshot);
 
   ui.forecastShell.hidden = !forecast?.horizons?.length;
   ui.forecastControls.replaceChildren(
@@ -146,6 +150,13 @@ function bindControls() {
       paint();
     });
   }
+
+  ui.content.addEventListener("click", event => {
+    const button = event.target.closest("button[data-eligible-region]");
+    if (!button) return;
+    setEligibleRegion(button.dataset.eligibleRegion);
+    paint();
+  });
 
   ui.regionalSpread.addEventListener("click", event => {
     const button = event.target.closest("button[data-regional-control]");
@@ -184,6 +195,7 @@ async function boot() {
     );
     for (const tab of ui.tabs) {
       if (tab.dataset.mode === "knowledge") tab.hidden = !hasKnowledgeSurface;
+      if (tab.dataset.mode === "eligible") tab.hidden = !hasKnowledgeSurface;
     }
     const regionalConfig = presentation?.regional_spread;
     setRegionalMetric(regionalConfig?.default_metric);
