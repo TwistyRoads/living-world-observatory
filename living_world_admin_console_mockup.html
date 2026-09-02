@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Living World Admin Console</title>
+<style>
+:root{
+  --bg:#07131d;
+  --bg2:#0a1823;
+  --panel:#0c1a25;
+  --panel2:#0f202c;
+  --line:#263744;
+  --line2:#334858;
+  --text:#eef4f7;
+  --muted:#9eb0bd;
+  --subtle:#6f8392;
+  --amber:#f4a516;
+  --amber2:#bc7411;
+  --amber-bg:rgba(244,165,22,.12);
+  --green:#55d56a;
+  --blue:#50a8ff;
+  --red:#e25f5f;
+  --shadow:0 8px 30px rgba(0,0,0,.22);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0}
+body{
+  background:
+    radial-gradient(circle at 50% -15%, rgba(27,67,93,.22), transparent 35%),
+    linear-gradient(180deg,#06121b 0%, #07151f 100%);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size:14px;
+  letter-spacing:.01em;
+}
+.app{
+  min-width:1440px;
+  min-height:100vh;
+  display:grid;
+  grid-template-columns:212px 1fr;
+  grid-template-rows:62px 1fr;
+}
+.topbar{
+  grid-column:1/3;
+  display:grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  align-items:center;
+  border-bottom:1px solid #20303b;
+  background:rgba(5,16,24,.93);
+  box-shadow:0 4px 18px rgba(0,0,0,.18);
+  padding:0 18px 0 24px;
+  z-index:5;
+}
+.brand h1{
+  font-size:20px;
+  line-height:1.1;
+  margin:0 0 4px;
+  font-weight:700;
+}
+.brand .crumb{
+  color:#c6d0d6;
+  font-size:13px;
+}
+.searchwrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.search{
+  width:min(520px,90%);
+  border:1px solid #2c3e4c;
+  border-radius:7px;
+  background:#09151f;
+  height:34px;
+  display:flex;
+  align-items:center;
+  gap:9px;
+  padding:0 11px;
+  color:var(--muted);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.015);
+}
+.search .kbd{
+  margin-left:auto;
+  border:1px solid #394956;
+  border-radius:5px;
+  padding:2px 6px;
+  font-size:11px;
+  color:#c3cbd0;
+}
+.statuses{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  white-space:nowrap;
+}
+.pill{
+  height:26px;
+  border:1px solid #294253;
+  border-radius:5px;
+  padding:0 10px;
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  color:#c6d4dc;
+  background:#0b1821;
+  font-size:12px;
+}
+.pill.green{border-color:#1d5b31;color:#77e98a;background:#0b2315}
+.pill.amber{border-color:#80500c;color:#ffb52f;background:#2a1905}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor}
+.countbadge{
+  border-radius:8px;
+  padding:1px 6px;
+  background:#3b2b12;
+  border:1px solid #684610;
+  color:#ffc255;
+}
+.sidebar{
+  grid-row:2;
+  grid-column:1;
+  background:linear-gradient(180deg,#091722,#08151e);
+  border-right:1px solid #20313e;
+  padding:12px 13px 14px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+.navitem{
+  display:flex;
+  align-items:center;
+  gap:13px;
+  padding:13px 12px;
+  border-radius:6px;
+  color:#e6eef2;
+}
+.navitem .ico{width:20px;text-align:center;color:#c0ced6;font-size:18px}
+.navitem.active{
+  background:linear-gradient(90deg,rgba(175,110,15,.24),rgba(175,110,15,.12));
+  border:1px solid rgba(137,86,16,.33);
+  color:#ffb21e;
+}
+.navitem.active .ico{color:#ffb21e}
+.sidebottom{
+  margin-top:auto;
+  border-top:1px solid #22323d;
+  padding:12px 5px 0;
+  color:var(--muted);
+}
+.sidebottom .wd{
+  color:#ffb21e;
+  font-weight:700;
+  margin:4px 0 12px;
+}
+.selectfake{
+  height:32px;
+  border:1px solid #2d414f;
+  background:#0b1822;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 9px;
+  color:#e7edf0;
+}
+.build{
+  margin-top:17px;
+  padding-top:12px;
+  border-top:1px solid #22323d;
+  color:#8598a6;
+  font-size:11px;
+}
+.main{
+  grid-row:2;
+  grid-column:2;
+  padding:12px 14px 18px;
+  overflow:hidden;
+}
+.panel{
+  background:linear-gradient(180deg,rgba(14,31,43,.96),rgba(10,25,35,.97));
+  border:1px solid var(--line);
+  border-radius:7px;
+  box-shadow:var(--shadow);
+}
+.now{
+  display:grid;
+  grid-template-columns:1.25fr 1fr;
+  min-height:178px;
+}
+.now-left{padding:18px 20px 16px}
+.kicker{
+  color:var(--amber);
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+}
+.now h2{
+  font-size:25px;
+  margin:8px 0 24px;
+  letter-spacing:-.01em;
+}
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+}
+.metric{
+  padding-right:18px;
+  margin-right:18px;
+  border-right:1px solid #536572;
+}
+.metric:last-child{border-right:0}
+.metric .num{font-size:28px;font-weight:600;margin-bottom:4px}
+.metric .label{color:#cbd5da;font-size:13px;line-height:1.5}
+.flow{
+  border-left:1px solid #293b48;
+  padding:18px 17px 14px;
+  position:relative;
+}
+.flowtop{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+}
+.togglearea{display:flex;gap:8px;flex-direction:column;align-items:flex-end}
+.togglegroup{display:flex;gap:8px}
+.toggle{
+  border:1px solid #344957;
+  border-radius:11px;
+  padding:2px 9px;
+  color:#aebbc4;
+  font-size:11px;
+}
+.toggle.on{border-color:#8d5a0b;color:#ffb726;background:#251805}
+.flowrows{margin-top:14px}
+.flowrow{
+  display:grid;
+  grid-template-columns:120px 1fr 18px;
+  align-items:center;
+  gap:8px;
+  font-size:11px;
+  color:#c4cfd6;
+  margin:5px 0;
+}
+.track{height:6px;background:#26333b;border-radius:3px;overflow:hidden}
+.fill{height:100%;width:0;background:var(--green)}
+.fill.long{width:100%}
+.legend{display:flex;gap:12px;font-size:11px;color:#aebdc6;margin-top:8px}
+.legend span:before{content:"";display:inline-block;width:6px;height:6px;margin-right:5px;background:var(--green)}
+.legend span:last-child:before{background:var(--blue)}
+.tabs{
+  display:flex;
+  gap:10px;
+  padding:9px 2px 7px;
+}
+.tab{
+  border:1px solid #314350;
+  border-radius:5px;
+  background:#0b1822;
+  color:#b6c2ca;
+  padding:6px 18px;
+  font-size:12px;
+}
+.tab.active{
+  border-color:#a3640f;
+  color:#ffc04b;
+  background:#251805;
+  box-shadow: inset 0 0 0 1px rgba(244,165,22,.08);
+}
+.workspace{
+  display:grid;
+  grid-template-columns: 337px minmax(560px,1fr) minmax(500px,.98fr);
+  gap:10px;
+  height:430px;
+}
+.boxhead{
+  padding:13px 14px 10px;
+  border-bottom:1px solid #31414d;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.smallbadge{
+  border:1px solid #334652;
+  background:#13232d;
+  color:#c0ccd3;
+  border-radius:10px;
+  padding:1px 8px;
+  font-size:11px;
+}
+.listbody{padding:8px}
+.opp{
+  border:1px solid #5e4a29;
+  border-radius:6px;
+  padding:10px 11px 8px;
+  margin-bottom:7px;
+  background:rgba(13,28,39,.92);
+  min-height:78px;
+  position:relative;
+}
+.opp.selected{
+  border-color:#bf7a13;
+  box-shadow:inset 0 0 0 1px rgba(244,165,22,.22);
+}
+.opp h4{
+  margin:0 0 9px;
+  font-size:13px;
+  line-height:1.35;
+  width:90%;
+}
+.pressure{
+  position:absolute;
+  top:10px;
+  right:9px;
+  color:#9aaab4;
+  font-size:10px;
+}
+.star{
+  position:absolute;
+  right:11px;
+  top:31px;
+  color:#f8ae20;
+  font-size:19px;
+}
+.meta{
+  display:grid;
+  grid-template-columns:1fr 1.35fr .7fr .7fr;
+  gap:6px;
+  color:#8ea2af;
+  font-size:9px;
+}
+.meta b{display:block;color:#e7edf1;font-size:10px;font-weight:500;margin-top:2px}
+.more{padding:0 10px 10px;color:#d0dbe1;font-size:11px}
+.workbench{
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+}
+.workcontent{padding:8px 11px 10px;display:flex;flex-direction:column;gap:9px}
+.selectedlabel{font-size:10px;color:#91a2ae}
+.worktitle{font-size:17px;font-weight:650;line-height:1.28;margin-top:2px}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(9,1fr);
+  gap:3px;
+  margin-top:1px;
+}
+.step{
+  height:29px;
+  border:1px solid #344652;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#9caab4;
+  font-size:9px;
+  line-height:1.05;
+  background:#0a1822;
+}
+.step.done{color:#d5dfE4}
+.step.active{border-color:#9e610e;color:#ffc14a;background:#251805}
+.sectionline{
+  border-top:1px solid #30404b;
+  padding-top:8px;
+}
+.sectiontitle{
+  color:var(--amber);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.07em;
+  margin-bottom:8px;
+}
+.surfacegrid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}
+.surface{
+  height:48px;
+  border:1px solid #344754;
+  border-radius:5px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  background:#0a1720;
+  color:#e6edf1;
+}
+.surface.on{border-color:#b66f10;background:rgba(61,39,8,.45)}
+.surface .bigico{font-size:21px;color:#d8e0e4}
+.formarea{
+  display:grid;
+  grid-template-columns:1.28fr 1.08fr 1fr;
+  gap:13px;
+  align-items:start;
+}
+.fields{display:grid;gap:7px}
+.field label{
+  display:block;
+  color:#aebcc6;
+  font-size:10px;
+  margin-bottom:3px;
+}
+.field label::after{content:" *";color:#f15e51}
+.fakeinput{
+  height:28px;
+  border:1px solid #334754;
+  background:#0b1822;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 8px;
+  color:#edf2f5;
+  font-size:11px;
+}
+.checks{padding-top:2px}
+.check{
+  display:flex;
+  gap:7px;
+  color:#c5d0d6;
+  font-size:10px;
+  margin:9px 0;
+  line-height:1.25;
+}
+.checki{
+  width:12px;height:12px;border-radius:50%;
+  background:#45cd5c;color:#06180b;
+  display:inline-flex;align-items:center;justify-content:center;
+  font-weight:900;font-size:8px;flex:none;
+}
+.genbtn{
+  align-self:flex-end;
+  margin-top:auto;
+  height:35px;
+  border:1px solid #bd7410;
+  background:linear-gradient(180deg,#3c2709,#2a1a04);
+  color:#ffbe42;
+  padding:0 17px;
+  border-radius:5px;
+  font-weight:650;
+  box-shadow:0 0 0 1px rgba(255,174,30,.08) inset;
+}
+.contract{
+  display:flex;
+  flex-direction:column;
+}
+.contractbody{
+  padding:10px 11px;
+  display:grid;
+  grid-template-columns:1.35fr 1fr;
+  gap:10px;
+  height:calc(100% - 42px);
+}
+.contractleft{display:flex;flex-direction:column;gap:10px}
+.bullets{
+  color:#c9d3d9;
+  font-size:10px;
+  line-height:1.55;
+  margin:0;
+  padding-left:17px;
+}
+.contractbox{
+  border:1px solid #574326;
+  border-radius:5px;
+  padding:9px 9px;
+}
+.llm{
+  border-left:1px solid #654a26;
+  padding-left:10px;
+}
+.filechip{
+  border:1px solid #344854;
+  border-radius:5px;
+  height:37px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 10px;
+  background:#0b1822;
+  color:#e9eef1;
+  font-size:11px;
+}
+.dropzone{
+  margin-top:8px;
+  border:1px dashed #3c4e5a;
+  border-radius:6px;
+  height:62px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:#aab8c1;
+  font-size:10px;
+  background:#0a1720;
+}
+.btnrow{display:flex;gap:8px;margin-top:7px}
+.smbtn{
+  flex:1;
+  border:1px solid #344754;
+  background:#0b1822;
+  color:#c8d3d9;
+  border-radius:4px;
+  padding:6px 7px;
+  font-size:10px;
+}
+.validation{margin-top:12px;padding-top:10px;border-top:1px solid #31434e}
+.ready{
+  grid-column:1/3;
+  border:1px solid #a6650d;
+  background:linear-gradient(90deg,rgba(116,68,9,.42),rgba(85,48,6,.24));
+  border-radius:6px;
+  min-height:68px;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  padding:11px 15px;
+  margin-top:auto;
+}
+.shield{
+  font-size:35px;
+  color:#ffad16;
+}
+.ready h3{margin:0;color:#ffbd39;font-size:14px;letter-spacing:.04em}
+.ready p{margin:3px 0 0;color:#d6d7d5;font-size:11px;line-height:1.4}
+.master{
+  margin-top:10px;
+  height:171px;
+}
+.mastertop{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:8px 12px;
+  border-bottom:1px solid #30424e;
+}
+.mastertabs{display:flex;gap:8px}
+.mtab{
+  padding:4px 13px;
+  border-radius:5px;
+  border:1px solid transparent;
+  color:#aab7c0;
+  background:#0a1720;
+  font-size:10px;
+}
+.mtab.on{border-color:#9d6110;color:#ffd06e;background:#251805}
+.openmaster{margin-left:auto;color:#c3cfd5;font-size:10px}
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:10px;
+}
+th{
+  color:#a6b7c2;
+  text-align:left;
+  padding:6px 10px;
+  border-bottom:1px solid #263844;
+  font-weight:500;
+}
+td{
+  padding:5px 10px;
+  border-bottom:1px solid rgba(38,56,68,.55);
+  color:#d7e0e5;
+  white-space:nowrap;
+}
+.statusdot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:5px}
+.deceased{color:#ffae1f}.deceased .statusdot{background:#f5a213}
+@media(max-width:1500px){
+  body{zoom:.9}
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="brand">
+      <h1>Living World Admin Console</h1>
+      <div class="crumb">Witcher 3 / WD 87 / Save-Derived NOW⌄</div>
+    </div>
+    <div class="searchwrap">
+      <div class="search">⌕ <span>Search seeds, actors, places, facts...</span><span class="kbd">⌘K</span></div>
+    </div>
+    <div class="statuses">
+      <span class="pill green"><span class="dot"></span>DB Connected</span>
+      <span class="pill green"><span class="dot"></span>Canonical Data Loaded</span>
+      <span class="pill amber"><span class="dot"></span>Shells Pending <span class="countbadge">12</span></span>
+      <span style="color:#aebcc5;margin-left:8px">↻&nbsp; Last sync&nbsp; 2m ago</span>
+      <span style="font-size:20px;color:#8fa2ae">◉</span>
+    </div>
+  </header>
+
+  <aside class="sidebar">
+    <div class="navitem active"><span class="ico">⌂</span><span>Dashboard</span></div>
+    <div class="navitem"><span class="ico">◉</span><span>Observatory</span></div>
+    <div class="navitem"><span class="ico">◎</span><span>World</span></div>
+    <div class="navitem"><span class="ico">◴</span><span>History</span></div>
+    <div class="navitem"><span class="ico">▤</span><span>Master Data</span></div>
+    <div class="navitem"><span class="ico">⚡</span><span>Realization</span></div>
+    <div class="navitem"><span class="ico">♢</span><span>Deployments</span></div>
+    <div class="navitem"><span class="ico">◇</span><span>Packages</span></div>
+    <div class="navitem"><span class="ico">⬡</span><span>Validation</span></div>
+    <div class="navitem"><span class="ico">⚙</span><span>Settings</span></div>
+
+    <div class="sidebottom">
+      <div style="font-size:11px">Environment</div>
+      <div class="wd">WD 87</div>
+      <div style="font-size:11px;margin-bottom:5px">Mode</div>
+      <div class="selectfake"><span>Admin</span><span>⌄</span></div>
+      <div class="build">BUILD 0.9.0 • 2025-05-18</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <section class="panel now">
+      <div class="now-left">
+        <div class="kicker">Authoritative now frontier</div>
+        <h2>This is the authoritative save-derived NOW frontier.</h2>
+        <div class="metrics">
+          <div class="metric"><div class="num">0</div><div class="label">historical event(s)<br>resolve today</div></div>
+          <div class="metric"><div class="num">43</div><div class="label">Current State<br>item(s)</div></div>
+          <div class="metric"><div class="num">27</div><div class="label">active probable-future<br>opportunity item(s)</div></div>
+          <div class="metric"><div class="num">634</div><div class="label">information holder<br>occurrence(s)</div></div>
+        </div>
+      </div>
+      <div class="flow">
+        <div class="flowtop">
+          <div class="kicker">Information flow — regional spread</div>
+          <div class="togglearea">
+            <div class="togglegroup"><span class="toggle on">Pressure</span><span class="toggle">Knowledge</span></div>
+            <div class="togglegroup"><span class="toggle on">Origin</span><span class="toggle">Channel</span></div>
+          </div>
+        </div>
+        <div class="flowrows">
+          <div class="flowrow"><span>White Orchard</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Velen</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Novigrad</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Skellige</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Kaer Morhen</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Vizima / Nilfgaard</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Toussaint</span><div class="track"><div class="fill"></div></div><span>0</span></div>
+          <div class="flowrow"><span>Other / Transregional</span><div class="track"><div class="fill long"></div></div><span>2</span></div>
+        </div>
+        <div class="legend"><span>Local</span><span>Imported</span></div>
+      </div>
+    </section>
+
+    <div class="tabs">
+      <button class="tab">World</button>
+      <button class="tab">Knowledge</button>
+      <button class="tab">Frontier</button>
+      <button class="tab">Eligible</button>
+      <button class="tab">Causal</button>
+      <button class="tab active">Realization</button>
+    </div>
+
+    <section class="workspace">
+      <div class="panel">
+        <div class="boxhead"><span class="kicker">Eligible opportunities</span><span class="smallbadge">27</span></div>
+        <div class="listbody">
+          <div class="opp selected">
+            <div class="pressure">pressure 0.721</div>
+            <div class="star">★</div>
+            <h4>The vampire attack materially depletes Beauclair's available ducal guard.</h4>
+            <div class="meta">
+              <span>surface<b>Correspondence</b></span>
+              <span>holder basis<b>Continental Trade Network</b></span>
+              <span>confidence<b>0.780</b></span>
+              <span>region<b>Toussaint</b></span>
+            </div>
+          </div>
+          <div class="opp">
+            <div class="pressure">pressure 0.743</div>
+            <div class="star" style="color:#7f909b">☆</div>
+            <h4>Geralt and Regis discover that Dettlaff is being blackmailed through the claimed abduction of Rhenawedd.</h4>
+            <div class="meta">
+              <span>surface<b>Dialogue</b></span>
+              <span>holder basis<b>Geralt</b></span>
+              <span>confidence<b>1.000</b></span>
+              <span>region<b>Toussaint</b></span>
+            </div>
+          </div>
+          <div class="opp">
+            <div class="pressure">pressure 0.981</div>
+            <div class="star" style="color:#7f909b">☆</div>
+            <h4>Geralt and Regis determine that Anna Henrietta was Syanna's intended fifth victim.</h4>
+            <div class="meta">
+              <span>surface<b>Quest</b></span>
+              <span>holder basis<b>Geralt</b></span>
+              <span>confidence<b>1.000</b></span>
+              <span>region<b>Toussaint</b></span>
+            </div>
+          </div>
+          <div class="opp">
+            <div class="pressure">pressure 0.707</div>
+            <div class="star" style="color:#7f909b">☆</div>
+            <h4>The ducal investigation links Sangsreal 1269 wine to the person directing Dettlaff's killings.</h4>
+            <div class="meta">
+              <span>surface<b>Correspondence</b></span>
+              <span>holder basis<b>Geralt</b></span>
+              <span>confidence<b>1.000</b></span>
+              <span>region<b>Toussaint</b></span>
+            </div>
+          </div>
+        </div>
+        <div class="more">View all 27 opportunities ›</div>
+      </div>
+
+      <div class="panel workbench">
+        <div class="boxhead"><span class="kicker">Realization workbench</span></div>
+        <div class="workcontent">
+          <div>
+            <div class="selectedlabel">Selected Seed / Opportunity</div>
+            <div class="worktitle">The vampire attack materially depletes<br>Beauclair's available ducal guard.</div>
+          </div>
+          <div class="steps">
+            <div class="step done">Eligible ✓</div>
+            <div class="step done">Selected ✓</div>
+            <div class="step active">Configured</div>
+            <div class="step">Generated</div>
+            <div class="step">Validated</div>
+            <div class="step">Prepared</div>
+            <div class="step">Shell<br>Required</div>
+            <div class="step">Deployable</div>
+            <div class="step">Realized</div>
+          </div>
+          <div class="sectionline">
+            <div class="sectiontitle">Surface selection</div>
+            <div class="surfacegrid">
+              <div class="surface on"><span class="bigico">✉</span>Correspondence</div>
+              <div class="surface"><span class="bigico">☵</span>Dialogue</div>
+              <div class="surface"><span class="bigico">▤</span>Quest / Contract</div>
+            </div>
+          </div>
+          <div class="sectionline">
+            <div class="sectiontitle">Correspondence configuration</div>
+            <div class="formarea">
+              <div class="fields">
+                <div class="field"><label>Sender</label><div class="fakeinput"><span>Barnabas-Basil Foulty</span><span>⌄</span></div></div>
+                <div class="field"><label>Recipient</label><div class="fakeinput"><span>Geralt</span><span>⌄</span></div></div>
+                <div class="field"><label>Origin / Location</label><div class="fakeinput"><span>Beauclair</span><span>⌄</span></div></div>
+                <div class="field"><label>Delivery Method</label><div class="fakeinput"><span>Courier Letter</span><span>⌄</span></div></div>
+              </div>
+              <div class="fields">
+                <div class="field"><label>Purpose</label><div class="fakeinput"><span>Warning / Report</span><span>⌄</span></div></div>
+                <div class="field"><label>Follow-up Allowed</label><div class="fakeinput"><span>Yes</span><span>⌄</span></div></div>
+                <div class="field"><label>All required outcomes represented</label><div class="fakeinput"><span>Yes</span><span>⌄</span></div></div>
+              </div>
+              <div class="checks">
+                <div class="sectiontitle" style="margin-bottom:4px">Validation checks</div>
+                <div class="check"><span class="checki">✓</span><span>Sender can plausibly know this</span></div>
+                <div class="check"><span class="checki">✓</span><span>Recipient eligibility valid</span></div>
+                <div class="check"><span class="checki">✓</span><span>World-state prerequisites satisfied</span></div>
+                <div class="check"><span class="checki">✓</span><span>Information route established</span></div>
+              </div>
+            </div>
+          </div>
+          <button class="genbtn">⚡&nbsp; Generate Resolution</button>
+        </div>
+      </div>
+
+      <div class="panel contract">
+        <div class="boxhead"><span class="kicker">Output contract &amp; LLM package</span></div>
+        <div class="contractbody">
+          <div class="contractleft">
+            <div>
+              <div class="sectiontitle">Living World provides</div>
+              <ul class="bullets">
+                <li>Actors: Barnabas-Basil Foulty, Geralt, Ducal Guard</li>
+                <li>Knowledge: vampire attack impact on guard strength</li>
+                <li>Constraints: timeline window, political sensitivity</li>
+                <li>Causal Reason: attack forced guard redeployment</li>
+                <li>Location: Beauclair (Toussaint)</li>
+                <li>Branches: alternate responses accounted for</li>
+                <li>Required Outcomes: 3 represented</li>
+                <li>Realization Fact IDs: LW_FACT_445112, LW_FACT_445113</li>
+              </ul>
+            </div>
+            <div class="contractbox">
+              <div class="sectiontitle">Host must provide</div>
+              <ul class="bullets">
+                <li>Readable correspondence shell (Courier Letter)</li>
+                <li>Availability predicate (shell insertion window)</li>
+                <li>Authored body text (in-world phrasing)</li>
+                <li>Response behavior (Geralt's handling)</li>
+                <li>Completion observation (player-visible outcome)</li>
+                <li>Persistent realization fact creation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="llm">
+            <div class="sectiontitle" style="color:#edf2f5">LLM package</div>
+            <div class="sectiontitle">Prompt export</div>
+            <div class="filechip"><span>lw_realization_000127_prompt.md</span><span>⇩</span></div>
+
+            <div class="sectiontitle" style="margin-top:15px">Response import</div>
+            <div class="dropzone">Drop file here or click to upload<br>(Paste JSON also supported)</div>
+            <div class="btnrow"><button class="smbtn">⇧ Upload JSON</button><button class="smbtn">▣ Paste JSON</button></div>
+
+            <div class="validation">
+              <div class="sectiontitle">Package validation</div>
+              <div class="check"><span class="checki">✓</span><span>Schema valid</span></div>
+              <div class="check"><span class="checki">✓</span><span>Ready for shell</span></div>
+              <button class="smbtn" style="width:100%;margin-top:4px">↻ Validate Again</button>
+            </div>
+          </div>
+
+          <div class="ready">
+            <div class="shield">⬡</div>
+            <div>
+              <h3>READY FOR HOST IMPLEMENTATION</h3>
+              <p>Shell unavailable. Semantic package complete.<br>Awaiting REDkit correspondence shell.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel master">
+      <div class="mastertop">
+        <span class="kicker">Master data glance</span>
+        <div class="mastertabs">
+          <span class="mtab on">Characters</span>
+          <span class="mtab">Quests</span>
+          <span class="mtab">Factions</span>
+          <span class="mtab">Causal Seeds</span>
+          <span class="mtab">Propagation Routes</span>
+        </div>
+        <span class="openmaster">Open Master Data ↗ &nbsp; ⋮</span>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th><th>Aliases</th><th>Faction</th><th>Region</th><th>Role</th><th>Status</th><th>First Seen</th><th>Last Seen</th><th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Geralt of Rivia</td><td>White Wolf</td><td>Witcher (Independent)</td><td>Toussaint</td><td>Protagonist</td><td><span class="statusdot"></span><span style="color:#68df79">Active</span></td><td>–</td><td>–</td><td>Primary information holder.</td></tr>
+          <tr><td>Barnabas-Basil Foulty</td><td>B-B Foulty</td><td>Toussaint Ducal Court</td><td>Toussaint</td><td>Courtier</td><td><span class="statusdot"></span><span style="color:#68df79">Active</span></td><td>1268</td><td>1272</td><td>Ducal servant; handles correspondence.</td></tr>
+          <tr><td>Dettlaff</td><td>Higher Vampire</td><td>Vampires (Regis)</td><td>Toussaint</td><td>Antagonist</td><td><span class="statusdot"></span><span style="color:#68df79">Active</span></td><td>–</td><td>–</td><td>Regis' sire and elder.</td></tr>
+          <tr><td>Syanna</td><td>Syanna of Toussaint</td><td>Toussaint Nobility</td><td>Toussaint</td><td>Noble</td><td class="deceased"><span class="statusdot"></span>Deceased</td><td>–</td><td>–</td><td>Victim in vampire attacks.</td></tr>
+          <tr><td>Anna Henrietta</td><td>Anna Henrietta</td><td>Toussaint Nobility</td><td>Toussaint</td><td>Noble</td><td><span class="statusdot"></span><span style="color:#68df79">Active</span></td><td>–</td><td>–</td><td>Targeted by Dettlaff.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>
+</body>
+</html>
