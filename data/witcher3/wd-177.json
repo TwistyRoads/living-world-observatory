@@ -13,11 +13,7 @@
       "kind": "probable-future",
       "peak_pressure": 1.0,
       "peak_world_day": 85,
-      "potential_surfaces": [
-        "dialogue",
-        "correspondence",
-        "quest"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.12381,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_anna_identified_as_intended_fifth_victim",
@@ -39,10 +35,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [
-        "dialogue",
-        "quest"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.064286,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_cintrian_and_cecilia_lead_identified",
@@ -64,12 +57,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 83,
-      "potential_surfaces": [
-        "ambient bark",
-        "dialogue",
-        "correspondence",
-        "quest"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.078571,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_ducal_guard_depleted_by_vampire_attack",
@@ -91,11 +79,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 82,
-      "potential_surfaces": [
-        "dialogue",
-        "correspondence",
-        "quest"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.071429,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_dun_tynne_implicated",
@@ -117,11 +101,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [
-        "ambient bark",
-        "dialogue",
-        "correspondence"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.064286,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_fabricio_arrested_for_sangreal_treason",
@@ -143,9 +123,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 84,
-      "potential_surfaces": [
-        "dialogue"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.085714,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_geralt_learns_syanna_exile_grievances",
@@ -167,11 +145,7 @@
       "kind": "probable-future",
       "peak_pressure": 0.75,
       "peak_world_day": 81,
-      "potential_surfaces": [
-        "dialogue",
-        "correspondence",
-        "quest"
-      ],
+      "potential_surfaces": [],
       "pressure": 0.064286,
       "pressure_is_model_score_not_historical_truth": true,
       "seed_id": "baw_sangreal_linked_to_blackmail_operation",
