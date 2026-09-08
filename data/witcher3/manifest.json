@@ -1,6 +1,6 @@
 {
   "contract_version": "0.2",
-  "description": "Presentation-safe reconstruction through authoritative SAVE NOW at WD87, with semantic information propagation and sparse no-intervention projections at +30, +60, and +90 days. Probable-future pressure and information transmission remain separate analytical surfaces and never create history.",
+  "description": "Presentation-safe World Day replay derived from one authoritative Witcher save and the installed Living World runtime repositories. Historical Reality remains host-evidence-derived; reviewed bindings activate authored definitions without creating history.",
   "forecast": {
     "authoritative_now_world_day": 87,
     "horizons": [
@@ -27,6 +27,28 @@
     ],
     "mode": "NO PLAYER INTERVENTION",
     "snapshot_strategy": "sparse_horizons"
+  },
+  "installed_authored_causality": {
+    "activated_authored_event_definition_count": 33,
+    "activated_event_count": 35,
+    "activated_seed_count": 25,
+    "activated_seed_with_route_count": 13,
+    "activated_seed_without_route_count": 12,
+    "binding_summary": {
+      "missing_binding_count": 0,
+      "reconstructed_event_count": 97,
+      "requires_review_count": 3,
+      "reviewed_match_count": 35,
+      "reviewed_no_match_count": 59
+    },
+    "permission_count": 58,
+    "permissions_by_surface_type": {
+      "ambient bark": 4,
+      "correspondence": 13,
+      "dialogue": 25,
+      "quest": 16
+    },
+    "route_count": 17
   },
   "presentation_config": "presentation.json",
   "snapshots": [

@@ -55,6 +55,37 @@
       "world_day": 57
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 9,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -341,6 +372,104 @@
       "source_event_id": "witcher3.event.curated.035",
       "summary": "Vigi survived Undvik because the rescue branch succeeded.",
       "title": "Skellige Expedition Survivors → Clan An Craite",
+      "world_day": 57
+    },
+    {
+      "authored_event_id": "L_W_event_bia_skellige_cerys_delegates_hjalmar",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.042:L_W_event_bia_skellige_cerys_delegates_hjalmar",
+      "semantic_event_id": "witcher3.event.curated.042",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "As Queen of Skellige; Cerys delegates Hjalmar as the warrior who can support the Kaer Morhen defense in her place.",
+      "world_day": 57
+    },
+    {
+      "authored_event_id": "L_W_event_bia_skellige_cerys_remains_noncombat_support",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.043:L_W_event_bia_skellige_cerys_remains_noncombat_support",
+      "semantic_event_id": "witcher3.event.curated.043",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Cerys an Craite does not personally commit as a Kaer Morhen combat defender after the succession is settled.",
+      "world_day": 57
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_bia_skellige_cerys_knows_defense_plan",
+      "seed_id": "L_W_seed_bia_skellige_cerys_knows_defense_plan",
+      "source_event_id": "L_W_event_bia_skellige_cerys_delegates_hjalmar",
+      "summary": "bounded visibility; medium salience; durable persistence.",
+      "title": "Cerys an Craite knows that Geralt is assembling allies for a Kaer Morhen defense against the Wild Hunt.",
+      "world_day": 57
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "political_consequence",
+      "id": "trace:authored-seed:L_W_seed_event_bia_skellige_cerys_remains_noncombat_support",
+      "seed_id": "L_W_seed_event_bia_skellige_cerys_remains_noncombat_support",
+      "source_event_id": "L_W_event_bia_skellige_cerys_remains_noncombat_support",
+      "summary": "bounded visibility; medium salience; permanent_history persistence.",
+      "title": "The political condition established by this authored event can constrain later authority, alignment, or institutional action: Cerys an Craite does not personally commit as a Kaer Morhen combat defender after the succession is settled.",
+      "world_day": 57
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_bia_skellige_cerys_knows_defense_plan_origin_first_hop",
+      "route_id": "L_W_route_bia_skellige_cerys_knows_defense_plan_origin_first_hop",
+      "seed_id": "L_W_seed_bia_skellige_cerys_knows_defense_plan",
+      "summary": "personal_disclosure channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_geralt_allies",
+      "world_day": 57
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_bia_skellige_cerys_knows_defense_plan_correspondence",
+      "permission_id": "L_W_permission_bia_skellige_cerys_knows_defense_plan_correspondence",
+      "seed_id": "L_W_seed_bia_skellige_cerys_knows_defense_plan",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 57
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_bia_skellige_cerys_knows_defense_plan_dialogue",
+      "permission_id": "L_W_permission_bia_skellige_cerys_knows_defense_plan_dialogue",
+      "seed_id": "L_W_seed_bia_skellige_cerys_knows_defense_plan",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 57
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_bia_skellige_cerys_remains_noncombat_support_dialogue",
+      "permission_id": "L_W_permission_event_bia_skellige_cerys_remains_noncombat_support_dialogue",
+      "seed_id": "L_W_seed_event_bia_skellige_cerys_remains_noncombat_support",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 57
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_bia_skellige_cerys_remains_noncombat_support_quest",
+      "permission_id": "L_W_permission_event_bia_skellige_cerys_remains_noncombat_support_quest",
+      "seed_id": "L_W_seed_event_bia_skellige_cerys_remains_noncombat_support",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 57
     }
   ],

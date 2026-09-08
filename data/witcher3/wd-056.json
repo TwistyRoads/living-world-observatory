@@ -55,6 +55,37 @@
       "world_day": 56
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 10,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -445,6 +476,114 @@
       "source_event_id": "witcher3.event.curated.035",
       "summary": "Vigi survived Undvik because the rescue branch succeeded.",
       "title": "Origin: Skellige Expedition Survivors",
+      "world_day": 56
+    },
+    {
+      "authored_event_id": "L_W_event_coronation_cerys_crowned_queen_of_skellige",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.039:L_W_event_coronation_cerys_crowned_queen_of_skellige",
+      "semantic_event_id": "witcher3.event.curated.039",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Cerys an Craite is crowned Queen of Skellige.",
+      "world_day": 56
+    },
+    {
+      "authored_event_id": "L_W_event_coronation_cerys_crowned_queen_of_skellige",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.040:L_W_event_coronation_cerys_crowned_queen_of_skellige",
+      "semantic_event_id": "witcher3.event.curated.040",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Cerys an Craite is crowned Queen of Skellige.",
+      "world_day": 56
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "political_consequence",
+      "id": "trace:authored-seed:L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "source_event_id": "L_W_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "bounded visibility; high salience; permanent_history persistence.",
+      "title": "The political condition established when cerys an Craite is crowned Queen of Skellige can constrain later authority, alignment, or institutional action.",
+      "world_day": 56
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_coronation_cerys_crowned_queen_of_skellige_onward_hop",
+      "route_id": "L_W_route_event_coronation_cerys_crowned_queen_of_skellige_onward_hop",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "clan_report channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_faction_holder_proxy_skellige_clans → L_W_faction_holder_proxy_skellige_court",
+      "world_day": 56
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_coronation_cerys_crowned_queen_of_skellige_origin_first_hop",
+      "route_id": "L_W_route_event_coronation_cerys_crowned_queen_of_skellige_origin_first_hop",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "court_report channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_cerys_an_craite → L_W_faction_holder_proxy_skellige_clans",
+      "world_day": 56
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_coronation_cerys_crowned_queen_of_skellige_wide_hop",
+      "route_id": "L_W_route_event_coronation_cerys_crowned_queen_of_skellige_wide_hop",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "trade_rumor channel; interregional scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_faction_holder_proxy_skellige_clans → L_W_faction_holder_proxy_continental_trade_network",
+      "world_day": 56
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_ambient_bark",
+      "permission_id": "L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_ambient_bark",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "ambient bark",
+      "title": "ambient bark — allowed",
+      "world_day": 56
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_correspondence",
+      "permission_id": "L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_correspondence",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 56
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_dialogue",
+      "permission_id": "L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_dialogue",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 56
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_quest",
+      "permission_id": "L_W_permission_event_coronation_cerys_crowned_queen_of_skellige_quest",
+      "seed_id": "L_W_seed_event_coronation_cerys_crowned_queen_of_skellige",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 56
     }
   ],

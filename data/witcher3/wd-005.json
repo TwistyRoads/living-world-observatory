@@ -10,6 +10,37 @@
       "world_day": 5
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 4,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -84,6 +115,50 @@
       "source_event_id": "witcher3.event.curated.003",
       "summary": "Local witnesses associate Geralt/Vesemir with lethal violence in the inn.",
       "title": "White Orchard Witnesses → White Orchard Locals",
+      "world_day": 5
+    },
+    {
+      "authored_event_id": "L_W_event_ghosts_of_the_past_letho_alive",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.004:L_W_event_ghosts_of_the_past_letho_alive",
+      "semantic_event_id": "witcher3.event.curated.004",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Letho is alive.",
+      "world_day": 5
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "character_availability",
+      "id": "trace:authored-seed:L_W_seed_event_ghosts_of_the_past_letho_alive",
+      "seed_id": "L_W_seed_event_ghosts_of_the_past_letho_alive",
+      "source_event_id": "L_W_event_ghosts_of_the_past_letho_alive",
+      "summary": "bounded visibility; medium salience; permanent_history persistence.",
+      "title": "Because letho is alive, the affected actor remains potentially available for later participation, subject to subsequent authored history.",
+      "world_day": 5
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_ghosts_of_the_past_letho_alive_dialogue",
+      "permission_id": "L_W_permission_event_ghosts_of_the_past_letho_alive_dialogue",
+      "seed_id": "L_W_seed_event_ghosts_of_the_past_letho_alive",
+      "summary": "Audience scope: affected actors and informed velen holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 5
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_ghosts_of_the_past_letho_alive_quest",
+      "permission_id": "L_W_permission_event_ghosts_of_the_past_letho_alive_quest",
+      "seed_id": "L_W_seed_event_ghosts_of_the_past_letho_alive",
+      "summary": "Audience scope: affected actors and informed velen holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 5
     }
   ],

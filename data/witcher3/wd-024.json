@@ -10,6 +10,37 @@
       "world_day": 24
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 4,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -82,6 +113,50 @@
       "source_event_id": "witcher3.event.curated.018",
       "summary": "Whoreson Junior is dead.",
       "title": "Origin: Novigrad Witnesses",
+      "world_day": 24
+    },
+    {
+      "authored_event_id": "L_W_event_get_junior_whoreson_junior_killed",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.018:L_W_event_get_junior_whoreson_junior_killed",
+      "semantic_event_id": "witcher3.event.curated.018",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt kills Whoreson Junior.",
+      "world_day": 24
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "structural_consequence",
+      "id": "trace:authored-seed:L_W_seed_junior_big_four_role_removed_by_death",
+      "seed_id": "L_W_seed_junior_big_four_role_removed_by_death",
+      "source_event_id": "L_W_event_get_junior_whoreson_junior_killed",
+      "summary": "bounded visibility; high salience; permanent persistence.",
+      "title": "Whoreson Junior can no longer occupy his Big Four role because he is dead.",
+      "world_day": 24
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_junior_big_four_role_removed_by_death_dialogue",
+      "permission_id": "L_W_permission_junior_big_four_role_removed_by_death_dialogue",
+      "seed_id": "L_W_seed_junior_big_four_role_removed_by_death",
+      "summary": "Audience scope: affected actors and informed novigrad holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 24
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_junior_big_four_role_removed_by_death_quest",
+      "permission_id": "L_W_permission_junior_big_four_role_removed_by_death_quest",
+      "seed_id": "L_W_seed_junior_big_four_role_removed_by_death",
+      "summary": "Audience scope: affected actors and informed novigrad holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 24
     }
   ],

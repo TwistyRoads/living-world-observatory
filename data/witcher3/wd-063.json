@@ -10,6 +10,37 @@
       "world_day": 63
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 5,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -73,6 +104,60 @@
       "source_event_id": "witcher3.event.curated.050",
       "summary": "Vigi died during the Battle of Kaer Morhen.",
       "title": "Skellige Clans → Skellige Sailors",
+      "world_day": 63
+    },
+    {
+      "authored_event_id": "L_W_event_final_preparations_geralt_lets_ciri_meet_lodge_alone",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.061:L_W_event_final_preparations_geralt_lets_ciri_meet_lodge_alone",
+      "semantic_event_id": "witcher3.event.curated.061",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt can trust Ciri to enter the Lodge meeting without him.",
+      "world_day": 63
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_final_preparations_yennefer_eavesdrops_if_ciri_alone",
+      "seed_id": "L_W_seed_final_preparations_yennefer_eavesdrops_if_ciri_alone",
+      "source_event_id": "L_W_event_final_preparations_geralt_lets_ciri_meet_lodge_alone",
+      "summary": "bounded visibility; high salience; durable persistence.",
+      "title": "If Ciri goes in alone, Yennefer joins Geralt outside and eavesdrops on part of the meeting.",
+      "world_day": 63
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_final_preparations_yennefer_eavesdrops_if_ciri_alone_origin_first_hop",
+      "route_id": "L_W_route_final_preparations_yennefer_eavesdrops_if_ciri_alone_origin_first_hop",
+      "seed_id": "L_W_seed_final_preparations_yennefer_eavesdrops_if_ciri_alone",
+      "summary": "personal_disclosure channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_geralt_allies",
+      "world_day": 63
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_final_preparations_yennefer_eavesdrops_if_ciri_alone_correspondence",
+      "permission_id": "L_W_permission_final_preparations_yennefer_eavesdrops_if_ciri_alone_correspondence",
+      "seed_id": "L_W_seed_final_preparations_yennefer_eavesdrops_if_ciri_alone",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 63
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_final_preparations_yennefer_eavesdrops_if_ciri_alone_dialogue",
+      "permission_id": "L_W_permission_final_preparations_yennefer_eavesdrops_if_ciri_alone_dialogue",
+      "seed_id": "L_W_seed_final_preparations_yennefer_eavesdrops_if_ciri_alone",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
       "world_day": 63
     }
   ],

@@ -46,6 +46,37 @@
       "world_day": 68
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 10,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -310,6 +341,114 @@
       "source_event_id": "witcher3.event.curated.062",
       "summary": "King Radovid V is dead.",
       "title": "Novigrad Merchants → Continental Trade Network",
+      "world_day": 68
+    },
+    {
+      "authored_event_id": "L_W_event_child_ciri_and_geralt_damage_laboratory",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.066:L_W_event_child_ciri_and_geralt_damage_laboratory",
+      "semantic_event_id": "witcher3.event.curated.066",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Ciri and Geralt deliberately wreck substantial parts of Avallac'h's laboratory.",
+      "world_day": 68
+    },
+    {
+      "authored_event_id": "L_W_event_child_geralt_ciri_meet_avallach_lover",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.067:L_W_event_child_geralt_ciri_meet_avallach_lover",
+      "semantic_event_id": "witcher3.event.curated.067",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt and Ciri meet Avallac'h's Aen Elle lover in the hidden laboratory.",
+      "world_day": 68
+    },
+    {
+      "authored_event_id": "L_W_event_on_thin_ice_eredin_kills_crach",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.070:L_W_event_on_thin_ice_eredin_kills_crach",
+      "semantic_event_id": "witcher3.event.curated.070",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Eredin kills Crach an Craite during their duel aboard the Naglfar.",
+      "world_day": 68
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_child_lover_claims_avallach_hates_ciri",
+      "seed_id": "L_W_seed_child_lover_claims_avallach_hates_ciri",
+      "source_event_id": "L_W_event_child_geralt_ciri_meet_avallach_lover",
+      "summary": "secret visibility; high salience; durable persistence.",
+      "title": "The Aen Elle woman claims to Ciri that Avallac'h secretly despises or hates her.",
+      "world_day": 68
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_on_thin_ice_crach_death_directly_witnessed_by_geralt",
+      "seed_id": "L_W_seed_on_thin_ice_crach_death_directly_witnessed_by_geralt",
+      "source_event_id": "L_W_event_on_thin_ice_eredin_kills_crach",
+      "summary": "bounded visibility; high salience; durable persistence.",
+      "title": "Geralt directly witnesses Eredin kill Crach aboard the Naglfar.",
+      "world_day": 68
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_on_thin_ice_crach_death_directly_witnessed_by_geralt_origin_first_hop",
+      "route_id": "L_W_route_on_thin_ice_crach_death_directly_witnessed_by_geralt_origin_first_hop",
+      "seed_id": "L_W_seed_on_thin_ice_crach_death_directly_witnessed_by_geralt",
+      "summary": "personal_disclosure channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_geralt_allies",
+      "world_day": 68
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_child_lover_claims_avallach_hates_ciri_correspondence",
+      "permission_id": "L_W_permission_child_lover_claims_avallach_hates_ciri_correspondence",
+      "seed_id": "L_W_seed_child_lover_claims_avallach_hates_ciri",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 68
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_child_lover_claims_avallach_hates_ciri_dialogue",
+      "permission_id": "L_W_permission_child_lover_claims_avallach_hates_ciri_dialogue",
+      "seed_id": "L_W_seed_child_lover_claims_avallach_hates_ciri",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 68
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_on_thin_ice_crach_death_directly_witnessed_by_geralt_correspondence",
+      "permission_id": "L_W_permission_on_thin_ice_crach_death_directly_witnessed_by_geralt_correspondence",
+      "seed_id": "L_W_seed_on_thin_ice_crach_death_directly_witnessed_by_geralt",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 68
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_on_thin_ice_crach_death_directly_witnessed_by_geralt_dialogue",
+      "permission_id": "L_W_permission_on_thin_ice_crach_death_directly_witnessed_by_geralt_dialogue",
+      "seed_id": "L_W_seed_on_thin_ice_crach_death_directly_witnessed_by_geralt",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
       "world_day": 68
     }
   ],

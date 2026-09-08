@@ -10,6 +10,37 @@
       "world_day": 38
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 6,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -40,6 +71,72 @@
       "source_event_id": "witcher3.event.curated.030",
       "summary": "Geralt and Yennefer are in the committed romance path.",
       "title": "Origin: Yennefer",
+      "world_day": 38
+    },
+    {
+      "authored_event_id": "L_W_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.030:L_W_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "semantic_event_id": "witcher3.event.curated.030",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt and Yennefer voluntarily continue their romantic relationship after the magical binding is removed.",
+      "world_day": 38
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "relationship_consequence",
+      "id": "trace:authored-seed:L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "seed_id": "L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "source_event_id": "L_W_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "summary": "private_bounded visibility; medium salience; until_changed persistence.",
+      "title": "The relationship condition established when geralt and Yennefer voluntarily continue their romantic relationship after the magical binding is removed can constrain later trust, access, cooperation, or hostility.",
+      "world_day": 38
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_origin_first_hop",
+      "route_id": "L_W_route_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_origin_first_hop",
+      "seed_id": "L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "summary": "personal_disclosure channel; bounded scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_skellige_clans",
+      "world_day": 38
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_correspondence",
+      "permission_id": "L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_correspondence",
+      "seed_id": "L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "summary": "Audience scope: direct participants and trusted recipients. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 38
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_dialogue",
+      "permission_id": "L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_dialogue",
+      "seed_id": "L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "summary": "Audience scope: direct participants and trusted recipients. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 38
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_quest",
+      "permission_id": "L_W_permission_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding_quest",
+      "seed_id": "L_W_seed_event_the_last_wish_geralt_yennefer_confirm_mutual_love_without_binding",
+      "summary": "Audience scope: direct participants and trusted recipients. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 38
     }
   ],

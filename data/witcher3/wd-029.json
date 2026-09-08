@@ -10,6 +10,37 @@
       "world_day": 29
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 5,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -40,6 +71,60 @@
       "source_event_id": "witcher3.event.curated.022",
       "summary": "Dijkstra received a false claim from Geralt during the treasure operation.",
       "title": "Origin: Geralt",
+      "world_day": 29
+    },
+    {
+      "authored_event_id": "L_W_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.022:L_W_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "semantic_event_id": "witcher3.event.curated.022",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt's withholding of the heist mastermind's identity strains his relationship with Dijkstra.",
+      "world_day": 29
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "seed_id": "L_W_seed_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "source_event_id": "L_W_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "summary": "secret visibility; medium salience; durable persistence.",
+      "title": "The information established when geralt's withholding of the heist mastermind's identity strains his relationship with Dijkstra can support later decisions or bounded disclosure by relevant holders.",
+      "world_day": 29
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_origin_first_hop",
+      "route_id": "L_W_route_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_origin_first_hop",
+      "seed_id": "L_W_seed_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "summary": "witness_report channel; bounded scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_novigrad_citizens",
+      "world_day": 29
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_correspondence",
+      "permission_id": "L_W_permission_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_correspondence",
+      "seed_id": "L_W_seed_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "summary": "Audience scope: direct participants and trusted recipients. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 29
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_dialogue",
+      "permission_id": "L_W_permission_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge_dialogue",
+      "seed_id": "L_W_seed_event_count_reuven_s_treasure_geralt_dijkstra_relationship_strained_by_hidden_heist_knowledge",
+      "summary": "Audience scope: direct participants and trusted recipients. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
       "world_day": 29
     }
   ],

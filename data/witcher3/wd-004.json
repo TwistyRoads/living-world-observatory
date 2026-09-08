@@ -10,6 +10,37 @@
       "world_day": 4
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 4,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -93,6 +124,50 @@
       "source_event_id": "witcher3.event.curated.003",
       "summary": "Local witnesses associate Geralt/Vesemir with lethal violence in the inn.",
       "title": "Origin: White Orchard Witnesses",
+      "world_day": 4
+    },
+    {
+      "authored_event_id": "L_W_event_the_incident_at_white_orchard_inn_attackers_dead",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.003:L_W_event_the_incident_at_white_orchard_inn_attackers_dead",
+      "semantic_event_id": "witcher3.event.curated.003",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "The men who attack Geralt and Vesemir in the White Orchard inn are dead.",
+      "world_day": 4
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "structural_consequence",
+      "id": "trace:authored-seed:L_W_seed_incident_white_orchard_elsa_leaves",
+      "seed_id": "L_W_seed_incident_white_orchard_elsa_leaves",
+      "source_event_id": "L_W_event_the_incident_at_white_orchard_inn_attackers_dead",
+      "summary": "bounded visibility; medium salience; until_changed persistence.",
+      "title": "Elsa ceases to remain the White Orchard innkeeper and leaves White Orchard after the incident.",
+      "world_day": 4
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_incident_white_orchard_elsa_leaves_dialogue",
+      "permission_id": "L_W_permission_incident_white_orchard_elsa_leaves_dialogue",
+      "seed_id": "L_W_seed_incident_white_orchard_elsa_leaves",
+      "summary": "Audience scope: affected actors and informed white orchard holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 4
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_incident_white_orchard_elsa_leaves_quest",
+      "permission_id": "L_W_permission_incident_white_orchard_elsa_leaves_quest",
+      "seed_id": "L_W_seed_incident_white_orchard_elsa_leaves",
+      "summary": "Audience scope: affected actors and informed white orchard holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 4
     }
   ],

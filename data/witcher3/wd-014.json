@@ -10,6 +10,37 @@
       "world_day": 14
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 4,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -137,6 +168,50 @@
       "source_event_id": "witcher3.event.curated.002",
       "summary": "The White Orchard griffin is dead.",
       "title": "Continental Trade Network → Toussaint Court",
+      "world_day": 14
+    },
+    {
+      "authored_event_id": "L_W_event_family_matters_tamara_located_in_oxenfurt",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.014:L_W_event_family_matters_tamara_located_in_oxenfurt",
+      "semantic_event_id": "witcher3.event.curated.014",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Tamara Strenger is located in Oxenfurt.",
+      "world_day": 14
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "character_availability",
+      "id": "trace:authored-seed:L_W_seed_event_family_matters_tamara_located_in_oxenfurt",
+      "seed_id": "L_W_seed_event_family_matters_tamara_located_in_oxenfurt",
+      "source_event_id": "L_W_event_family_matters_tamara_located_in_oxenfurt",
+      "summary": "bounded visibility; medium salience; permanent_history persistence.",
+      "title": "The character state established when tamara Strenger is located in Oxenfurt constrains later location, availability, or participation.",
+      "world_day": 14
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_family_matters_tamara_located_in_oxenfurt_dialogue",
+      "permission_id": "L_W_permission_event_family_matters_tamara_located_in_oxenfurt_dialogue",
+      "seed_id": "L_W_seed_event_family_matters_tamara_located_in_oxenfurt",
+      "summary": "Audience scope: affected actors and informed  holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 14
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_family_matters_tamara_located_in_oxenfurt_quest",
+      "permission_id": "L_W_permission_event_family_matters_tamara_located_in_oxenfurt_quest",
+      "seed_id": "L_W_seed_event_family_matters_tamara_located_in_oxenfurt",
+      "summary": "Audience scope: affected actors and informed  holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 14
     }
   ],
