@@ -28,6 +28,37 @@
       "world_day": 64
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 12,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -259,6 +290,138 @@
       "source_event_id": "witcher3.event.curated.064",
       "summary": "Temeria is restored with self-rule under the Nilfgaardian settlement represented by the free-Temeria ending state.",
       "title": "Origin: Temerian Resistance",
+      "world_day": 64
+    },
+    {
+      "authored_event_id": "L_W_event_reason_of_state_radovid_assassinated",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.062:L_W_event_reason_of_state_radovid_assassinated",
+      "semantic_event_id": "witcher3.event.curated.062",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "The assassination conspiracy succeeds and King Radovid is killed; Philippa Eilhart blinds and fatally stabs him.",
+      "world_day": 64
+    },
+    {
+      "authored_event_id": "L_W_event_reason_of_state_dijkstra_killed_by_geralt",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.063:L_W_event_reason_of_state_dijkstra_killed_by_geralt",
+      "semantic_event_id": "witcher3.event.curated.063",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Geralt kills Dijkstra while defending Roche, Ves, and Thaler.",
+      "world_day": 64
+    },
+    {
+      "authored_event_id": "L_W_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.064:L_W_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "semantic_event_id": "witcher3.event.curated.064",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Roche and Thaler's agreement is realized: Temeria survives as a Nilfgaardian vassal with its own institutions.",
+      "world_day": 64
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "political_consequence",
+      "id": "trace:authored-seed:L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "source_event_id": "L_W_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "bounded visibility; medium salience; permanent_history persistence.",
+      "title": "The political condition established when roche and Thaler's agreement is realized: Temeria survives as a Nilfgaardian vassal with its own institutions can constrain later authority, alignment, or institutional action.",
+      "world_day": 64
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "structural_consequence",
+      "id": "trace:authored-seed:L_W_seed_reason_of_state_radovid_no_longer_king",
+      "seed_id": "L_W_seed_reason_of_state_radovid_no_longer_king",
+      "source_event_id": "L_W_event_reason_of_state_radovid_assassinated",
+      "summary": "bounded visibility; medium salience; until_changed persistence.",
+      "title": "Radovid is no longer King of Redania.",
+      "world_day": 64
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_origin_first_hop",
+      "route_id": "L_W_route_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_origin_first_hop",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "court_report channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_faction_holder_proxy_novigrad_witnesses → L_W_faction_holder_proxy_novigrad_citizens",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_ambient_bark",
+      "permission_id": "L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_ambient_bark",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "ambient bark",
+      "title": "ambient bark — allowed",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_correspondence",
+      "permission_id": "L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_correspondence",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_dialogue",
+      "permission_id": "L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_dialogue",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_quest",
+      "permission_id": "L_W_permission_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal_quest",
+      "seed_id": "L_W_seed_event_reason_of_state_temeria_restored_as_nilfgaardian_vassal",
+      "summary": "Audience scope: political actors, courts, and affected population. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_reason_of_state_radovid_no_longer_king_dialogue",
+      "permission_id": "L_W_permission_reason_of_state_radovid_no_longer_king_dialogue",
+      "seed_id": "L_W_seed_reason_of_state_radovid_no_longer_king",
+      "summary": "Audience scope: affected actors and informed novigrad holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 64
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_reason_of_state_radovid_no_longer_king_quest",
+      "permission_id": "L_W_permission_reason_of_state_radovid_no_longer_king_quest",
+      "seed_id": "L_W_seed_reason_of_state_radovid_no_longer_king",
+      "summary": "Audience scope: affected actors and informed novigrad holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 64
     }
   ],

@@ -19,6 +19,37 @@
       "world_day": 60
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 5,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -274,6 +305,60 @@
       "source_event_id": "witcher3.event.curated.049",
       "summary": "The Wild Hunt launched a major assault on Kaer Morhen.",
       "title": "Kaer Morhen Defenders → Allied Battle Survivors",
+      "world_day": 60
+    },
+    {
+      "authored_event_id": "L_W_event_bald_mountain_imlerith_dead_post_quest",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.056:L_W_event_bald_mountain_imlerith_dead_post_quest",
+      "semantic_event_id": "witcher3.event.curated.056",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "Imlerith is dead and no longer available as a living Wild Hunt commander after Bald Mountain.",
+      "world_day": 60
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "information_consequence",
+      "id": "trace:authored-seed:L_W_seed_bald_mountain_ciri_can_observe_imlerith_dead",
+      "seed_id": "L_W_seed_bald_mountain_ciri_can_observe_imlerith_dead",
+      "source_event_id": "L_W_event_bald_mountain_imlerith_dead_post_quest",
+      "summary": "bounded visibility; high salience; durable persistence.",
+      "title": "Ciri rejoins Geralt after Imlerith has been killed and therefore has direct access to the realized fact that the revenge target is dead.",
+      "world_day": 60
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_bald_mountain_ciri_can_observe_imlerith_dead_origin_first_hop",
+      "route_id": "L_W_route_bald_mountain_ciri_can_observe_imlerith_dead_origin_first_hop",
+      "seed_id": "L_W_seed_bald_mountain_ciri_can_observe_imlerith_dead",
+      "summary": "personal_disclosure channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_geralt_allies",
+      "world_day": 60
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_bald_mountain_ciri_can_observe_imlerith_dead_correspondence",
+      "permission_id": "L_W_permission_bald_mountain_ciri_can_observe_imlerith_dead_correspondence",
+      "seed_id": "L_W_seed_bald_mountain_ciri_can_observe_imlerith_dead",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 60
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_bald_mountain_ciri_can_observe_imlerith_dead_dialogue",
+      "permission_id": "L_W_permission_bald_mountain_ciri_can_observe_imlerith_dead_dialogue",
+      "seed_id": "L_W_seed_bald_mountain_ciri_can_observe_imlerith_dead",
+      "summary": "Audience scope: affected actors and informed holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
       "world_day": 60
     }
   ],

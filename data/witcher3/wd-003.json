@@ -10,6 +10,37 @@
       "world_day": 3
     }
   ],
+  "authored_causality": {
+    "authored_trace_entries_today": 11,
+    "authority_boundary": {
+      "bindings_create_history": false,
+      "permissions_are_realizations": false,
+      "routes_are_occurrences": false
+    },
+    "availability": "installed",
+    "summary": {
+      "activated_authored_event_definition_count": 33,
+      "activated_event_count": 35,
+      "activated_seed_count": 25,
+      "activated_seed_with_route_count": 13,
+      "activated_seed_without_route_count": 12,
+      "binding_summary": {
+        "missing_binding_count": 0,
+        "reconstructed_event_count": 97,
+        "requires_review_count": 3,
+        "reviewed_match_count": 35,
+        "reviewed_no_match_count": 59
+      },
+      "permission_count": 58,
+      "permissions_by_surface_type": {
+        "ambient bark": 4,
+        "correspondence": 13,
+        "dialogue": 25,
+        "quest": 16
+      },
+      "route_count": 17
+    }
+  },
   "causal_trace": [
     {
       "cause": "historical event",
@@ -82,6 +113,126 @@
       "source_event_id": "witcher3.event.curated.002",
       "summary": "The White Orchard griffin is dead.",
       "title": "Origin: White Orchard Witnesses",
+      "world_day": 3
+    },
+    {
+      "authored_event_id": "L_W_event_the_beast_of_white_orchard_griffin_dead",
+      "cause": "reviewed semantic binding",
+      "effect": "authored historical event",
+      "id": "trace:authored-event:witcher3.event.curated.002:L_W_event_the_beast_of_white_orchard_griffin_dead",
+      "semantic_event_id": "witcher3.event.curated.002",
+      "summary": "Host-observed semantic history activated this reviewed authored historical-event definition.",
+      "title": "The White Orchard griffin is dead.",
+      "world_day": 3
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "reputation_consequence",
+      "id": "trace:authored-seed:L_W_seed_beast_white_orchard_geralt_attributable",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "source_event_id": "L_W_event_the_beast_of_white_orchard_griffin_dead",
+      "summary": "bounded visibility; medium salience; durable persistence.",
+      "title": "Geralt becomes attributable as the witcher who completed the White Orchard griffin contract.",
+      "world_day": 3
+    },
+    {
+      "cause": "authored historical event",
+      "effect": "structural_consequence",
+      "id": "trace:authored-seed:L_W_seed_beast_white_orchard_griffin_threat_removed",
+      "seed_id": "L_W_seed_beast_white_orchard_griffin_threat_removed",
+      "source_event_id": "L_W_event_the_beast_of_white_orchard_griffin_dead",
+      "summary": "bounded visibility; medium salience; until_changed persistence.",
+      "title": "The griffin threat to White Orchard is removed.",
+      "world_day": 3
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_beast_white_orchard_geralt_attributable_onward_hop",
+      "route_id": "L_W_route_beast_white_orchard_geralt_attributable_onward_hop",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "summary": "official_report channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_faction_holder_proxy_white_orchard_locals → L_W_faction_holder_proxy_nilfgaardian_garrison",
+      "world_day": 3
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_beast_white_orchard_geralt_attributable_origin_first_hop",
+      "route_id": "L_W_route_beast_white_orchard_geralt_attributable_origin_first_hop",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "summary": "legend_rumor channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_char_geralt_of_rivia → L_W_faction_holder_proxy_white_orchard_locals",
+      "world_day": 3
+    },
+    {
+      "cause": "authored causal seed",
+      "effect": "propagation route",
+      "id": "trace:authored-route:L_W_route_beast_white_orchard_griffin_threat_removed_origin_first_hop",
+      "route_id": "L_W_route_beast_white_orchard_griffin_threat_removed_origin_first_hop",
+      "seed_id": "L_W_seed_beast_white_orchard_griffin_threat_removed",
+      "summary": "witness_report channel; local scope; delay None World Day(s). This is an authored route declaration, not a transmission occurrence.",
+      "title": "L_W_faction_holder_proxy_white_orchard_witnesses → L_W_faction_holder_proxy_white_orchard_locals",
+      "world_day": 3
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_beast_white_orchard_geralt_attributable_ambient_bark",
+      "permission_id": "L_W_permission_beast_white_orchard_geralt_attributable_ambient_bark",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "summary": "Audience scope: white orchard observers and relevant networks. This is an authored realization permission, not realized content.",
+      "surface_type": "ambient bark",
+      "title": "ambient bark — allowed",
+      "world_day": 3
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_beast_white_orchard_geralt_attributable_correspondence",
+      "permission_id": "L_W_permission_beast_white_orchard_geralt_attributable_correspondence",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "summary": "Audience scope: white orchard observers and relevant networks. This is an authored realization permission, not realized content.",
+      "surface_type": "correspondence",
+      "title": "correspondence — allowed",
+      "world_day": 3
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_beast_white_orchard_geralt_attributable_dialogue",
+      "permission_id": "L_W_permission_beast_white_orchard_geralt_attributable_dialogue",
+      "seed_id": "L_W_seed_beast_white_orchard_geralt_attributable",
+      "summary": "Audience scope: white orchard observers and relevant networks. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 3
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_beast_white_orchard_griffin_threat_removed_dialogue",
+      "permission_id": "L_W_permission_beast_white_orchard_griffin_threat_removed_dialogue",
+      "seed_id": "L_W_seed_beast_white_orchard_griffin_threat_removed",
+      "summary": "Audience scope: affected actors and informed white orchard holders. This is an authored realization permission, not realized content.",
+      "surface_type": "dialogue",
+      "title": "dialogue — allowed",
+      "world_day": 3
+    },
+    {
+      "allowed": true,
+      "cause": "authored causal seed",
+      "effect": "realization permission",
+      "id": "trace:authored-permission:L_W_permission_beast_white_orchard_griffin_threat_removed_quest",
+      "permission_id": "L_W_permission_beast_white_orchard_griffin_threat_removed_quest",
+      "seed_id": "L_W_seed_beast_white_orchard_griffin_threat_removed",
+      "summary": "Audience scope: affected actors and informed white orchard holders. This is an authored realization permission, not realized content.",
+      "surface_type": "quest",
+      "title": "quest — allowed",
       "world_day": 3
     }
   ],
